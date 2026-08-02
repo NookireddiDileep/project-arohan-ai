@@ -10,211 +10,201 @@
 
 # Purpose
 
-This document defines the engineering principles that guide PROJECT AROHAN.
+This document defines the engineering execution principles followed throughout PROJECT AROHAN.
 
-These principles influence every architecture, lab, automation script, runbook, troubleshooting guide, documentation page, and engineering decision.
+Unlike the project charter, which explains why PROJECT AROHAN exists, this document defines how engineering work is performed, reviewed, and maintained.
 
-The objective is to build engineering excellence through consistent, production-focused execution.
+These principles apply to every engineering asset created within PROJECT AROHAN.
 
 ---
 
 # Principle 1 — Understand Before Implementing
 
-Never deploy a technology without understanding:
+Never implement a technology without understanding:
 
 - Why it exists
 - What problem it solves
 - How it works
-- When to use it
-- When not to use it
-
-Understanding creates confidence.
+- When it should be used
+- Its limitations
 
 ---
 
-# Principle 2 — Learn by Building
+# Principle 2 — Architecture Before Implementation
 
-Reading creates awareness.
+Every engineering topic should begin with architecture.
 
-Building creates understanding.
-
-Breaking creates experience.
-
-Fixing creates engineers.
-
-Every concept must eventually become a working implementation.
+Understand the complete system before writing commands or deploying software.
 
 ---
 
 # Principle 3 — Production First
 
-Every solution should be evaluated as if it were going into production.
-
-Consider:
+Every implementation should consider:
 
 - Reliability
 - Availability
 - Scalability
 - Security
+- Performance
 - Monitoring
-- Recovery
-- Automation
+- Disaster Recovery
 - Maintainability
 
 ---
 
-# Principle 4 — Automate Repetitive Work
+# Principle 4 — Documentation is Engineering
+
+Documentation is part of the engineering deliverable.
+
+Every document should enable another engineer to:
+
+- Understand
+- Deploy
+- Validate
+- Operate
+- Troubleshoot
+- Improve
+
+---
+
+# Principle 5 — Validate Everything
+
+Never assume success.
+
+Every implementation must include validation steps.
+
+Examples include:
+
+- Service availability
+- Pod health
+- Logs
+- Metrics
+- Alerts
+- Recovery verification
+
+---
+
+# Principle 6 — Troubleshoot Methodically
+
+Every engineering asset should document:
+
+- Common failures
+- Symptoms
+- Root cause
+- Diagnosis
+- Resolution
+- Prevention
+
+---
+
+# Principle 7 — Automate Repetitive Work
 
 If a task is performed repeatedly,
 
 Automate it.
 
-Automation reduces human error and improves consistency.
+Automation improves consistency, reliability, and operational efficiency.
 
 ---
 
-# Principle 5 — Documentation is Engineering
+# Principle 8 — Version Everything
 
-Documentation is not an afterthought.
+All engineering work belongs in Git.
 
-It is part of the engineering deliverable.
-
-Well-written documentation should enable another engineer to understand, deploy, operate, troubleshoot, and improve a system.
-
----
-
-# Principle 6 — Design Before Deployment
-
-Every implementation should begin with architecture.
-
-Understand the system before deploying it.
-
-Architecture drives implementation.
-
----
-
-# Principle 7 — Validate Everything
-
-Never assume success.
-
-Always verify.
-
-Examples:
-
-- Pods are Running
-- Services are Reachable
-- Metrics are Available
-- Logs are Healthy
-- Alerts are Working
-- Recovery is Tested
-
----
-
-# Principle 8 — Troubleshooting is a Core Skill
-
-Every implementation should answer:
-
-- What can fail?
-- How do I detect it?
-- How do I diagnose it?
-- How do I recover?
-- How do I prevent recurrence?
-
-Production engineering is measured by recovery, not perfection.
-
----
-
-# Principle 9 — Version Everything
-
-Everything belongs in Git.
+Version control applies to:
 
 - Documentation
 - Architecture
-- Labs
 - Scripts
+- Automation
 - Runbooks
 - Diagrams
-- Automation
-
-Version history tells the story of continuous improvement.
+- Configuration
 
 ---
 
-# Principle 10 — Think Like an Owner
+# Principle 9 — Build Reusable Engineering Assets
 
-Don't ask:
+Every engineering topic should eventually produce:
 
-"How do I finish this?"
-
-Ask:
-
-"How would I operate and improve this for the next five years?"
-
-Ownership creates better engineering decisions.
-
----
-
-# Principle 11 — Build Evidence, Not Claims
-
-Knowledge should be demonstrated through engineering assets.
-
-Every technology should eventually produce:
-
-- Documentation
+- Overview
 - Architecture
-- Hands-on Labs
+- Hands-on Lab
 - Automation
-- Runbooks
-- Troubleshooting Guides
-- Production Notes
-- Interview Preparation
+- Validation Guide
+- Troubleshooting Guide
+- Production Best Practices
+- Interview Questions
+- References
 
-Engineering capability should be visible through work.
+---
+
+# Principle 10 — Review Before Publishing
+
+Engineering assets follow this lifecycle:
+
+Draft
+
+↓
+
+Validate
+
+↓
+
+Review
+
+↓
+
+Improve
+
+↓
+
+Publish
+
+---
+
+# Principle 11 — Think Like an Owner
+
+Design and build systems that remain understandable, maintainable, and reliable over the long term.
+
+Consider operational impact before implementation.
 
 ---
 
 # Principle 12 — Continuous Improvement
 
-Never compare yourself with others.
+Engineering is a continuous process.
 
-Compare today's engineering capability with yesterday's.
-
-Small improvements made consistently create long-term excellence.
-
-> **One Step Higher. Every Day. 🚀**
+Improve every engineering asset whenever better understanding, better practices, or better solutions become available.
 
 ---
 
-# PROJECT AROHAN Engineering Standard
+## Summary
 
-Every engineering topic should ultimately include:
+PROJECT AROHAN engineering work should always be:
 
-- Overview
-- Architecture
-- Installation
-- Validation
-- Troubleshooting
-- Production Best Practices
-- Automation
-- Monitoring
-- Interview Questions
-- References
-
-A topic is considered complete only when these engineering assets are available.
+- Well understood
+- Properly documented
+- Production focused
+- Validated
+- Version controlled
+- Reusable
+- Continuously improved
 
 ---
 
-# Closing Thought
+## Related Documents
 
-Technology will continue to evolve.
-
-Engineering challenges will continue to evolve.
-
-PROJECT AROHAN exists to ensure continuous growth through disciplined learning, practical implementation, operational excellence, and engineering craftsmanship.
+- CHARTER.md
+- DOCUMENTATION_STANDARD.md
+- DEFINITION_OF_DONE.md
+- GIT_WORKFLOW.md
+- ASSET_LIFECYCLE.md
 
 ---
 
-## PROJECT AROHAN (आरोहण)
+**PROJECT AROHAN (आरोहण)**
 
 **Ascending to Greater Heights**
 
