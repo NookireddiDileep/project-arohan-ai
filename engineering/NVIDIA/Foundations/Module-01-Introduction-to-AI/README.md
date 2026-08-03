@@ -1,57 +1,58 @@
-# NVIDIA AI Infrastructure & Operations
+# Module 01 – Introduction to AI
 
+> NVIDIA AI Infrastructure Engineering Journey  
 > PROJECT AROHAN (आरोहण)
 
 ---
 
-# Overview
+# Purpose
 
-This engineering workspace is dedicated to learning, documenting, and implementing NVIDIA AI Infrastructure & Operations concepts.
+This module introduces the Artificial Intelligence concepts required to understand NVIDIA AI Infrastructure and Operations.
 
-The initial objective is to prepare for the NVIDIA Certified Associate: AI Infrastructure & Operations (NCA-AIIO) certification.
-
-After certification, this workspace will continue evolving into a production-focused engineering knowledge base covering GPU platforms, AI infrastructure, automation, operations, and enterprise deployments.
+It serves as the conceptual foundation for all subsequent NVIDIA learning, including AI Infrastructure, GPU Platforms, AI Operations, and future NVIDIA Professional certifications.
 
 ---
 
-# Learning Objectives
+# Official Topics
 
-- Understand modern AI infrastructure
-- Learn NVIDIA GPU platforms
-- Understand AI operations
-- Build engineering documentation
-- Prepare for NVIDIA certification
-- Develop production engineering knowledge
+- AI Transformation Across Industries
+- Evolution of AI
+- Machine Learning
+- Deep Learning
+- Generative AI
+- Large Language Models (LLMs)
+- Image Generation
+- Agentic AI
+- Physical AI
+- AI Factories
+- GPU History
+- CPU vs GPU
+- GPU Architecture
+- GPU Server Systems
 
 ---
 
-# Course Modules
+# Engineering Deliverables
 
-- Module 01 – Introduction to AI
-- Module 02 – AI Infrastructure
-- Module 03 – AI Operations
-
----
-
-# Module Deliverables
-
-Each module contains:
+This module contains:
 
 - README.md
-- NOTES.md
+- CONCEPTS.md
+- ENGINEERING_NOTES.md
 - REVISION.md
 - MCQS.md
 
 ---
 
-# Revision
+# Module Status
 
-The Revision folder contains:
-
-- Exam Tracker
-- Quick Revision
-- Cheat Sheet
-- Mock Test Results
+- [x] Module Workspace Created
+- [ ] Official Concepts Completed
+- [ ] Engineering Notes Completed
+- [ ] Revision Completed
+- [ ] MCQs Completed
+- [ ] Module Reviewed
+- [ ] Exam Ready
 
 ---
 
@@ -60,24 +61,6 @@ The Revision folder contains:
 - NVIDIA Official Training
 - NVIDIA Official Documentation
 - NVIDIA Reference Architectures
-
----
-
-# Status
-
-Current Certification
-
-- NVIDIA Certified Associate: AI Infrastructure & Operations
-
-Progress
-
-- [x] Engineering Workspace Created
-- [ ] Module 01 Completed
-- [ ] Module 02 Completed
-- [ ] Module 03 Completed
-- [ ] Final Revision Completed
-- [ ] Mock Exams Completed
-- [ ] Certification Achieved
 
 ---
 
