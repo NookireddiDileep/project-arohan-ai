@@ -1,8 +1,8 @@
-# Project AROHAN — NVIDIA AI Infrastructure Engineering
+## Project AROHAN — NVIDIA AI Infrastructure Engineering
 
 > NVIDIA-focused engineering domain for GPU infrastructure, AI workloads, networking, observability, reliability, capacity, and autonomous AI operations.
 
-## Purpose
+### Purpose
 
 The `engineering/NVIDIA/` directory defines the NVIDIA-oriented engineering domain within Project AROHAN.
 
