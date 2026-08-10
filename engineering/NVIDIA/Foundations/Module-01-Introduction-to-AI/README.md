@@ -12,7 +12,7 @@
 
 ---
 
-# Overview
+## Overview
 
 Essential AI Knowledge forms the conceptual foundation of the NVIDIA Certified Associate: AI Infrastructure & Operations (NCA-AIIO) certification.
 
@@ -22,7 +22,7 @@ This module focuses on the core AI concepts required throughout the remaining ce
 
 ---
 
-# Learning Objectives
+## Learning Objectives
 
 After completing this module, I should be able to:
 
@@ -47,7 +47,7 @@ After completing this module, I should be able to:
 
 ---
 
-# Official Exam Topics
+## Official Exam Topics
 
 According to the official NVIDIA NCA-AIIO exam blueprint, Essential AI Knowledge includes:
 
@@ -61,9 +61,9 @@ According to the official NVIDIA NCA-AIIO exam blueprint, Essential AI Knowledge
 
 ---
 
-# Topic Roadmap
+## Topic Roadmap
 
-## 1. Artificial Intelligence
+### 1. Artificial Intelligence
 
 Understand:
 
@@ -80,7 +80,7 @@ Examples:
 
 ---
 
-## 2. Machine Learning
+### 2. Machine Learning
 
 Understand:
 
@@ -98,7 +98,7 @@ Focus:
 
 ---
 
-## 3. Deep Learning
+### 3. Deep Learning
 
 Understand:
 
@@ -116,7 +116,7 @@ Applications:
 
 ---
 
-## 4. Generative AI
+### 4. Generative AI
 
 Understand:
 
@@ -131,7 +131,7 @@ Difference from traditional AI
 
 ---
 
-## 5. Large Language Models (LLMs)
+### 5. Large Language Models (LLMs)
 
 Understand:
 
@@ -146,7 +146,7 @@ Know where LLMs fit in the AI hierarchy.
 
 ---
 
-## 6. Training vs Inference
+### 6. Training vs Inference
 
 Training
 
@@ -164,7 +164,7 @@ Understand why GPUs accelerate both.
 
 ---
 
-## 7. CPU vs GPU
+### 7. CPU vs GPU
 
 CPU
 
@@ -184,7 +184,7 @@ Understand why modern AI depends on GPUs.
 
 ---
 
-## 8. NVIDIA Software Stack
+### 8. NVIDIA Software Stack
 
 Conceptually understand:
 
@@ -198,7 +198,7 @@ Understand the relationship between hardware and software.
 
 ---
 
-# AI Relationship (Very Important)
+## AI Relationship (Very Important)
 
 Remember this hierarchy:
 
@@ -220,7 +220,7 @@ Large Language Models
 
 ---
 
-# Training Workflow
+## Training Workflow
 
 ```
 Data
@@ -244,7 +244,7 @@ Prediction / Response
 
 ---
 
-# CPU vs GPU
+## CPU vs GPU
 
 ```
 CPU
@@ -275,7 +275,7 @@ AI acceleration
 
 ---
 
-# High-Probability Exam Concepts
+## High-Probability Exam Concepts
 
 Be comfortable explaining:
 
@@ -290,7 +290,7 @@ Be comfortable explaining:
 
 ---
 
-# Common Exam Traps
+## Common Exam Traps
 
 ❌ AI = Machine Learning
 
@@ -324,7 +324,7 @@ Be comfortable explaining:
 
 ---
 
-# 30-Second Final Revision
+## 30-Second Final Revision
 
 Remember:
 
@@ -364,7 +364,7 @@ NVIDIA AI Infrastructure
 
 ---
 
-# Module Deliverables
+## Module Deliverables
 
 - README.md
 - OFFICIAL_NOTES.md
@@ -374,7 +374,7 @@ NVIDIA AI Infrastructure
 
 ---
 
-# Module Status
+## Module Status
 
 - [x] README Completed
 - [x] First Pass Learning Completed
@@ -386,7 +386,7 @@ NVIDIA AI Infrastructure
 - [ ] Exam Ready
 ---
 
-# Primary References
+## Primary References
 
 - NVIDIA Official NCA-AIIO Course
 - NVIDIA Official Documentation

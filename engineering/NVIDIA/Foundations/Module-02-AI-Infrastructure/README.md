@@ -12,7 +12,7 @@
 
 ---
 
-# Overview
+## Overview
 
 AI Infrastructure forms the largest domain of the NVIDIA Certified Associate – AI Infrastructure & Operations (NCA-AIIO) certification.
 
@@ -22,7 +22,7 @@ Understanding these concepts is essential for designing, deploying, and operatin
 
 ---
 
-# Learning Objectives
+## Learning Objectives
 
 After completing this module, I should be able to:
 
@@ -50,7 +50,7 @@ After completing this module, I should be able to:
 
 ---
 
-# Official Exam Topics
+## Official Exam Topics
 
 According to the official NVIDIA NCA-AIIO exam blueprint, AI Infrastructure includes:
 
@@ -74,7 +74,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Infrastructure incl
 
 ---
 
-# Topic Roadmap
+## Topic Roadmap
 
 1. GPU Architecture
 2. CUDA
@@ -91,7 +91,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Infrastructure incl
 
 ---
 
-# Module Deliverables
+## Module Deliverables
 
 - README.md
 - OFFICIAL_NOTES.md
@@ -101,7 +101,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Infrastructure incl
 
 ---
 
-# Module Status
+## Module Status
 
 - [x] README Completed
 - [x] First Pass Learning Completed
@@ -114,7 +114,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Infrastructure incl
 
 ---
 
-# Primary References
+## Primary References
 
 - NVIDIA Official NCA-AIIO Course
 - NVIDIA Official Documentation
