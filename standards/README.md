@@ -1,30 +1,27 @@
 # Project AROHAN — Engineering Standards
 
-> Engineering standards for designing, implementing, validating, documenting, and evolving Project AROHAN.
+> Common engineering standards for designing, implementing, validating, operating, and evolving Project AROHAN.
 
 ## Purpose
 
-The `standards/` directory defines the common engineering expectations used across Project AROHAN.
+The `standards/` directory defines the engineering practices used across Project AROHAN.
 
-AROHAN is intended to demonstrate engineering capability rather than isolated technology demonstrations.
+AROHAN is an engineering portfolio focused on progressively building:
 
-Every significant capability should therefore follow consistent standards for:
-
-- Architecture
-- Implementation
+- Platform Engineering
 - Observability
-- Reliability
-- Failure handling
-- Validation
-- Evidence
-- Documentation
+- Reliability and SRE
+- GPU Infrastructure
+- AI Workloads
+- AI Operations
 - Automation
+- Autonomous AI Infrastructure
 
----
+These standards provide consistency across engineering work, labs, evidence, and releases.
 
 ## Engineering Lifecycle
 
-AROHAN follows a progressive engineering lifecycle:
+Every significant capability should follow an appropriate engineering lifecycle:
 
 ```text
 Problem
@@ -33,135 +30,58 @@ Architecture
    ↓
 Implementation
    ↓
-Observe
+Observability
    ↓
-Break
+Validation
    ↓
-Diagnose
+Failure Testing
    ↓
-Remediate
-   ↓
-Verify
+Recovery
    ↓
 Evidence
    ↓
-Automate
+Documentation
    ↓
-Optimize
-   ↓
-Predict
-   ↓
-Autonomize
+Automation
 
-A lab or capability should demonstrate the appropriate stages for its maturity level.
+Not every capability needs every stage immediately.
 
-Not every early lab must implement autonomous remediation.
+The maturity of each implementation should be explicitly stated.
 
-The objective is progressive engineering maturity.
+Engineering Principles
+1. Reliability First
 
-Standard 1 — Problem First
+Reliability should be designed into important workloads and infrastructure.
 
-Every significant capability should begin with a clearly defined engineering problem.
-
-The problem statement should answer:
-
-What problem exists?
-Why does it matter?
-Who or what is affected?
-What failure or inefficiency are we trying to address?
-What measurable outcome defines success?
-
-Avoid building technology simply because the technology is available.
-
-Standard 2 — Architecture Before Implementation
-
-Important capabilities should have an understandable architecture.
-
-The architecture should identify:
-
-Components
-Dependencies
-Data flow
-Control flow
-Failure boundaries
-Observability points
-Recovery mechanisms
-
-Architecture may be represented using:
-
-Markdown diagrams
-ASCII diagrams
-Architecture diagrams
-Kubernetes manifests
-Configuration relationships
-
-The architecture should explain why the components exist, not merely list them.
-
-Standard 3 — Infrastructure as Code
-
-Where practical, infrastructure and platform configuration should be reproducible.
-
-Preferred mechanisms include:
-
-Kubernetes manifests
-Helm
-Kustomize
-Terraform
-Ansible
-Git-based configuration
-
-Manual commands may be used during investigation or controlled experiments, but the final implementation should be represented in Git wherever practical.
-
-Standard 4 — Observable by Design
-
-A capability should expose meaningful operational signals.
-
-Depending on the system, this may include:
-
-Metrics
-Logs
-Events
-Traces
-Health checks
-Resource state
-Application state
-
-Observability should answer:
-
-Is the system healthy?
-What changed?
-Where is the problem?
-How severe is it?
-Has recovery occurred?
-Standard 5 — Reliability Signals
-
-Important workloads and infrastructure should have measurable reliability signals.
-
-Examples include:
+Where applicable, define measurable signals for:
 
 Availability
 Latency
 Error rate
-Resource utilization
 Saturation
-Queue depth
+Resource utilization
 Capacity
-Recovery time
+Recovery
+2. Evidence Over Claims
 
-Where appropriate, these signals should evolve into:
+Engineering claims should be supported by observable evidence.
 
-Signal
-  ↓
-SLI
-  ↓
-SLO
-  ↓
-Error Budget
-  ↓
-Burn Rate
-Standard 6 — Failure Engineering
+Examples include:
 
-Failure is part of the design.
+Command output
+Kubernetes state
+Metrics
+PromQL results
+Alert transitions
+Logs
+Screenshots
+Validation records
+Test results
+Git history
+
+Documentation must distinguish clearly between what is implemented, validated, planned, and future.
+
+3. Failure Is Part of the Design
 
 Important capabilities should eventually be tested under controlled failure conditions.
 
@@ -172,148 +92,60 @@ Pod failure
 Node failure
 Configuration failure
 Dependency failure
-Network degradation
+Network failure
 Storage failure
 GPU failure
-Scheduling failure
 
-The preferred validation pattern is:
+Failure testing should be controlled, reversible, observable, and appropriate for the environment.
 
-Inject Failure
-      ↓
-Detect
-      ↓
-Diagnose
-      ↓
-Remediate
-      ↓
-Verify Recovery
-      ↓
-Capture Evidence
+4. Automation Over Manual Operations
 
-Failure injection must be controlled, reversible, and appropriate for the lab environment.
+Repeated operational procedures should progressively become automated.
 
-Standard 7 — Evidence Over Claims
+The preferred progression is:
 
-AROHAN should prove engineering work through evidence.
+Manual
+  ↓
+Documented
+  ↓
+Scripted
+  ↓
+Declarative
+  ↓
+Automated
+  ↓
+Verified
+  ↓
+Autonomous
 
-Evidence may include:
+Automation should be observable and safely reversible where practical.
 
-Command output
-Kubernetes state
-Prometheus queries
-Alert transitions
+5. Observable by Design
+
+Systems should expose meaningful operational signals.
+
+Depending on the capability, this may include:
+
+Metrics
 Logs
-Screenshots
-Validation records
-Test results
-Git commits
-Architecture diagrams
+Events
+Traces
+Health checks
+Resource state
+Application state
 
-Evidence should demonstrate the actual state of the system.
+Observability should help answer:
 
-A README describing an expected result is not a substitute for evidence showing that the result occurred.
+Is the system healthy?
+What changed?
+Where is the problem?
+How severe is it?
+Has recovery occurred?
+6. Production Thinking
 
-Standard 8 — Reproducibility
+Labs may use simplified environments, but engineering decisions should consider production concerns where relevant.
 
-A completed capability should provide enough information for another engineer to understand and reproduce the implementation.
-
-Documentation should identify, where relevant:
-
-Environment
-Versions
-Dependencies
-Configuration
-Deployment steps
-Validation steps
-Failure scenarios
-Expected results
-
-Reproducibility does not require eliminating every environment-specific difference.
-
-The objective is to make the engineering process understandable and repeatable.
-
-Standard 9 — Git Discipline
-
-Git is the engineering record for AROHAN.
-
-Changes should be:
-
-Focused
-Traceable
-Meaningfully committed
-Related to a capability or engineering objective
-
-Preferred commit structure:
-
-<type>(<scope>): <description>
-
-Examples:
-
-feat(arohan): add workload reliability rule
-docs(arohan): add lab 01 validation evidence
-fix(arohan): correct observability configuration
-refactor(arohan): restructure engineering documentation
-
-Avoid mixing unrelated engineering changes in a single commit.
-
-Standard 10 — Documentation Standards
-
-Every significant lab or engineering capability should document:
-
-Objective
-Problem
-Environment
-Architecture
-Implementation
-Observability
-Validation
-Failure testing where applicable
-Evidence
-Findings
-Limitations
-Future evolution
-
-Documentation should distinguish clearly between:
-
-Implemented
-Validated
-Planned
-Future
-
-Do not present planned capabilities as completed capabilities.
-
-Standard 11 — Status Accuracy
-
-AROHAN uses explicit maturity language.
-
-Completed
-
-The capability has been implemented and validated.
-
-Implemented
-
-The capability exists but may require additional validation or evidence.
-
-In Progress
-
-Engineering work is actively being developed.
-
-Planned
-
-The capability is defined but implementation has not started.
-
-Future
-
-The capability is part of the long-term engineering roadmap.
-
-Status should reflect actual repository state.
-
-Standard 12 — Production Thinking
-
-AROHAN labs may use simplified environments.
-
-However, engineering decisions should consider production concerns where relevant:
+These include:
 
 Reliability
 Security
@@ -323,121 +155,207 @@ Observability
 Capacity
 Cost
 Multi-tenancy
-Failure recovery
+Recovery
 Operational ownership
+7. Reproducibility
 
-The lab environment may be small.
+Implementations should be understandable and reproducible wherever practical.
 
-The engineering thinking should not be unnecessarily small.
+Documentation should identify:
 
-Standard 13 — Security
+Environment
+Versions
+Dependencies
+Configuration
+Implementation steps
+Validation steps
+Expected results
+8. Security
 
 Security should be considered throughout the engineering lifecycle.
 
 Relevant areas include:
 
 Least privilege
-Secrets management
 RBAC
+Secrets management
 Network isolation
 Workload isolation
 Container security
 Supply-chain security
 Multi-tenancy
-Credential protection
 
-Credentials, private keys, tokens, and sensitive configuration must never be committed to Git.
-
-Standard 14 — Automation
-
-Repeated operational procedures should progressively become automated.
-
-The progression is:
-
-Manual Operation
-      ↓
-Documented Procedure
-      ↓
-Scripted Operation
-      ↓
-Declarative Configuration
-      ↓
-Automated Remediation
-      ↓
-Verified Automation
-      ↓
-Autonomous Operation
-
-Automation should be observable and safely reversible where practical.
-
-Standard 15 — AI Infrastructure
-
-AI infrastructure introduces additional engineering dimensions.
-
-AROHAN will progressively address:
-
-GPU infrastructure
-GPU scheduling
-GPU observability
-GPU reliability
-Multi-GPU workloads
-Distributed AI
-Inference
-AI networking
-Storage
-Capacity
-FinOps
-AI Factory operations
-Autonomous AI infrastructure
-
-These capabilities should build on the platform and reliability foundations already established.
-
-Standard 16 — Evidence Structure
-
-Lab evidence should follow a consistent structure where applicable:
-
-evidence/
-├── screenshots/
-├── validation records/
-├── command outputs/
-└── investigation notes/
-
-Evidence should be:
-
-Clearly named
-Relevant to the capability
-Traceable to the implementation
-Reproducible where practical
-
-Evidence should not contain secrets or sensitive information.
+Credentials, tokens, private keys, and sensitive configuration must never be committed to Git.
 
 Definition of Done
 
 A capability should not be considered complete merely because the implementation exists.
 
-The preferred Definition of Done is:
+Where applicable, completion should include:
 
-Problem Defined
-      ↓
-Architecture Documented
-      ↓
-Implementation Complete
-      ↓
-Observability Validated
-      ↓
-Failure Tested
-      ↓
-Recovery Verified
-      ↓
-Evidence Captured
-      ↓
-Documentation Complete
-      ↓
-Git State Clean
+Problem defined
+Architecture documented
+Implementation completed
+Observability validated
+Failure scenario tested
+Recovery verified
+Evidence captured
+Documentation updated
+Git checkpoint created
 
-Not every capability requires every stage.
+The applicable completion criteria should be stated clearly for each capability.
 
-The applicable stages should be explicitly identified.
+Evidence Standard
+
+Evidence is a first-class engineering artifact.
+
+Recommended structure:
+
+evidence/
+├── screenshots/
+├── validation/
+├── command-outputs/
+└── investigation-notes/
+
+Evidence should:
+
+Represent actual system state
+Be clearly named
+Be traceable to the implementation
+Support the documented conclusion
+Avoid secrets and sensitive information
+Git Standards
+
+Git is part of the engineering record for AROHAN.
+
+Changes should be:
+
+Focused
+Traceable
+Reviewable
+Meaningfully committed
+
+Preferred commit format:
+
+<type>(<scope>): <description>
+
+Examples:
+
+feat(arohan): add workload reliability rule
+fix(arohan): correct observability configuration
+docs(arohan): add lab validation evidence
+refactor(arohan): restructure engineering documentation
+
+Unrelated changes should not be combined into a single commit.
+
+Documentation Standards
+
+Significant capabilities should document the relevant parts of:
+
+Objective
+Problem
+Environment
+Architecture
+Implementation
+Observability
+Validation
+Failure testing
+Recovery
+Evidence
+Findings
+Limitations
+Future evolution
+
+Documentation must clearly distinguish:
+
+Completed
+Implemented
+In Progress
+Planned
+Future
+Failure Engineering
+
+The preferred failure-engineering pattern is:
+
+Failure Injection
+       ↓
+Detection
+       ↓
+Diagnosis
+       ↓
+Remediation
+       ↓
+Recovery Verification
+       ↓
+Evidence
+
+Failure experiments should be:
+
+Controlled
+Reversible
+Observable
+Documented
+Automation Standards
+
+Automation should progressively reduce manual operational effort.
+
+Automation should preferably be:
+
+Declarative
+Idempotent
+Observable
+Testable
+Reversible
+
+Automated remediation should not be introduced without appropriate verification.
+
+AI Infrastructure Standards
+
+AI infrastructure introduces additional engineering dimensions.
+
+AROHAN will progressively address:
+
+GPU Infrastructure
+GPU Scheduling
+GPU Observability
+GPU Reliability
+Multi-GPU Workloads
+Distributed AI
+AI Networking
+Storage
+Inference
+Capacity Management
+FinOps
+AI Factory Operations
+Autonomous AI Infrastructure
+
+AI infrastructure capabilities should build on the platform, observability, and reliability foundations already established.
+
+Status Model
+
+AROHAN uses explicit maturity language.
+
+Completed
+
+Implemented and validated with supporting evidence.
+
+Implemented
+
+Implementation exists, but additional validation or evidence may remain.
+
+In Progress
+
+Active engineering work is underway.
+
+Planned
+
+Defined as a future implementation but not started.
+
+Future
+
+Part of the longer-term engineering roadmap.
+
+Status should always reflect the actual repository state.
 
 Lab Maturity Model
 
@@ -449,11 +367,11 @@ The capability works.
 
 Level 2 — Observe
 
-The capability exposes meaningful operational signals.
+Meaningful operational signals are available.
 
 Level 3 — Validate
 
-The capability is tested against expected behaviour.
+Expected behaviour is tested.
 
 Level 4 — Break
 
@@ -469,7 +387,7 @@ Operational responses are automated.
 
 Level 7 — Optimize
 
-Efficiency, capacity, and performance are continuously improved.
+Performance, efficiency, and capacity are improved.
 
 Level 8 — Predict
 
@@ -479,84 +397,60 @@ Level 9 — Autonomize
 
 The system can safely perform parts of the operational control loop with minimal human intervention.
 
-Engineering Evidence Principle
+Relationship With AROHAN
 
-AROHAN follows a simple rule:
-
-Do not claim what cannot be demonstrated.
-
-A capability becomes stronger when implementation, validation, and evidence agree.
-
-The preferred relationship is:
-
-Code
- ↓
-Runtime State
- ↓
-Telemetry
- ↓
-Validation
- ↓
-Evidence
- ↓
-Documentation
-Relationship to Engineering
-
-The standards defined here apply across:
+The repository uses the following engineering structure:
 
 engineering/
+    Engineering direction and architecture
+
+standards/
+    Engineering rules and practices
+
 labs/
+    Hands-on implementations and experiments
+
 sprints/
+    Engineering execution and progress
+
 releases/
+    Capability milestones and portfolio releases
 
-The engineering/ directory defines the engineering direction.
+These areas work together rather than existing as independent documentation.
 
-The standards/ directory defines the common rules.
+Current Status
 
-The labs/ directory contains implementations and experiments.
-
-The sprints/ directory records execution and progress.
-
-The releases/ directory represents meaningful capability milestones.
-
-Current Standard
-
-AROHAN V0.1 establishes the following baseline:
+AROHAN V0.1 establishes the following engineering baseline:
 
 Engineering lifecycle defined
-Evidence model defined
-Reliability-first approach
-Failure engineering approach
-Git-based implementation
-Reproducibility expectations
-Production-oriented thinking
-NVIDIA AI infrastructure direction
-Progressive automation model
-
-Future standards will be added as the engineering system matures.
-
+Reliability-first approach established
+Evidence model established
+Failure-engineering approach established
+Git-based engineering workflow established
+Reproducibility expectations established
+Production-oriented thinking established
+NVIDIA AI infrastructure direction established
+Progressive automation model established
 North Star
 
-Project AROHAN ultimately aims to engineer infrastructure that can:
+Project AROHAN progressively aims to build infrastructure that can:
 
-Observe itself
-      ↓
-Understand its state
-      ↓
-Detect problems
-      ↓
-Diagnose failures
-      ↓
-Decide safely
-      ↓
+Observe
+   ↓
+Understand
+   ↓
+Detect
+   ↓
+Diagnose
+   ↓
 Remediate
-      ↓
-Verify recovery
-      ↓
-Learn from operations
-      ↓
-Optimize itself
-      ↓
-Progressively become autonomous
+   ↓
+Verify
+   ↓
+Optimize
+   ↓
+Predict
+   ↓
+Autonomize
 
-AROHAN is not a collection of labs. It is an evolving engineering system for autonomous AI infrastructure and operations.
+AROHAN is an evolving engineering system for autonomous AI infrastructure and operations.
