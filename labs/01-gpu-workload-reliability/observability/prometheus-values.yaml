@@ -58,3 +58,12 @@ ruleFiles:
             annotations:
               summary: "AROHAN baseline workload has high memory utilization"
               description: "The AROHAN baseline workload is using more than 80% of its configured memory limit for at least 2 minutes."
+
+serverFiles:
+  prometheus.yml:
+    rule_files:
+      - /etc/config/recording_rules.yml
+      - /etc/config/alerting_rules.yml
+      - /etc/config/rules
+      - /etc/config/alerts
+      - /etc/config/arohan-reliability.rules.yaml
