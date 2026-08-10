@@ -1,4 +1,4 @@
-# AROHAN Lab 01 — GPU Workload Reliability
+# AROHAN Lab 01 — Workload Reliability Foundation
 
 > **Project AROHAN — Autonomous AI Infrastructure & Operations**
 
@@ -45,7 +45,7 @@ Autonomous AI Infrastructure
 
 The current lab uses a baseline NGINX workload to establish the reliability pattern before applying the same engineering principles to GPU and AI workloads.
 
-🧩 Engineering Problem
+## 🧩 Engineering Problem
 
 A Kubernetes workload having a configured memory limit does not by itself tell us whether the workload is operating safely.
 
@@ -61,7 +61,7 @@ Does the alert recover when the condition disappears?
 
 Lab 01 implements and validates this control loop.
 
-🏗️ Environment
+## 🏗️ Environment
 Component	Value
 Cloud	GCP
 Kubernetes	K3s
@@ -78,7 +78,7 @@ kube-state-metrics	Enabled
 Prometheus Persistence	10Gi
 StorageClass	local-path
 Prometheus Retention	7d
-🔭 Architecture
+## 🔭 Architecture
                          AROHAN LAB 01
                               |
                               v
@@ -127,7 +127,7 @@ Prometheus Retention	7d
                               |
                               v
                          INACTIVE
-📁 Repository Structure
+## 📁 Repository Structure
 labs/01-gpu-workload-reliability/
 ├── README.md
 ├── workload/
@@ -140,7 +140,7 @@ labs/01-gpu-workload-reliability/
     ├── 02 AROHAN LAB 01 — RELIABILITY RULE.PNG
     ├── 03 AROHAN LAB 01 PROMTOOL VALIDATION.PNG
     └── AROHAN-Lab-01-VALIDATION.md
-📊 Observability Foundation
+## 📊 Observability Foundation
 
 Prometheus was deployed using Helm with persistent storage:
 
@@ -171,7 +171,7 @@ kube-state-metrics:
 
 Alertmanager, node-exporter and pushgateway were intentionally disabled for this lab.
 
-🧪 Baseline Workload
+## 🧪 Baseline Workload
 
 The baseline workload was verified as:
 
@@ -188,8 +188,8 @@ The NGINX container memory limit was verified as:
 
 This workload acts as the initial reliability target.
 
-📈 Metrics Validation
-CPU Telemetry
+## 📈 Metrics Validation
+### CPU Telemetry
 
 Container CPU telemetry was validated with:
 
@@ -199,7 +199,7 @@ rate(
     pod=~"arohan-baseline.*"
   }[5m]
 )
-Memory Telemetry
+### Memory Telemetry
 
 Container memory usage was validated with:
 
@@ -207,7 +207,7 @@ container_memory_working_set_bytes{
   container="nginx",
   pod=~"arohan-baseline.*"
 }
-Kubernetes Memory Limit
+### Kubernetes Memory Limit
 
 The configured memory limit was obtained from kube-state-metrics:
 
@@ -221,7 +221,7 @@ kube_pod_container_resource_limits{
 The configured limit was:
 
 134217728 bytes = 128Mi
-🔧 Important Troubleshooting Finding
+## 🔧 Important Troubleshooting Finding
 
 The resource-limit metric was initially unavailable.
 
@@ -234,7 +234,7 @@ kube-state-metrics:
 
 After the Helm upgrade, the resource-limit metric became available.
 
-Engineering Lesson
+### Engineering Lesson
 
 A useful workload-reliability signal can require correlation between:
 
@@ -246,7 +246,7 @@ Declared resource configuration
 
 This was an actual observability dependency discovered and resolved during the lab.
 
-📐 Reliability SLI
+## 📐 Reliability SLI
 
 The first AROHAN workload-reliability SLI measures memory utilization against the configured memory limit.
 
@@ -279,7 +279,7 @@ on(namespace,pod,container)
 
 This matches runtime container telemetry with the corresponding Kubernetes resource-limit metric.
 
-🚨 Reliability Alert
+## 🚨 Reliability Alert
 
 Alert name:
 
@@ -301,7 +301,7 @@ category: resource
 
 The two-minute duration prevents a short-lived memory spike from immediately becoming a reliability event.
 
-⚙️ Prometheus Rule Integration
+## ⚙️ Prometheus Rule Integration
 
 The reliability rule was loaded into Prometheus through:
 
@@ -318,7 +318,7 @@ rule_files:
 
 The live rule was confirmed through the Prometheus rules API.
 
-✅ Rule Validation
+## ✅ Rule Validation
 
 The rule was validated using Prometheus promtool:
 
@@ -331,7 +331,7 @@ Result:
 
 Checking /etc/config/arohan-reliability.rules.yaml
   SUCCESS: 1 rules found
-💥 Controlled Failure Injection
+## 💥 Controlled Failure Injection
 
 A temporary workload was created:
 
@@ -362,7 +362,7 @@ Therefore:
 
 This exceeded the reliability threshold of 80%.
 
-🔄 Alert Lifecycle
+## 🔄 Alert Lifecycle
 
 The actual experiment demonstrated:
 
@@ -400,7 +400,7 @@ firing
 Health:
 
 ok
-♻️ Recovery Validation
+## ♻️ Recovery Validation
 
 The injected test workload was deleted:
 
@@ -414,7 +414,7 @@ health: ok
 
 This validated both failure detection and recovery detection.
 
-📸 Evidence
+## 📸 Evidence
 
 Recruiter-facing evidence is stored under:
 
@@ -444,7 +444,7 @@ interval: 30
 Demonstrates:
 
 SUCCESS: 1 rules found
-Detailed Validation Record
+### Detailed Validation Record
 
 AROHAN-Lab-01-VALIDATION.md
 
@@ -452,34 +452,34 @@ Contains the implementation, validation, failure-injection and recovery record.
 
 The original failure-injection terminal session was lost after a GCP SSH disconnect. The PENDING/FIRING/RECOVERY results documented in the validation record are based on the actual Prometheus API output captured during the original experiment.
 
-🧠 What Was Proven
-Observe
+## 🧠 What Was Proven
+### Observe
 
 Collect workload-level CPU and memory telemetry.
 
-Correlate
+### Correlate
 
 Join runtime metrics with Kubernetes resource metadata.
 
-Measure
+### Measure
 
 Calculate memory utilization relative to the declared limit.
 
-Detect
+### Detect
 
 Identify sustained resource pressure.
 
-Alert
+### Alert
 
 Transition:
 
 INACTIVE → PENDING → FIRING
-Recover
+### Recover
 
 Detect the disappearance of the failure condition:
 
 FIRING → INACTIVE
-🛠️ Engineering Capabilities Demonstrated
+## 🛠️ Engineering Capabilities Demonstrated
 Kubernetes workload observability
 K3s platform operations
 Prometheus deployment
@@ -497,7 +497,7 @@ Recovery validation
 promtool validation
 Git-based engineering workflow
 Troubleshooting observability dependencies
-🧾 Git Implementation
+## 🧾 Git Implementation
 
 Relevant implementation checkpoints:
 
@@ -512,15 +512,15 @@ Evidence checkpoint:
 Repository verification:
 
 nothing to commit, working tree clean
-💼 Recruiter Summary
+## 💼 Recruiter Summary
 
 Built and validated a Kubernetes workload-reliability control loop using Prometheus and kube-state-metrics, correlating live container telemetry with Kubernetes resource limits, detecting sustained memory pressure, validating controlled failure injection and alert lifecycle transitions, and verifying recovery.
 
-🎤 Interview Story
+## 🎤 Interview Story
 
 "For AROHAN Lab 01, I built a workload reliability control loop on K3s. I deployed Prometheus with kube-state-metrics, validated container telemetry, and correlated working-set memory with the Kubernetes memory limit using PromQL. I then created a sustained 80% memory-utilization alert. To prove the implementation worked against live telemetry, I injected controlled memory pressure, observed approximately 86.35% utilization, verified the alert transition from pending to firing, removed the test workload, and confirmed recovery back to inactive. I also validated the rule using promtool and preserved the implementation and evidence in Git."
 
-🚀 Evolution Path
+## 🚀 Evolution Path
 
 Lab 01 establishes the first reliability layer:
 
@@ -551,9 +551,9 @@ Predictive Operations
         |
         v
 Autonomous AI Infrastructure
-🏁 Final Status
+## 🏁 Final Status
 
-AROHAN LAB 01 — GPU WORKLOAD RELIABILITY
+AROHAN LAB 01 — WORKLOAD RELIABILITY FOUNDATION
 
 Implementation       ✅ COMPLETE
 Observability        ✅ COMPLETE
