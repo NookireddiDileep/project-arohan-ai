@@ -26,6 +26,82 @@ AROHAN evolves this toward:
 
 ---
 
+## AROHAN Evolution
+
+PROJECT AROHAN is designed as a **progressive engineering journey**, not a collection of disconnected technology labs.
+
+The platform evolves through progressively deeper engineering capabilities:
+
+**Platform Engineering → AI Infrastructure → AI Operations → Autonomous Operations → Autonomous AI Factory**
+
+Each stage builds the engineering foundations required for the next.
+
+### Evolution Stages
+
+**1. Platform Engineering**
+
+Kubernetes, OpenShift, GitOps, automation, observability, security, and reliability.
+
+**Engineering transition:** Infrastructure → Platform
+
+**2. AI Infrastructure**
+
+NVIDIA GPU infrastructure, GPU scheduling, GPU utilization, multi-GPU workloads, distributed AI, model serving, and AI inference.
+
+**Engineering transition:** Platform → AI Infrastructure
+
+**3. AI Operations**
+
+Observability, SRE, GPU telemetry, AI-assisted RCA, incident intelligence, anomaly detection, capacity intelligence, and FinOps.
+
+**Engineering transition:** Monitoring → Intelligence
+
+**4. Autonomous Operations**
+
+Decision engines, policy enforcement, guardrails, controlled remediation, recovery verification, incident intelligence, and predictive operations.
+
+**Engineering transition:** Intelligence → Controlled Autonomy
+
+**5. Autonomous AI Factory**
+
+Enterprise AI infrastructure, AI workloads, GPU orchestration, observability, SRE, security, FinOps, AIOps, predictive operations, and multi-agent operations.
+
+**Engineering transition:** Controlled Autonomy → Autonomous AI Factory
+
+### The Evolution Documents
+
+AROHAN maintains three dedicated documents to make this journey visible and auditable:
+
+* [EVOLUTION.md](EVOLUTION.md) — How AROHAN evolves and progressively earns autonomy
+* [ROADMAP.md](ROADMAP.md) — What capabilities are planned and the engineering sequence
+* [CHANGELOG.md](CHANGELOG.md) — What has actually been implemented and changed
+
+### Engineering Progression
+
+AROHAN follows a deliberate progression:
+
+**Build → Observe → Understand → Automate → Guard → Verify → Predict → Optimize → Autonomize**
+
+Autonomy is not assumed.
+
+It must be earned through:
+
+* Observability
+* Evidence
+* Automation
+* Policy
+* Guardrails
+* Verification
+* Explainability
+* Auditability
+
+> **AROHAN does not begin autonomous.**
+>
+> **AROHAN is engineered toward autonomy.**
+
+---
+
+
 ## Project Status
 
 | Capability | Status |
