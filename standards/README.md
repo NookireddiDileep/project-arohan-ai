@@ -44,9 +44,7 @@ Documentation
    ↓
 Automation
 
-Not every capability needs every stage immediately.
-
-The maturity of each implementation should be explicitly stated.
+Not every capability needs every stage immediately. The maturity of each implementation should be explicitly stated.
 
 Engineering Principles
 1. Reliability First
@@ -79,7 +77,7 @@ Validation records
 Test results
 Git history
 
-Documentation must distinguish clearly between what is implemented, validated, planned, and future.
+Documentation must clearly distinguish between what is implemented, validated, planned, and future.
 
 3. Failure Is Part of the Design
 
