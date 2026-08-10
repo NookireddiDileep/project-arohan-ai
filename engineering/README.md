@@ -30,6 +30,8 @@ Automation
 Predictive Operations
       ↓
 Autonomous AI Infrastructure
+```
+
 Engineering Model
 
 Every significant AROHAN capability should follow an engineering lifecycle:
@@ -252,6 +254,7 @@ Architecture Evolution
 
 AROHAN will evolve through progressively more advanced infrastructure and operations capabilities.
 
+```text
 V0.1 — Foundation
         ↓
 Workload Reliability
@@ -281,6 +284,7 @@ Predictive Operations
 AI-assisted RCA
         ↓
 Autonomous AI Infrastructure
+```
 
 Each stage should build on the previous engineering foundations rather than exist as an isolated demonstration.
 
