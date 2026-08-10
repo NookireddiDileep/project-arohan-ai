@@ -6,386 +6,340 @@
 
 The `engineering/` directory defines how Project AROHAN is designed, implemented, validated, operated, and evolved.
 
-AROHAN is not intended to be a collection of disconnected Kubernetes or AI infrastructure labs.
+AROHAN is not a collection of disconnected Kubernetes, GPU, or AI demonstrations.
 
-It is an engineering portfolio demonstrating the progressive evolution of:
+It is an engineering portfolio demonstrating the progressive evolution from infrastructure operations to autonomous AI infrastructure.
 
-```text
-Infrastructure
-      ↓
-Platform Engineering
-      ↓
-Observability
-      ↓
-Reliability / SRE
-      ↓
-GPU Infrastructure
-      ↓
-AI Workloads
-      ↓
-AI Operations
-      ↓
-Automation
-      ↓
-Predictive Operations
-      ↓
-Autonomous AI Infrastructure
-```
+## Engineering Scope
 
-Engineering Model
+AROHAN brings together:
 
-Every significant AROHAN capability should follow an engineering lifecycle:
+| Capability | Engineering Focus |
+|---|---|
+| Infrastructure | Linux, compute, networking, storage |
+| Platform Engineering | Kubernetes, OpenShift, GitOps, IaC |
+| Observability | Metrics, logs, traces, health signals |
+| Reliability / SRE | SLOs, alerts, failure analysis, recovery |
+| GPU Infrastructure | GPU compute, scheduling, utilization, capacity |
+| AI Workloads | Training, inference, distributed workloads |
+| AI Operations | Workload reliability, performance, capacity |
+| Automation | Remediation, verification, operational workflows |
+| AI-assisted Operations | RCA, decision support, intelligent operations |
+| Autonomous Infrastructure | Closed-loop detection, diagnosis, remediation and verification |
 
-Problem
-   ↓
-Architecture
-   ↓
-Implementation
-   ↓
-Observability
-   ↓
-Validation
-   ↓
-Failure Injection
-   ↓
-Recovery
-   ↓
-Evidence
-   ↓
-Documentation
-   ↓
-Automation
+---
+
+## Engineering Model
+
+Every significant AROHAN capability follows an engineering lifecycle:
+
+**Problem → Architecture → Implementation → Observability → Validation → Failure Injection → Recovery → Evidence → Documentation → Automation**
 
 The objective is not simply to demonstrate that something works.
 
 The objective is to demonstrate:
 
-why the capability is required
-how it is architected
-how it is implemented
-how it behaves under failure
-how it is observed
-how recovery is verified
-how the implementation can be automated
-how the result can be evidenced and reproduced
-Engineering Principles
+- why the capability is required
+- how it is architected
+- how it is implemented
+- how it is observed
+- how it behaves under failure
+- how the failure is diagnosed
+- how recovery is performed
+- how recovery is verified
+- how the implementation is automated
+- how the result is evidenced and reproduced
 
-AROHAN follows these core principles:
+---
 
-1. Reliability First
+## Engineering Principles
+
+### 1. Reliability First
 
 Reliability is a platform capability, not an afterthought.
 
-Every important workload or infrastructure capability should have measurable health and reliability signals.
+Important workloads and infrastructure components should have measurable health, performance, and reliability signals.
 
-2. Evidence Over Claims
+### 2. Evidence Over Claims
 
-A capability is considered demonstrated only when implementation and validation evidence exists.
+AROHAN treats evidence as a first-class engineering artifact.
 
-Evidence may include:
+A completed capability should have reproducible proof such as:
 
-command output
-Prometheus metrics
-dashboards
-alerts
-failure-injection results
-recovery results
-architecture diagrams
-Git history
-validation documents
-3. Failure Is a Test Case
+- command outputs
+- monitoring results
+- alert state
+- validation records
+- failure scenarios
+- recovery results
+- screenshots
+- investigation notes
+- Git history
 
-AROHAN deliberately introduces controlled failures where appropriate.
+### 3. Failure Is Part of the Design
 
-The engineering loop is:
+A system is not considered reliable simply because it works during normal operation.
 
-Normal
-  ↓
-Failure
-  ↓
-Detection
-  ↓
-Diagnosis
-  ↓
-Remediation
-  ↓
-Verification
-  ↓
-Recovery
-4. Observable by Design
+AROHAN intentionally introduces controlled failures where appropriate to validate:
 
-Infrastructure and workloads should expose the signals required to understand:
+- detection
+- alerting
+- diagnosis
+- remediation
+- recovery
+- verification
 
-health
-performance
-capacity
-reliability
-resource utilization
-failure state
-recovery state
-5. Automation Before Autonomy
+### 4. Automation Over Manual Operations
 
-AROHAN progresses from deterministic automation toward autonomous operations.
+Manual procedures are useful during investigation and learning.
 
-Manual
-  ↓
-Scripted
-  ↓
-Automated
-  ↓
-Event Driven
-  ↓
-Predictive
-  ↓
-Autonomous
+The long-term objective is to convert repeatable operational procedures into deterministic automation.
 
-Autonomy must be grounded in observable system state and controlled remediation.
+### 5. Observable by Design
 
-6. Production-Oriented Engineering
+Every important capability should expose meaningful operational signals.
 
-Labs should model production engineering problems wherever practical.
+The engineering sequence is:
 
-The objective is to demonstrate skills relevant to:
+**Build → Observe → Measure → Understand → Improve**
 
-Kubernetes platforms
-enterprise infrastructure
-GPU platforms
-AI workloads
-SRE
-observability
-FinOps
-security
-platform engineering
-autonomous operations
-Engineering Documentation
+### 6. Production Thinking
 
-The engineering layer contains the reusable project-level standards and frameworks.
+Labs are designed using production-oriented principles:
 
-engineering/
-├── README.md
-├── charter/
-├── standards/
-├── templates/
-├── NVIDIA/
-└── ...
+- resource limits
+- failure domains
+- security boundaries
+- operational visibility
+- repeatability
+- recovery procedures
+- capacity awareness
+- cost awareness
+- automation
 
-Project-level governance and engineering documents are maintained separately from implementation labs.
+---
 
-Relationship With Labs
+## Definition of Done
 
-The labs/ directory contains executable engineering experiments and validated implementations.
+A capability is considered complete only when the following are addressed:
 
-The relationship is:
+| Area | Requirement |
+|---|---|
+| Problem | Engineering problem clearly defined |
+| Architecture | Design and dependencies documented |
+| Implementation | Working implementation completed |
+| Observability | Health and operational signals available |
+| Validation | Expected behaviour verified |
+| Failure | Controlled failure scenario tested where applicable |
+| Recovery | Recovery procedure validated |
+| Evidence | Proof captured and stored |
+| Documentation | Implementation and findings documented |
+| Git | Engineering checkpoint committed |
 
-engineering/
-     │
-     │ defines
-     ↓
-Architecture + Standards + Practices
-     │
-     ↓
-labs/
-     │
-     │ implements
-     ↓
-Working Infrastructure
-     │
-     ↓
-Validation + Failure Testing
-     │
-     ↓
-Evidence
+This definition is intentionally stronger than:
 
-For example:
+> "It works on my machine."
 
-engineering/
-     ↓
-Reliability principles
-     ↓
-Lab 01
-     ↓
-Prometheus + kube-state-metrics
-     ↓
-Memory reliability SLI
-     ↓
-Alert
-     ↓
-Failure injection
-     ↓
-Recovery
-     ↓
-Evidence
-Definition of Done
+---
 
-An AROHAN capability should not be considered complete merely because the code or YAML exists.
+## Evidence Model
 
-A capability should normally satisfy:
+Evidence is stored with the corresponding lab whenever practical.
 
-☐ Problem defined
-☐ Architecture defined
-☐ Implementation completed
-☐ Observability implemented
-☐ Validation performed
-☐ Failure scenario tested
-☐ Recovery verified
-☐ Evidence captured
-☐ Documentation updated
-☐ Git checkpoint created
+Recommended structure:
 
-This Definition of Done is intentionally stronger than:
+- `evidence/`
+  - screenshots
+  - validation records
+  - command outputs
+  - investigation notes
 
-"It works on my machine."
-Engineering Evidence
+Evidence should demonstrate the **actual state of the system**, rather than only describing the intended design.
 
-Evidence is treated as a first-class engineering artifact.
+---
 
-Recommended evidence structure:
+## Architecture Evolution
 
-lab/
-└── evidence/
-    ├── screenshots
-    ├── validation records
-    ├── command outputs
-    └── investigation notes
+AROHAN will progressively evolve through the following engineering capabilities:
 
-Evidence should demonstrate the actual state of the system rather than only describing the intended design.
+1. Foundation
+2. Workload Reliability
+3. SLO / Error Budgets
+4. Observability Engineering
+5. GPU Infrastructure
+6. GPU Scheduling
+7. AI Workloads
+8. Inference Reliability
+9. Distributed AI
+10. FinOps / Capacity
+11. Security / Multi-tenancy
+12. Automated Remediation
+13. Predictive Operations
+14. AI-assisted RCA
+15. Autonomous AI Infrastructure
 
-Architecture Evolution
+Each capability builds on the previous engineering foundations rather than existing as an isolated demonstration.
 
-AROHAN will evolve through progressively more advanced infrastructure and operations capabilities.
+---
 
-```text
-V0.1 — Foundation
-        ↓
-Workload Reliability
-        ↓
-SLO / Error Budgets
-        ↓
-Observability Engineering
-        ↓
-GPU Infrastructure
-        ↓
-GPU Scheduling
-        ↓
-AI Workloads
-        ↓
-Inference Reliability
-        ↓
-Distributed AI
-        ↓
-FinOps / Capacity
-        ↓
-Security / Multi-tenancy
-        ↓
-Automated Remediation
-        ↓
-Predictive Operations
-        ↓
-AI-assisted RCA
-        ↓
-Autonomous AI Infrastructure
-```
+## Current Implementation
 
-Each stage should build on the previous engineering foundations rather than exist as an isolated demonstration.
+### AROHAN V0.1 — Foundation
 
-Engineering Standards
+**Lab 01 — GPU Workload Reliability**
 
-Engineering standards should progressively cover:
+Status: **COMPLETE**
 
-Kubernetes
-GitOps
-Infrastructure as Code
-Configuration management
-Observability
-SRE
-Reliability
-Security
-GPU infrastructure
-AI workload operations
-Networking
-Storage
-Capacity management
-FinOps
-Automation
-Incident response
-RCA
-Remediation
-Verification
-Autonomous operations
-NVIDIA / AI Infrastructure
+Lab 01 establishes the first operational reliability control loop using:
 
-The engineering/NVIDIA/ area is dedicated to NVIDIA-oriented AI infrastructure and operations engineering.
+- Kubernetes baseline workload
+- Prometheus
+- kube-state-metrics
+- PromQL
+- workload resource limits
+- reliability alert rules
+- controlled memory pressure
+- alert lifecycle validation
+- recovery validation
+- promtool validation
+- Git-based evidence
 
-Expected areas include:
+The implemented control loop demonstrates:
 
-GPU Compute
-GPU Scheduling
-GPU Operator
-CUDA
-Container Runtime
-Networking
-BlueField / DPU
-DOCA
-Storage
-Multi-GPU
-Distributed AI
-Inference
-GPU Observability
-GPU Reliability
-GPU Capacity
-AI Factory Operations
+**Workload → Metrics → Rule → Detection → Alert → Failure Recovery → Verification → Evidence**
+
+---
+
+## NVIDIA / AI Infrastructure
+
+The `engineering/NVIDIA/` area provides the foundation for NVIDIA-oriented AI infrastructure and operations engineering.
+
+Expected capability areas include:
+
+- GPU Compute
+- GPU Scheduling
+- NVIDIA GPU Operator
+- CUDA
+- Container Runtime
+- GPU Observability
+- GPU Reliability
+- GPU Capacity
+- Multi-GPU workloads
+- Distributed AI
+- Inference infrastructure
+- NVIDIA Networking
+- BlueField / DPU
+- DOCA
+- AI Factory Operations
 
 These capabilities will be integrated into the broader AROHAN engineering model rather than treated as standalone product tutorials.
 
-Engineering Philosophy
+---
 
-AROHAN is built around one central principle:
+## Operational Capability Model
 
-Build infrastructure that can observe itself, understand its state, detect failure, explain what happened, remediate safely, verify recovery, and progressively become more autonomous.
+AROHAN progressively moves toward a closed operational control loop:
 
-The long-term objective is therefore not simply:
+**Observe**
 
-Run AI workloads.
+↓  
 
-It is:
+**Detect**
 
-Operate AI infrastructure intelligently.
-Current Status
-Foundation
-Project structure             ✅
-Engineering framework         ✅
-Repository standards         ✅
-Lab framework                 ✅
-Evidence model                ✅
-Implemented
-Lab 01 — GPU Workload Reliability    ✅ COMPLETE
+↓  
 
-Lab 01 establishes the first operational reliability control loop using a Kubernetes baseline workload, Prometheus, kube-state-metrics, PromQL, controlled failure injection, alert lifecycle validation, recovery validation, and Git-based evidence.
+**Diagnose**
 
-Engineering Roadmap
+↓  
 
-Future engineering capabilities will be added progressively as AROHAN labs mature.
+**Decide**
 
-The guiding sequence remains:
+↓  
 
-Understand
-   ↓
-Implement
-   ↓
-Observe
-   ↓
-Break
-   ↓
-Diagnose
-   ↓
-Automate
-   ↓
-Verify
-   ↓
-Optimize
-   ↓
-Predict
-   ↓
-Autonomize
+**Remediate**
 
-Project AROHAN is an engineering system, not a collection of demos.
+↓  
+
+**Verify**
+
+↓  
+
+**Learn**
+
+↓  
+
+**Optimize**
+
+The long-term objective is to reduce manual operational intervention while maintaining governance, safety, explainability, and verification.
+
+---
+
+## Engineering Roadmap
+
+Future AROHAN capabilities will progressively move through:
+
+**Understand → Implement → Observe → Break → Diagnose → Automate → Verify → Optimize → Predict → Autonomize**
+
+This progression is intentional.
+
+The project starts with deterministic infrastructure engineering and gradually introduces intelligent operational capabilities.
+
+---
+
+## Relationship With Labs
+
+The `labs/` directory contains the hands-on engineering implementations.
+
+The `engineering/` directory defines the engineering model behind those implementations.
+
+The relationship is:
+
+**Engineering Standards → Lab Implementation → Validation → Evidence → Engineering Learning**
+
+Each completed lab should strengthen the overall AROHAN platform rather than remain an isolated exercise.
+
+---
+
+## Recruiter / Portfolio Perspective
+
+Project AROHAN demonstrates the ability to move beyond individual tools and engineer an operational platform across multiple layers:
+
+**Linux / Infrastructure**
+
+→ **Kubernetes / Platform Engineering**
+
+→ **Observability**
+
+→ **Reliability / SRE**
+
+→ **GPU Infrastructure**
+
+→ **AI Workloads**
+
+→ **AI Operations**
+
+→ **Automation**
+
+→ **AI-assisted Operations**
+
+→ **Autonomous Infrastructure**
+
+The portfolio therefore focuses not only on **what technology is used**, but on:
+
+- engineering decisions
+- operational behavior
+- failure handling
+- reliability
+- automation
+- evidence
+- measurable outcomes
+
+---
+
+## Project Philosophy
+
+AROHAN is an engineering system, not a collection of demos.
+
+The goal is to progressively build infrastructure that can:
+
+**Observe itself → Understand its state → Detect problems → Diagnose failures → Remediate safely → Verify recovery → Learn from operations → Become increasingly autonomous.**
