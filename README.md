@@ -26,7 +26,7 @@ AROHAN evolves this toward:
 
 ---
 
-## AROHAN Evolution
+## AROHAN AI Evolution
 
 PROJECT AROHAN AI is designed as a **progressive engineering journey**, not a collection of disconnected technology labs.
 
@@ -72,13 +72,13 @@ Enterprise AI infrastructure, AI workloads, GPU orchestration, observability, SR
 
 AROHAN maintains three dedicated documents to make this journey visible and auditable:
 
-* [EVOLUTION.md](EVOLUTION.md) — How AROHAN evolves and progressively earns autonomy
+* [EVOLUTION.md](EVOLUTION.md) — How AROHAN AI evolves and progressively earns autonomy
 * [ROADMAP.md](ROADMAP.md) — What capabilities are planned and the engineering sequence
 * [CHANGELOG.md](CHANGELOG.md) — What has actually been implemented and changed
 
 ### Engineering Progression
 
-AROHAN follows a deliberate progression:
+AROHAN AI follows a deliberate progression:
 
 **Build → Observe → Understand → Automate → Guard → Verify → Predict → Optimize → Autonomize**
 
