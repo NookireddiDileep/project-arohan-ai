@@ -1,4 +1,4 @@
-# PROJECT AROHAN (आरोहण)
+# PROJECT AROHAN AI (आरोहण)
 
 > **Ascending to Greater Heights**
 >
@@ -10,7 +10,7 @@
 
 ## Vision
 
-PROJECT AROHAN is my lifelong engineering initiative dedicated to mastering Platform Engineering, Cloud Native Technologies, Artificial Intelligence Infrastructure, GPU Platforms, High Performance Computing, Automation, Observability, Security, and System Architecture through continuous learning, hands-on implementation, and production-focused engineering.
+PROJECT AROHAN AI is my lifelong engineering initiative dedicated to mastering Platform Engineering, Cloud Native Technologies, Artificial Intelligence Infrastructure, GPU Platforms, High Performance Computing, Automation, Observability, Security, and System Architecture through continuous learning, hands-on implementation, and production-focused engineering.
 
 This project is not limited to any certification, technology, company, or role.
 
@@ -46,13 +46,13 @@ Problems evolve.
 
 Therefore, learning never ends.
 
-PROJECT AROHAN is built on the belief that engineering excellence is achieved through consistent practice, disciplined documentation, automation, operational thinking, and continuous improvement.
+PROJECT AROHAN AI is built on the belief that engineering excellence is achieved through consistent practice, disciplined documentation, automation, operational thinking, and continuous improvement.
 
 This project is a lifelong journey rather than a destination.
 
 ---
 
-# The Seven Principles of PROJECT AROHAN
+# The Seven Principles of PROJECT AROHAN AI
 
 ## 1. One Step Higher. Every Day.
 
@@ -114,7 +114,7 @@ Engineering mastery has no finish line.
 
 # Engineering Domains
 
-PROJECT AROHAN covers the following engineering disciplines:
+PROJECT AROHAN AI covers the following engineering disciplines:
 
 - Linux
 - Networking
@@ -204,7 +204,7 @@ A topic is complete only when the following are available:
 
 # Long-Term Vision
 
-PROJECT AROHAN is designed to evolve throughout my engineering career.
+PROJECT AROHAN AI is designed to evolve throughout my engineering career.
 
 Every new technology becomes another opportunity to ascend.
 
@@ -214,7 +214,7 @@ The objective is to continuously become a better engineer.
 
 ---
 
-> **PROJECT AROHAN (आरोहण)**
+> **PROJECT AROHAN AI (आरोहण)**
 >
 > **Ascending to Greater Heights**
 >

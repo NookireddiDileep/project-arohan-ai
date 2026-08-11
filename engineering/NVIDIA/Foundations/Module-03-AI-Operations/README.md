@@ -2,7 +2,7 @@
 
 > NVIDIA AI Infrastructure Engineering Journey
 >
-> PROJECT AROHAN (आरोहण)
+> PROJECT AROHAN AI (आरोहण)
 >
 > **Exam Weight:** 22%
 
@@ -12,7 +12,7 @@
 
 ---
 
-# Overview
+## Overview
 
 AI Operations focuses on deploying, managing, monitoring, and operating NVIDIA AI infrastructure in production environments.
 
@@ -22,7 +22,7 @@ The concepts covered in this module prepare engineers to understand how modern A
 
 ---
 
-# Learning Objectives
+## Learning Objectives
 
 After completing this module, I should be able to:
 
@@ -48,7 +48,7 @@ After completing this module, I should be able to:
 
 ---
 
-# Official Exam Topics
+## Official Exam Topics
 
 According to the official NVIDIA NCA-AIIO exam blueprint, AI Operations includes:
 
@@ -64,7 +64,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Operations includes
 
 ---
 
-# Topic Roadmap
+## Topic Roadmap
 
 1. Kubernetes
 2. NVIDIA GPU Operator
@@ -78,7 +78,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Operations includes
 
 ---
 
-# Module Deliverables
+## Module Deliverables
 
 - README.md
 - OFFICIAL_NOTES.md
@@ -88,7 +88,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Operations includes
 
 ---
 
-# Module Status
+## Module Status
 
 - [x] README Completed
 - [x] First Pass Learning Completed
@@ -101,7 +101,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Operations includes
 
 ---
 
-# Primary References
+## Primary References
 
 - NVIDIA Official NCA-AIIO Course
 - NVIDIA Official Documentation
@@ -109,7 +109,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Operations includes
 
 ---
 
-PROJECT AROHAN (आरोहण)
+PROJECT AROHAN AI (आरोहण)
 
 **Ascending to Greater Heights**
 

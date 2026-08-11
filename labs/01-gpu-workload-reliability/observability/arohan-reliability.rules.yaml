@@ -1,0 +1,28 @@
+groups:
+  - name: arohan-workload-reliability
+    interval: 30s
+    rules:
+      - alert: ArohanBaselineHighMemoryUtilization
+        expr: |
+          (
+            100 * container_memory_working_set_bytes{
+              namespace="default",
+              container="nginx",
+              pod=~"arohan-baseline.*"
+            }
+            / on(namespace,pod,container)
+            kube_pod_container_resource_limits{
+              namespace="default",
+              container="nginx",
+              pod=~"arohan-baseline.*",
+              resource="memory"
+            }
+          ) > 80
+        for: 2m
+        labels:
+          severity: warning
+          component: workload
+          category: resource
+        annotations:
+          summary: "AROHAN baseline workload has high memory utilization"
+          description: "The AROHAN baseline workload is using more than 80% of its configured memory limit for at least 2 minutes."

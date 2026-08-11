@@ -1,6 +1,6 @@
 # Engineering Principles
 
-> **PROJECT AROHAN (आरोहण)**
+> **PROJECT AROHAN AI (आरोहण)**
 >
 > **Ascending to Greater Heights**
 >
@@ -10,11 +10,11 @@
 
 # Purpose
 
-This document defines the engineering execution principles followed throughout PROJECT AROHAN.
+This document defines the engineering execution principles followed throughout PROJECT AROHAN AI.
 
-Unlike the project charter, which explains why PROJECT AROHAN exists, this document defines how engineering work is performed, reviewed, and maintained.
+Unlike the project charter, which explains why PROJECT AROHAN AI exists, this document defines how engineering work is performed, reviewed, and maintained.
 
-These principles apply to every engineering asset created within PROJECT AROHAN.
+These principles apply to every engineering asset created within PROJECT AROHAN AI.
 
 ---
 
@@ -182,7 +182,7 @@ Improve every engineering asset whenever better understanding, better practices,
 
 ## Summary
 
-PROJECT AROHAN engineering work should always be:
+PROJECT AROHAN AI engineering work should always be:
 
 - Well understood
 - Properly documented
@@ -204,7 +204,7 @@ PROJECT AROHAN engineering work should always be:
 
 ---
 
-**PROJECT AROHAN (आरोहण)**
+**PROJECT AROHAN AI (आरोहण)**
 
 **Ascending to Greater Heights**
 
