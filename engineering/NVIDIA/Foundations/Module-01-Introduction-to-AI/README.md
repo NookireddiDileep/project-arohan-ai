@@ -2,7 +2,7 @@
 
 > NVIDIA AI Infrastructure Engineering Journey
 >
-> PROJECT AROHAN (आरोहण)
+> PROJECT AROHAN AI (आरोहण)
 >
 > **Exam Weight:** 38%
 
@@ -394,7 +394,7 @@ NVIDIA AI Infrastructure
 
 ---
 
-PROJECT AROHAN (आरोहण)
+PROJECT AROHAN AI (आरोहण)
 
 **Ascending to Greater Heights**
 

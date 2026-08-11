@@ -1,10 +1,10 @@
-# Project AROHAN — Engineering
+# Project AROHAN AI — Engineering
 
-> Engineering governance, architecture standards, operating principles, and reusable delivery frameworks for Project AROHAN.
+> Engineering governance, architecture standards, operating principles, and reusable delivery frameworks for Project AROHAN AI.
 
 ## Purpose
 
-The `engineering/` directory defines how Project AROHAN is designed, implemented, validated, operated, and evolved.
+The `engineering/` directory defines how Project AROHAN AI is designed, implemented, validated, operated, and evolved.
 
 AROHAN is not a collection of disconnected Kubernetes, GPU, or AI demonstrations.
 
@@ -302,7 +302,7 @@ Each completed lab should strengthen the overall AROHAN platform rather than rem
 
 ## Recruiter / Portfolio Perspective
 
-Project AROHAN demonstrates the ability to move beyond individual tools and engineer an operational platform across multiple layers:
+Project AROHAN AI demonstrates the ability to move beyond individual tools and engineer an operational platform across multiple layers:
 
 **Linux / Infrastructure**
 

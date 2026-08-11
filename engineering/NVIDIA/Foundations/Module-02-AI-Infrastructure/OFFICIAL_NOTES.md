@@ -2,7 +2,7 @@
 
 > NVIDIA AI Infrastructure Engineering Journey
 >
-> PROJECT AROHAN (आरोहण)
+> PROJECT AROHAN AI (आरोहण)
 
 ---
 
@@ -299,7 +299,7 @@ Understanding these technologies provides the foundation required for NVIDIA AI 
 
 ---
 
-PROJECT AROHAN (आरोहण)
+PROJECT AROHAN AI (आरोहण)
 
 **Ascending to Greater Heights**
 

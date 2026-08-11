@@ -1,10 +1,10 @@
-# PROJECT AROHAN
+# PROJECT AROHAN AI
 
 ## Autonomous AI Infrastructure & Operations Platform
 
 > **Observe → Detect → Diagnose → Decide → Guardrail → Remediate → Verify → Explain → Notify → Audit**
 
-Project AROHAN is an engineering initiative focused on building a **governed autonomous AI infrastructure and operations platform**.
+Project AROHAN AI is an engineering initiative focused on building a **governed autonomous AI infrastructure and operations platform**.
 
 The project explores how enterprise AI infrastructure can evolve from traditional monitoring and automation toward **AI-assisted, policy-governed autonomous operations** across Kubernetes, GPU infrastructure, AI workloads, observability, reliability, security, FinOps and platform engineering.
 
@@ -28,7 +28,7 @@ AROHAN evolves this toward:
 
 ## AROHAN Evolution
 
-PROJECT AROHAN is designed as a **progressive engineering journey**, not a collection of disconnected technology labs.
+PROJECT AROHAN AI is designed as a **progressive engineering journey**, not a collection of disconnected technology labs.
 
 The platform evolves through progressively deeper engineering capabilities:
 
@@ -433,7 +433,7 @@ Potential outcomes:
 
 ## North-Star Statement
 
-> **Project AROHAN is a governed autonomous AI infrastructure and operations platform that observes enterprise AI environments, detects anomalies, diagnoses root causes, makes policy-controlled decisions, executes safe remediation, verifies recovery, generates evidence-backed RCA, and routes incidents to the appropriate engineering teams.**
+> **Project AROHAN AI is a governed autonomous AI infrastructure and operations platform that observes enterprise AI environments, detects anomalies, diagnoses root causes, makes policy-controlled decisions, executes safe remediation, verifies recovery, generates evidence-backed RCA, and routes incidents to the appropriate engineering teams.**
 
 ### From
 

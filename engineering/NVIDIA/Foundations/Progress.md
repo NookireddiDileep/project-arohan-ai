@@ -49,7 +49,7 @@
 
 ---
 
-PROJECT AROHAN (आरोहण)
+PROJECT AROHAN AI (आरोहण)
 
 Ascending to Greater Heights
 

@@ -1,10 +1,10 @@
-# PROJECT AROHAN — EVOLUTION
+# PROJECT AROHAN AI — EVOLUTION
 
 > **One Step Higher. Every Day. 🚀**
 
 ## How AROHAN Evolves
 
-PROJECT AROHAN is a continuously evolving engineering initiative.
+PROJECT AROHAN AI is a continuously evolving engineering initiative.
 
 The project is designed to progressively build the capabilities required to operate enterprise AI infrastructure safely, reliably, efficiently, and autonomously.
 
@@ -19,7 +19,7 @@ It progressively earns autonomy through:
 # 1. Evolution at a Glance
 
 ``` text
-                    PROJECT AROHAN
+                    PROJECT AROHAN AI
                           │
                           ▼
               ┌─────────────────────┐

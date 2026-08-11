@@ -1,4 +1,4 @@
-# PROJECT AROHAN – MISSION
+# PROJECT AROHAN AI – MISSION
 
 > **One Step Higher. Every Day.**
 
@@ -8,7 +8,7 @@
 
 To build one of the most comprehensive open engineering portfolios for **Enterprise AI Platform Engineering**, demonstrating production-grade expertise in Linux, Kubernetes, OpenShift, NVIDIA GPU Infrastructure, AI Operations, Platform Engineering, Automation, Observability, and Enterprise Architecture.
 
-PROJECT AROHAN is not a collection of study notes. It is a living engineering platform that documents the journey from Senior Infrastructure Engineer to Enterprise AI Platform Architect.
+PROJECT AROHAN AI is not a collection of study notes. It is a living engineering platform that documents the journey from Senior Infrastructure Engineer to Enterprise AI Platform Architect.
 
 ---
 
@@ -18,7 +18,7 @@ To design, build, automate, operate, secure, troubleshoot, and continuously impr
 
 The objective is to develop practical engineering capability—not just certification knowledge.
 
-Every contribution to PROJECT AROHAN should increase expertise in one or more of the following:
+Every contribution to PROJECT AROHAN AI should increase expertise in one or more of the following:
 
 * Enterprise Platform Engineering
 * OpenShift
@@ -172,7 +172,7 @@ Become a trusted technical leader capable of mentoring engineers, leading archit
 
 # Definition of Success
 
-PROJECT AROHAN will be successful when it demonstrates:
+PROJECT AROHAN AI will be successful when it demonstrates:
 
 * Production-quality engineering practices
 * Strong architectural thinking

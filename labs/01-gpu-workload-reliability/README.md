@@ -1,6 +1,6 @@
 # AROHAN Lab 01 — Workload Reliability Foundation
 
-> **Project AROHAN — Autonomous AI Infrastructure & Operations**
+> **Project AROHAN AI — Autonomous AI Infrastructure & Operations**
 
 ## Status
 

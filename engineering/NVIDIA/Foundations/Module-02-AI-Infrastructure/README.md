@@ -2,7 +2,7 @@
 
 > NVIDIA AI Infrastructure Engineering Journey
 >
-> PROJECT AROHAN (आरोहण)
+> PROJECT AROHAN AI (आरोहण)
 >
 > **Exam Weight:** 40%
 
@@ -122,7 +122,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Infrastructure incl
 
 ---
 
-PROJECT AROHAN (आरोहण)
+PROJECT AROHAN AI (आरोहण)
 
 **Ascending to Greater Heights**
 

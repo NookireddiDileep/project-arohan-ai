@@ -1,10 +1,10 @@
-# PROJECT AROHAN — ROADMAP
+# PROJECT AROHAN AI — ROADMAP
 
 > **One Step Higher. Every Day. 🚀**
 
 ## Purpose
 
-This roadmap defines the planned engineering progression of PROJECT AROHAN.
+This roadmap defines the planned engineering progression of PROJECT AROHAN AI.
 
 It translates the long-term AROHAN vision into progressive engineering capabilities, from platform foundations through AI infrastructure, AI operations, and eventually autonomous AI infrastructure and operations.
 
