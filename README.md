@@ -16,7 +16,7 @@ Traditional operations typically follow:
 
 **Alert → Engineer investigates → Root cause → Remediation → Verification → RCA**
 
-AROHAN evolves this toward:
+AROHAN AI evolves this toward:
 
 **Observe → Detect → Diagnose → Decide → Guardrail → Remediate → Verify → RCA → Route → Notify → Audit**
 
@@ -228,7 +228,7 @@ It must be earned through:
 
 ### Autonomous Incident → RCA → Remediation → Verification → Notification
 
-The first major AROHAN demonstration will deliberately create a controlled infrastructure incident.
+The first major AROHAN AI demonstration will deliberately create a controlled infrastructure incident.
 
 **Incident → Detect → Collect Evidence → AI Diagnosis → Policy Validation → Remediation → Verification → Automatic RCA → Owner Identification → Email Notification**
 
@@ -263,7 +263,7 @@ to improve trust, explainability and auditability.
 
 ## Guarded Autonomy
 
-AROHAN follows a strict principle:
+AROHAN AI follows a strict principle:
 
 > **The AI agent proposes and reasons. Policy determines what the agent is allowed to execute.**
 
@@ -406,7 +406,7 @@ AROHAN AI is designed to demonstrate capabilities across:
 
 The intended end-to-end demonstration is:
 
-**AI Workload → Failure / Anomaly → Observability → AROHAN Detection → AI-powered RCA → Policy / Guardrail → Autonomous Remediation → SLO Verification → Automatic RCA → Owner Identification → Engineer Notification**
+**AI Workload → Failure / Anomaly → Observability → AROHAN AI Detection → AI-powered RCA → Policy / Guardrail → Autonomous Remediation → SLO Verification → Automatic RCA → Owner Identification → Engineer Notification**
 
 ---
 
