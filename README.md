@@ -70,7 +70,7 @@ Enterprise AI infrastructure, AI workloads, GPU orchestration, observability, SR
 
 ### The Evolution Documents
 
-AROHAN maintains three dedicated documents to make this journey visible and auditable:
+AROHAN AI maintains three dedicated documents to make this journey visible and auditable:
 
 * [EVOLUTION.md](EVOLUTION.md) — How AROHAN AI evolves and progressively earns autonomy
 * [ROADMAP.md](ROADMAP.md) — What capabilities are planned and the engineering sequence
@@ -95,9 +95,9 @@ It must be earned through:
 * Explainability
 * Auditability
 
-> **AROHAN does not begin autonomous.**
+> **AROHAN AI does not begin autonomous.**
 >
-> **AROHAN is engineered toward autonomy.**
+> **AROHAN AI is engineered toward autonomy.**
 
 ---
 
@@ -249,7 +249,7 @@ The generated RCA will include:
 - Preventive recommendations
 - Autonomy result
 
-AROHAN will explicitly distinguish:
+AROHAN AI will explicitly distinguish:
 
 **Observed facts**
 
@@ -340,7 +340,7 @@ Long-term objective:
 
 ## Repository Structure
 
-    project-arohan/
+    project-arohan-ai/
     ├── README.md
     ├── CHARTER.md
     ├── MISSION.md
@@ -371,7 +371,7 @@ Long-term objective:
 
 ## Existing Engineering Foundation
 
-AROHAN already contains an established engineering foundation covering:
+AROHAN AI already contains an established engineering foundation covering:
 
 - Project Charter
 - Project Mission
@@ -392,7 +392,7 @@ These foundations will progressively feed into the autonomous platform implement
 
 ## Interview & Enterprise Positioning
 
-AROHAN is designed to demonstrate capabilities across:
+AROHAN AI is designed to demonstrate capabilities across:
 
 - Senior Platform Engineering
 - Kubernetes Platform Engineering
@@ -412,7 +412,7 @@ The intended end-to-end demonstration is:
 
 ## Enterprise PoC Vision
 
-AROHAN is intended to evolve from an engineering prototype toward a potential enterprise proof-of-concept.
+AROHAN AI is intended to evolve from an engineering prototype toward a potential enterprise proof-of-concept.
 
 **Engineering Prototype → Working Autonomous Use Case → Measured PoC → Enterprise Integration → Security & Governance Review → Production Evaluation → Enterprise Platform Capability**
 
@@ -451,7 +451,7 @@ Potential outcomes:
 
 ## Current Focus
 
-### AROHAN V1 — Autonomous Kubernetes Operations
+### AROHAN AI V1 — Autonomous Kubernetes Operations
 
 **First end-to-end capability:**
 
