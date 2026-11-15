@@ -291,6 +291,16 @@ Deploy the same manifests in a project on the J2C cluster, keeping the default `
 
 ---
 
+## Exercises
+
+| Exercise | Focus | Status |
+|---|---|---|
+| [02B: Inference latency breakdown and scale-out delay](exercises/02B-inference-latency-breakdown.md) | Time the deployment flow vs the request flow (queue, prefill, decode), readiness after model load, HPA scale-out delay, quota limits | PLANNED 🟡 |
+
+Theory: [AI Inference on Kubernetes: Where the Time Goes](../../engineering/ai-inference/INFERENCE_ON_KUBERNETES.md)
+
+---
+
 ## Deliverables
 
 ```
