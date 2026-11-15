@@ -1,0 +1,11 @@
+# INC-00X: <title>
+- Date / environment:
+- Impact: (who/what was affected, duration)
+- Symptoms observed:
+- Timeline: (detection → diagnosis → fix → verified)
+- Diagnosis: (commands run + key output)
+- Root cause:
+- Fix applied:
+- Verification:
+- Prevention: (alert, policy, quota, probe, GitOps check…)
+- Interview takeaway: (2 lines)
