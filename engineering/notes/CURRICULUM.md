@@ -1,6 +1,6 @@
-# AI Infrastructure notes: daily curriculum
+# AI Infrastructure notes: curriculum
 
-One note a day, in order. Each note: **concept in my own words → architecture → how it fails in operations → how to observe it (metrics, commands) → a small hands-on exercise (CPU-only K3s / kind / offline data) → interview questions → sources.**
+One note a week, in order. Each note: **concept in my own words → architecture → how it fails in operations → how to observe it (metrics, commands) → a small hands-on exercise (CPU-only K3s / kind / offline data) → interview questions → sources.**
 
 Notes link back to the AROHAN labs where the topic is practised.
 
