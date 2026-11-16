@@ -56,7 +56,7 @@ Evidence must show the actual system state, be clearly named, trace back to the 
 
 Lifecycle: **Problem → Architecture → Implementation → Observability → Validation → Failure injection → Recovery → Evidence → Documentation → Automation**
 
-A capability does not need to reach every stage at once, but its current stage must be clear. Maturity levels:
+A capability does not need to reach every stage at once, but its current stage must be clear. Lab maturity levels (project-level autonomy levels L0–L8 are in [ROADMAP.md](../ROADMAP.md)):
 
 | Level | Name | Meaning |
 |---|---|---|

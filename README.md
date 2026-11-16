@@ -22,8 +22,10 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 | Notes | [AI-infrastructure notes](engineering/notes/README.md): one topic a week from a 40-topic curriculum, GPU fundamentals to reference architectures | 🟢 Weekly |
 | Module | [Workload management mastery](engineering/workload-management/README.md): K8s / OpenShift / HPC / AI workload management from the infra layer up. Six-layer plan, lab checklists, drill library, topic notes added regularly | 🟢 Ongoing |
 | Notes | [NVIDIA AI infrastructure foundations](engineering/NVIDIA/README.md) (prep for the NCA-AIIO certification, which I hold) | ✅ Written |
-| Standards | [Engineering standards & principles](standards/README.md) | ✅ In use |
-| Next | AI-assisted RCA, policy-guarded remediation, GPU telemetry (DCGM), GPU Operator, FinOps | ⚪ Planned |
+| Standards | [Engineering principles](standards/ENGINEERING_PRINCIPLES.md) · [standards & quality gates](standards/README.md) · [charter](CHARTER.md) | ✅ In use |
+| Next | AI-assisted RCA, policy-guarded remediation, GPU telemetry (DCGM), GPU Operator, FinOps | ⚪ Future |
+
+Status icons follow the [status model](standards/README.md#status-model): ✅ completed · 🔵 implemented, not yet validated · 🟢 in progress / ongoing · 🟡 planned · ⚪ future.
 
 **Honest constraints:** labs run on a CPU-only GCP K3s cluster and on `kind` with simulated GPUs. No paid GPU hardware is used. Where a lab needs real GPUs, the README says so.
 
@@ -71,7 +73,7 @@ project-arohan-ai/
 ├── labs/          hands-on labs: README runbook, manifests, scripts, evidence/
 ├── engineering/   deep-dive notes (scheduling, inference, NVIDIA foundations, workload-management module)
 ├── standards/     engineering standards and principles
-├── CHARTER.md · MISSION.md · EVOLUTION.md · ROADMAP.md · CHANGELOG.md
+├── CHARTER.md · EVOLUTION.md · ROADMAP.md · CHANGELOG.md
 ```
 
 ---

@@ -77,30 +77,27 @@ Established:
 
 A capability should not be marked as implemented without supporting engineering evidence.
 
-### Current Project Position
+---
 
-The project documentation currently identifies the following capabilities as in progress or planned.
+## 2026-11-16 — Documentation Consolidation
 
-#### In Progress
+### What changed
 
-- Lab 02: AI inference reliability (runbook written, not yet run)
-- Lab 03: GPU scheduling (runbook written, not yet run)
+- Merged `MISSION.md` into `CHARTER.md`: one document for vision, mission, target identity, strategic direction and ethics.
+- Rewrote `standards/ENGINEERING_PRINCIPLES.md` as the single source of engineering principles; principles removed from `CHARTER.md`, `MISSION.md`, `standards/README.md` and `engineering/README.md`.
+- `standards/README.md` is the single source for the status model, Definition of Done, evidence and Git standards; fixed a broken code fence that hid most of the file.
+- One status model (✅ 🔵 🟢 🟡 ⚪) across README, ROADMAP and standards.
+- Current status lives only in the README status table; EVOLUTION and the changelog link to it.
+- `engineering/README.md` rewritten as an index of the engineering notes.
+- Added the `engineering/workload-management/` module.
 
-#### Planned
+### Problem
 
-- Autonomous Kubernetes Operations
-- AI-powered RCA
-- Guarded Remediation
-- Automatic RCA Generation
-- Engineer Email Notification
-- Autonomous GPU Operations
-- Autonomous AI Inference
-- Autonomous FinOps
-- Predictive Operations
-- Multi-Agent Operations
-- Autonomous AI Factory
+The same principles, Definition of Done and status lists existed in up to five files with different wording and conflicting status icons, so the documents disagreed with each other.
 
-These statuses represent the current documented project direction and will change as implementation evidence is produced.
+### Outcome
+
+Each topic now has one owning document; other documents link to it.
 
 ---
 

@@ -420,30 +420,7 @@ Can the system safely perform the complete controlled operating loop?
 
 # 12. Evidence Required
 
-Major roadmap milestones should produce evidence such as:
-
-- Architecture
-- Source code
-- Infrastructure manifests
-- Automation
-- Dashboards
-- Metrics
-- Runbooks
-- Incident scenarios
-- RCA
-- Benchmarks
-- Failure injection
-- Recovery validation
-- Security controls
-- Policy definitions
-- Audit records
-- Cost analysis
-- Performance analysis
-- Documentation
-
-A roadmap item is not considered complete merely because the technology has been installed.
-
-It is complete when the engineering capability has been demonstrated.
+A roadmap item is complete when the capability has been demonstrated, not when the technology has been installed. What counts as evidence, and when something is done, is defined once in the [Standards README](standards/README.md#definition-of-done) (Definition of Done and evidence standard).
 
 ---
 
@@ -452,7 +429,7 @@ It is complete when the engineering capability has been demonstrated.
 AROHAN uses the following progression:
 
 ``` text
-MISSION
+CHARTER
    ↓
 EVOLUTION
    ↓
@@ -475,15 +452,9 @@ This ensures that strategy, planning, implementation, validation, and release ev
 
 # 14. Roadmap Status Model
 
-| Status | Meaning |
-|---|---|
-| 🟢 Implemented | Capability demonstrated with evidence |
-| 🟡 In Progress | Active engineering work |
-| 🔵 Next | Immediate planned capability |
-| ⚪ Planned | Future capability |
-| 🔮 Vision | Long-term direction |
+Roadmap items use the same status model as the rest of the repository, defined in the [Standards README](standards/README.md#status-model): ✅ Completed · 🔵 Implemented · 🟢 In progress / ongoing · 🟡 Planned · ⚪ Future.
 
-A capability must not be marked **Implemented** without supporting engineering evidence.
+A capability must not be marked ✅ without supporting engineering evidence.
 
 ---
 

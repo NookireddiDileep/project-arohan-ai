@@ -1,221 +1,73 @@
-# PROJECT AROHAN AI (आरोहण)
+# PROJECT AROHAN AI (आरोहण) — Charter
 
-> **Ascending to Greater Heights**
->
 > **One Step Higher. Every Day. 🚀**
 
----
+This charter says **why** AROHAN exists and **what it aims for**. How the work is done is defined in [standards/](standards/README.md); where it is going is in [EVOLUTION.md](EVOLUTION.md) and [ROADMAP.md](ROADMAP.md); what exists today is the status table in the [README](README.md).
 
-# Engineering Charter
+---
 
 ## Vision
 
-PROJECT AROHAN AI is my lifelong engineering initiative dedicated to mastering Platform Engineering, Cloud Native Technologies, Artificial Intelligence Infrastructure, GPU Platforms, High Performance Computing, Automation, Observability, Security, and System Architecture through continuous learning, hands-on implementation, and production-focused engineering.
+A long-term, open engineering portfolio that documents the path from senior infrastructure engineer to **AI platform architect**: Linux, Kubernetes, OpenShift, GPU infrastructure, HPC, AI operations, automation, observability and security, built and proven hands-on.
 
-This project is not limited to any certification, technology, company, or role.
+AROHAN is not a collection of study notes and is not tied to any certification, company or role. It is a commitment to continuous engineering practice.
 
-It is a commitment to continuous engineering excellence.
+## Mission
 
----
+Design, build, operate, break, troubleshoot, automate and continuously improve production-grade platforms for AI workloads, and document every decision, lab, incident and lesson so another engineer can learn from it.
 
-# Mission
+The goal is practical engineering capability, not certification knowledge.
 
-To become a world-class Platform Engineer capable of designing, building, operating, automating, troubleshooting, and continuously improving enterprise-scale infrastructure and AI platforms.
+## Target identity
 
-Every document, every lab, every script, every runbook, every architecture diagram, and every engineering decision contributes toward this mission.
+**AI Platform Engineer**, growing into **AI Infrastructure Architect**, with depth in:
 
----
+- OpenShift and Kubernetes platform engineering
+- Workload management and scheduling across Kubernetes, HPC and AI clusters
+- GPU infrastructure and AI infrastructure operations
+- Observability, reliability and incident response
+- Automation, GitOps and security
 
-# Motto
+## Strategic direction (2026–2031)
 
-**One Step Higher. Every Day. 🚀**
+| Phase | Objective |
+|---|---|
+| 1 — Platform engineering depth | Strong, proven Kubernetes and OpenShift platform capability |
+| 2 — AI infrastructure | GPU infrastructure, scheduling and AI platform deployment |
+| 3 — AI operations | Observability, reliability, performance and incident response for AI platforms |
+| 4 — AI platform engineering | Design scalable, secure, automated AI platforms end to end |
+| 5 — Technical leadership | Lead architecture reviews, mentor engineers, shape platform strategy |
 
-Progress compounds.
+The capability-level plan for these phases is in [ROADMAP.md](ROADMAP.md).
 
-Small improvements made consistently create extraordinary results over time.
+## Engineering domains
 
----
+Linux · Networking · Storage · Containers · Kubernetes · OpenShift · HPC · GPU platforms · AI infrastructure · Observability · Reliability / SRE · Security · Automation (Bash, Ansible, Python, Go, Terraform) · GitOps · FinOps · System design
 
-# Philosophy
+## Definition of mastery
 
-Technology evolves.
+A technology is mastered only when I can explain it, design it, deploy it, validate it, monitor it, break it, troubleshoot it, recover it, automate it, document it and teach it.
 
-Engineering evolves.
+## Definition of success
 
-Problems evolve.
+AROHAN succeeds when it shows, with evidence: production-quality engineering practice, architectural thinking, deep troubleshooting, repeatable automation, clear documentation, and steady, measurable progress.
 
-Therefore, learning never ends.
+## Engineering ethics
 
-PROJECT AROHAN AI is built on the belief that engineering excellence is achieved through consistent practice, disciplined documentation, automation, operational thinking, and continuous improvement.
+- Never copy documentation without understanding it; credit original sources and open-source communities.
+- Never present unvalidated work as validated. Status is always honest.
+- Disclose AI assistance; evidence comes only from my own runs.
+- Prefer clarity over complexity and production thinking over theory.
+- Never commit secrets, credentials or employer-confidential information.
+- Learn from failures and share knowledge responsibly.
 
-This project is a lifelong journey rather than a destination.
+## Principles and standards
 
----
-
-# The Seven Principles of PROJECT AROHAN AI
-
-## 1. One Step Higher. Every Day.
-
-Continuous improvement is more valuable than occasional breakthroughs.
-
----
-
-## 2. Learn Deeply Before Building.
-
-Understanding fundamentals creates better engineers than memorizing tools.
-
----
-
-## 3. Build Before Claiming Expertise.
-
-Knowledge without implementation is incomplete.
-
-Every concept should be validated through hands-on practice.
+- [Engineering principles](standards/ENGINEERING_PRINCIPLES.md): how the work is approached
+- [Standards](standards/README.md): status model, Definition of Done, evidence, Git and documentation standards
 
 ---
 
-## 4. Automate Repetitive Work.
-
-Engineers solve problems once.
-
-Automation solves them forever.
-
----
-
-## 5. Document for Others, Not Just Yourself.
-
-Great documentation allows another engineer to understand, operate, troubleshoot, and improve a system without additional guidance.
-
----
-
-## 6. Design with Production in Mind.
-
-Every solution should consider:
-
-- Reliability
-- Scalability
-- Security
-- Monitoring
-- Recovery
-- Automation
-- Maintainability
-
----
-
-## 7. Never Stop Ascending.
-
-Every challenge is another opportunity to learn.
-
-Every failure is another opportunity to improve.
-
-Engineering mastery has no finish line.
-
----
-
-# Engineering Domains
-
-PROJECT AROHAN AI covers the following engineering disciplines:
-
-- Linux
-- Networking
-- Storage
-- Containers
-- Kubernetes
-- OpenShift
-- Platform Engineering
-- Infrastructure Automation
-- Terraform
-- Ansible
-- Python
-- GitOps
-- Observability
-- Production Engineering
-- Security
-- AI Infrastructure
-- GPU Platforms
-- HPC
-- System Design
-
----
-
-# Engineering Asset Model
-
-Every technology must eventually produce the following engineering assets.
-
-- Documentation
-- Architecture
-- Hands-on Labs
-- Automation
-- Runbooks
-- Production Notes
-- Troubleshooting Guides
-- Interview Preparation
-- Reference Material
-
-Learning is complete only when engineering assets exist.
-
----
-
-# Definition of Engineering Mastery
-
-A technology is considered mastered only when I can:
-
-- Explain it
-- Design it
-- Deploy it
-- Validate it
-- Monitor it
-- Troubleshoot it
-- Recover it
-- Automate it
-- Document it
-- Teach it
-
----
-
-# Definition of Done
-
-A topic is complete only when the following are available:
-
-- Architecture Documentation
-- Hands-on Lab
-- Validation Steps
-- Troubleshooting Guide
-- Automation
-- Production Best Practices
-- Interview Questions
-- References
-- Git History
-- Lessons Learned
-
----
-
-# Engineering Ethics
-
-- Never copy documentation without understanding it.
-- Always validate before publishing.
-- Prefer clarity over complexity.
-- Prefer production thinking over theoretical knowledge.
-- Learn from failures.
-- Share knowledge responsibly.
-- Respect open-source communities and acknowledge original sources.
-
----
-
-# Long-Term Vision
-
-PROJECT AROHAN AI is designed to evolve throughout my engineering career.
-
-Every new technology becomes another opportunity to ascend.
-
-The objective is not to reach a destination.
-
-The objective is to continuously become a better engineer.
-
----
-
-> **PROJECT AROHAN AI (आरोहण)**
+> **Build it. Break it. Measure it. Document it. Only then automate it.**
 >
-> **Ascending to Greater Heights**
->
-> **One Step Higher. Every Day. 🚀**
+> Every commit should make the platform, the engineer, or the documentation better than yesterday.
