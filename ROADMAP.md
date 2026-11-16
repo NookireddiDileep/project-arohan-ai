@@ -22,12 +22,13 @@ The roadmap is **capability-driven, not date-driven**: a stage moves forward onl
 
 ## 2. Current focus
 
-| Priority | Work | Done when |
+Hands-on time currently goes to **OpenShift platform depth**, outside this repo. AROHAN stays active through theory notes; new labs resume after that.
+
+| Track | Cadence | Status |
 |---|---|---|
-| 1 | OpenShift and Kubernetes platform depth ([workload management plan](engineering/workload-management/MASTERY_PLAN.md), Phase 1) | Lab write-ups with evidence for node config, networking and scheduling |
-| 2 | [Lab 03: GPU scheduling](labs/03-gpu-scheduling/README.md) (`kind` + fake GPUs, no cloud cost) | Run end to end, evidence captured, status ✅ |
-| 3 | [Lab 02: AI inference reliability](labs/02-ai-inference-reliability/README.md) | Run end to end, evidence captured, status ✅ |
-| Ongoing | [Workload management topics](engineering/workload-management/README.md) (twice a week) and [AI-infra notes](engineering/notes/README.md) (weekly) | Notes merged with sources |
+| [Workload management topics](engineering/workload-management/README.md): node, scheduling, multi-tenancy, networking, storage | Twice a week | 🟢 Active |
+| [AI-infrastructure notes](engineering/notes/README.md): GPU, training, serving, AI operations | Weekly | 🟢 Active |
+| [Lab 03: GPU scheduling](labs/03-gpu-scheduling/README.md) and [Lab 02: AI inference reliability](labs/02-ai-inference-reliability/README.md) | Resume later, Lab 03 first (`kind` + fake GPUs, no cloud cost) | 🟡 Paused, runbooks ready |
 
 ---
 

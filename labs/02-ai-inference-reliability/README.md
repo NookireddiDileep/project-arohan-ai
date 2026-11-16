@@ -2,7 +2,7 @@
 
 ## Status
 
-**LAB 02: PLANNED 🟡** (builds on [Lab 01: Workload Reliability Foundation](../01-workload-reliability/README.md))
+**LAB 02: PLANNED 🟡 (paused: runbook ready, will be run after the current OpenShift focus)** (builds on [Lab 01: Workload Reliability Foundation](../01-workload-reliability/README.md))
 
 **Project:** AROHAN AI · AI Workload Reliability track (Kubernetes → GPU → AI inference)
 **Cluster:** existing GCP K3s cluster `platform-engineer-lab` (CPU only, no GPU cost)
