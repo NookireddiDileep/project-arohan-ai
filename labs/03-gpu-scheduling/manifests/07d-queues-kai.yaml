@@ -1,0 +1,33 @@
+# Exercise 7d (stretch): two teams under one department, 8 guaranteed GPUs each.
+# Field shape follows KAI docs/quickstart/default-queues.yaml (scheduling.run.ai/v2) @ v0.19.0.
+apiVersion: scheduling.run.ai/v2
+kind: Queue
+metadata:
+  name: ai-dept
+spec:
+  resources:
+    cpu:    {quota: -1, limit: -1, overQuotaWeight: 1}
+    memory: {quota: -1, limit: -1, overQuotaWeight: 1}
+    gpu:    {quota: 16, limit: -1, overQuotaWeight: 1}
+---
+apiVersion: scheduling.run.ai/v2
+kind: Queue
+metadata:
+  name: team-a
+spec:
+  parentQueue: ai-dept
+  resources:
+    cpu:    {quota: -1, limit: -1, overQuotaWeight: 1}
+    memory: {quota: -1, limit: -1, overQuotaWeight: 1}
+    gpu:    {quota: 8, limit: -1, overQuotaWeight: 1}
+---
+apiVersion: scheduling.run.ai/v2
+kind: Queue
+metadata:
+  name: team-b
+spec:
+  parentQueue: ai-dept
+  resources:
+    cpu:    {quota: -1, limit: -1, overQuotaWeight: 1}
+    memory: {quota: -1, limit: -1, overQuotaWeight: 1}
+    gpu:    {quota: 8, limit: -1, overQuotaWeight: 1}

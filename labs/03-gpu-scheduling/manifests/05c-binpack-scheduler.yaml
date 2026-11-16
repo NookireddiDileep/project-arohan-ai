@@ -1,0 +1,97 @@
+# Exercise 5c: a SECOND kube-scheduler with a bin-packing profile (MostAllocated, GPU weighted 5).
+# Image tag must match the cluster version (kindest/node:v1.35.0 -> kube-scheduler:v1.35.0).
+# Pattern follows the Kubernetes docs "Configure Multiple Schedulers"; leader election is off (single replica lab).
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: binpack-scheduler
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: binpack-scheduler-as-kube-scheduler
+subjects:
+- {kind: ServiceAccount, name: binpack-scheduler, namespace: kube-system}
+roleRef:
+  {kind: ClusterRole, name: "system:kube-scheduler", apiGroup: rbac.authorization.k8s.io}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: binpack-scheduler-as-volume-scheduler
+subjects:
+- {kind: ServiceAccount, name: binpack-scheduler, namespace: kube-system}
+roleRef:
+  {kind: ClusterRole, name: "system:volume-scheduler", apiGroup: rbac.authorization.k8s.io}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: binpack-scheduler-extension-apiserver-authentication-reader
+  namespace: kube-system
+subjects:
+- {kind: ServiceAccount, name: binpack-scheduler, namespace: kube-system}
+roleRef:
+  {kind: Role, name: extension-apiserver-authentication-reader, apiGroup: rbac.authorization.k8s.io}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: binpack-scheduler-config
+  namespace: kube-system
+data:
+  config.yaml: |
+    apiVersion: kubescheduler.config.k8s.io/v1
+    kind: KubeSchedulerConfiguration
+    leaderElection:
+      leaderElect: false
+    profiles:
+    - schedulerName: binpack-scheduler
+      plugins:
+        score:
+          disabled:
+          - name: NodeResourcesBalancedAllocation
+          - name: PodTopologySpread
+      pluginConfig:
+      - name: NodeResourcesFit
+        args:
+          scoringStrategy:
+            type: MostAllocated
+            resources:
+            - name: cpu
+              weight: 1
+            - name: memory
+              weight: 1
+            - name: nvidia.com/gpu
+              weight: 5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: binpack-scheduler
+  namespace: kube-system
+  labels: {component: binpack-scheduler}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {component: binpack-scheduler}
+  template:
+    metadata:
+      labels: {component: binpack-scheduler}
+    spec:
+      serviceAccountName: binpack-scheduler
+      containers:
+      - name: kube-scheduler
+        image: registry.k8s.io/kube-scheduler:v1.35.0
+        command:
+        - /usr/local/bin/kube-scheduler
+        - --config=/etc/kubernetes/binpack/config.yaml
+        - --v=3
+        resources:
+          requests: {cpu: 50m, memory: 64Mi}
+        volumeMounts:
+        - {name: config, mountPath: /etc/kubernetes/binpack, readOnly: true}
+      volumes:
+      - name: config
+        configMap: {name: binpack-scheduler-config}

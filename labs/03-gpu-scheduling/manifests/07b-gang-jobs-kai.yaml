@@ -1,0 +1,59 @@
+# Exercise 7b: the SAME deadlock scenario as Exercise 6, but with KAI gangs.
+# 16 GPUs exist (2 nodes x 8). Two jobs each want 10 GPUs as an all-or-nothing gang.
+# Expect: one job fully Running (10/10), the other fully Pending (0/10). No half-placed jobs.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kai-lab
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: gang-a
+  namespace: kai-lab
+  annotations:
+    kai.scheduler/batch-min-member: "10"
+spec:
+  parallelism: 10
+  completions: 10
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        kai.scheduler/queue: default-queue
+    spec:
+      schedulerName: kai-scheduler
+      restartPolicy: Never
+      automountServiceAccountToken: false
+      containers:
+      - name: worker
+        image: busybox:1.36
+        command: ["sleep", "3600"]
+        resources:
+          limits: {nvidia.com/gpu: "1", memory: 64Mi}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: gang-b
+  namespace: kai-lab
+  annotations:
+    kai.scheduler/batch-min-member: "10"
+spec:
+  parallelism: 10
+  completions: 10
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        kai.scheduler/queue: default-queue
+    spec:
+      schedulerName: kai-scheduler
+      restartPolicy: Never
+      automountServiceAccountToken: false
+      containers:
+      - name: worker
+        image: busybox:1.36
+        command: ["sleep", "3600"]
+        resources:
+          limits: {nvidia.com/gpu: "1", memory: 64Mi}
