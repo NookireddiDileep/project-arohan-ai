@@ -20,6 +20,7 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 | Notes | [Kubernetes scheduling, from kube-scheduler to GPU gangs](engineering/gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md) | ✅ Written |
 | Notes | [AI inference on Kubernetes: lifecycle and latency](engineering/ai-inference/INFERENCE_ON_KUBERNETES.md) | ✅ Written |
 | Notes | [AI-infrastructure notes](engineering/notes/README.md): one topic a week from a 40-topic curriculum, GPU fundamentals to reference architectures | 🟢 Weekly |
+| Module | [Workload management mastery](engineering/workload-management/README.md): K8s / OpenShift / HPC / AI workload management from the infra layer up. Six-layer plan, lab checklists, drill library, topic notes added regularly | 🟢 Ongoing |
 | Notes | [NVIDIA AI infrastructure foundations](engineering/NVIDIA/README.md) (prep for the NCA-AIIO certification, which I hold) | ✅ Written |
 | Standards | [Engineering standards & principles](standards/README.md) | ✅ In use |
 | Next | AI-assisted RCA, policy-guarded remediation, GPU telemetry (DCGM), GPU Operator, FinOps | ⚪ Planned |
@@ -68,7 +69,7 @@ More detail: [EVOLUTION.md](EVOLUTION.md) (how autonomy is earned) · [ROADMAP.m
 ```
 project-arohan-ai/
 ├── labs/          hands-on labs: README runbook, manifests, scripts, evidence/
-├── engineering/   deep-dive notes (scheduling, inference, NVIDIA foundations)
+├── engineering/   deep-dive notes (scheduling, inference, NVIDIA foundations, workload-management module)
 ├── standards/     engineering standards and principles
 ├── CHARTER.md · MISSION.md · EVOLUTION.md · ROADMAP.md · CHANGELOG.md
 ```
