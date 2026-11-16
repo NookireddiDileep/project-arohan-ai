@@ -366,11 +366,7 @@ NVIDIA AI Infrastructure
 
 ## Module Deliverables
 
-- README.md
-- OFFICIAL_NOTES.md
-- ENGINEERING_NOTES.md
-- REVISION.md
-- MCQS.md
+- README.md (my own notes)
 
 ---
 
@@ -378,10 +374,6 @@ NVIDIA AI Infrastructure
 
 - [x] README Completed
 - [x] First Pass Learning Completed
-- [ ] OFFICIAL_NOTES.md Completed
-- [ ] ENGINEERING_NOTES.md Completed
-- [ ] REVISION.md Completed
-- [ ] MCQS.md Completed
 - [ ] Final Revision Completed
 - [ ] Exam Ready
 ---

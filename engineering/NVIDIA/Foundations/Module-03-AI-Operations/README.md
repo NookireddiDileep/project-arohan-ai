@@ -81,10 +81,7 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Operations includes
 ## Module Deliverables
 
 - README.md
-- OFFICIAL_NOTES.md
-- ENGINEERING_NOTES.md
-- REVISION.md
-- MCQS.md
+- MY_NOTES.md (my own words, no copied course text and no exam questions)
 
 ---
 
@@ -92,10 +89,6 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Operations includes
 
 - [x] README Completed
 - [x] First Pass Learning Completed
-- [ ] OFFICIAL_NOTES.md Completed
-- [ ] ENGINEERING_NOTES.md Completed
-- [ ] REVISION.md Completed
-- [ ] MCQS.md Completed
 - [ ] Final Revision Completed
 - [ ] Exam Ready
 
