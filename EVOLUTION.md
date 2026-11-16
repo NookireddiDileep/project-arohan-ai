@@ -166,7 +166,7 @@ Operational intelligence evolves into controlled infrastructure action.
 
 ## Core control loop
 
-**Observe → Detect → Diagnose → Decide → Guardrail → Remediate → Verify → Explain → Notify → Audit**
+**Observe → Detect → Diagnose → Decide → Guardrail → Remediate → Verify → Explain (RCA) → Notify → Audit**
 
 ## Core capabilities
 

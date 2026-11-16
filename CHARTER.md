@@ -42,7 +42,7 @@ The capability-level plan for these phases is in [ROADMAP.md](ROADMAP.md).
 
 ## Engineering domains
 
-Linux · Networking · Storage · Containers · Kubernetes · OpenShift · HPC · GPU platforms · AI infrastructure · Observability · Reliability / SRE · Security · Automation (Bash, Ansible, Python, Go, Terraform) · GitOps · FinOps · System design
+Platform, AI infrastructure, observability and SRE, security, and FinOps. The topics in each are listed in the [README](README.md#domains-covered-over-time).
 
 ## Definition of mastery
 

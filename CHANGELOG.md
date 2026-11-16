@@ -79,6 +79,22 @@ A capability should not be marked as implemented without supporting engineering 
 
 ---
 
+## 2026-08-10 — Lab 01: Workload Reliability Foundation
+
+### What changed
+
+Built and validated the first reliability control loop on a K3s cluster: baseline workload and service, Prometheus and kube-state-metrics, a workload-reliability SLI and alert rule, controlled memory-pressure failure injection, alert lifecycle and recovery validation, and promtool rule validation.
+
+### Evidence
+
+[Lab 01 validation record](labs/01-gpu-workload-reliability/evidence/AROHAN-Lab-01-VALIDATION.md)
+
+### Outcome
+
+Lab 01 ✅. Control loop demonstrated: workload → metrics → rule → detection → alert → recovery → verification → evidence.
+
+---
+
 ## 2026-11-16 — Documentation Consolidation
 
 ### What changed
