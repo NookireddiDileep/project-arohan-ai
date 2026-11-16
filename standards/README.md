@@ -1,436 +1,113 @@
 # Project AROHAN — Engineering Standards
 
-> Engineering standards, quality gates, and operating principles for Project AROHAN.
+Quality gates for every lab, note and script in Project AROHAN.
 
-## Purpose
+- **Principles** (how work is approached): [ENGINEERING_PRINCIPLES.md](ENGINEERING_PRINCIPLES.md)
+- **Standards** (what a piece of work must meet): this file
 
-The `standards/` directory defines the common engineering standards used across Project AROHAN.
+---
 
-These standards ensure that AROHAN capabilities are developed consistently across:
+## Status model
 
-- Platform Engineering
-- Kubernetes
-- Observability
-- Reliability / SRE
-- GPU Infrastructure
-- AI Workloads
-- AI Operations
-- Automation
-- Autonomous AI Infrastructure
+Status must reflect the actual repository state, not the intended one.
 
-The purpose is to ensure that AROHAN demonstrates engineering capability rather than isolated technical demonstrations.
+| Status | Icon | Meaning |
+|---|---|---|
+| Completed | ✅ | Implemented and validated, with evidence in the repo |
+| Implemented | 🔵 | Implementation exists; validation or evidence still missing |
+| In progress / ongoing | 🟢 | Active work, or a recurring series (e.g. weekly notes) |
+| Planned | 🟡 | Designed (runbook or plan written), not yet run |
+| Future | ⚪ | Part of the longer-term direction; no work started |
 
-## Engineering Principles
+## Definition of Done
 
-### Reliability First
+A capability is ✅ only when, where applicable:
 
-Reliability is a core engineering capability.
+| Area | Requirement |
+|---|---|
+| Problem | The engineering problem is clearly defined |
+| Architecture | Design and dependencies are documented |
+| Implementation | The implementation works |
+| Observability | Health and operational signals are available |
+| Validation | Expected behaviour is verified |
+| Failure | A controlled failure scenario is tested |
+| Recovery | Recovery is performed and verified |
+| Evidence | Proof is captured in `evidence/` |
+| Documentation | Findings and limitations are written up |
+| Git | The work is committed as a reviewable change |
 
-Important workloads and infrastructure should have measurable health, performance, and reliability signals.
+Each lab README states which criteria apply to it.
 
-### Evidence Over Claims
+## Evidence standard
 
-Engineering claims should be supported by evidence.
-
-Examples include:
-
-- Command output
-- Metrics
-- PromQL results
-- Kubernetes state
-- Logs
-- Alert transitions
-- Validation records
-- Screenshots
-- Test results
-- Git history
-
-### Failure Is Part of the Design
-
-Important capabilities should eventually be tested under controlled failure conditions.
-
-Examples include:
-
-- Resource exhaustion
-- Pod failure
-- Node failure
-- Configuration failure
-- Dependency failure
-- Network failure
-- Storage failure
-- GPU failure
-
-Failure testing must be controlled, observable, and reversible.
-
-### Automation Over Manual Operations
-
-Repeated operational activities should progressively move toward automation.
-
-The preferred evolution is:
+Evidence is stored with its lab:
 
 ```text
-Manual
-  ↓
-Documented
-  ↓
-Scripted
-  ↓
-Declarative
-  ↓
-Automated
-  ↓
-Verified
-  ↓
-Autonomous
-Observable by Design
+labs/<lab>/evidence/
+├── screenshots
+├── validation records
+├── command outputs
+└── investigation notes
+```
 
-Systems should expose the signals required to understand their operational state.
+Evidence must show the actual system state, be clearly named, trace back to the implementation, support the stated conclusion, and contain no secrets or personal data.
 
-Depending on the capability, this may include:
+## Lab lifecycle and maturity
 
-Metrics
-Logs
-Events
-Traces
-Health checks
-Resource state
-Application state
-Production Thinking
+Lifecycle: **Problem → Architecture → Implementation → Observability → Validation → Failure injection → Recovery → Evidence → Documentation → Automation**
 
-Even when a capability is implemented in a lab environment, the engineering approach should consider production concerns where applicable.
+A capability does not need to reach every stage at once, but its current stage must be clear. Lab maturity levels (project-level autonomy levels L0–L8 are in [ROADMAP.md](../ROADMAP.md)):
 
-These include:
+| Level | Name | Meaning |
+|---|---|---|
+| 1 | Implement | The capability works |
+| 2 | Observe | Meaningful operational signals exist |
+| 3 | Validate | Expected behaviour is tested |
+| 4 | Break | Controlled failures are introduced |
+| 5 | Recover | Recovery is validated |
+| 6 | Automate | Operational responses are automated |
+| 7 | Optimize | Performance, efficiency and capacity are improved |
+| 8 | Predict | Failures or capacity problems are anticipated |
+| 9 | Autonomize | Parts of the operational loop run safely with minimal human input |
 
-Reliability
-Scalability
-Security
-Availability
-Observability
-Capacity
-Cost
-Recovery
-Multi-tenancy
-Operational ownership
-Reproducibility
+## Failure engineering
 
-Engineering work should be reproducible wherever practical.
+**Inject → Detect → Diagnose → Remediate → Verify recovery → Record evidence**
 
-Documentation should identify:
+Failure experiments must be controlled, reversible, observable and documented.
 
-Environment
-Versions
-Dependencies
-Configuration
-Implementation
-Validation
-Expected results
-Security
+## Automation standard
 
-Security should be considered throughout the engineering lifecycle.
+Automation follows **manual → documented → scripted → declarative → automated → verified**. Automation should be declarative, idempotent, observable, testable and reversible. Automated remediation is not production-ready until its verification step has been proven.
 
-Relevant areas include:
+## Reproducibility standard
 
-Least privilege
-RBAC
-Secrets management
-Network isolation
-Workload isolation
-Container security
-Supply-chain security
-Multi-tenancy
+Every lab records environment, tool and image versions, dependencies, configuration, validation steps and expected results.
 
-Credentials, private keys, tokens, and sensitive configuration must never be committed to Git.
+## Security standard
 
-Engineering Lifecycle
+Least privilege, RBAC, network and workload isolation, and multi-tenancy are considered in every lab. Credentials, private keys, tokens and sensitive configuration are never committed to Git.
 
-AROHAN capabilities should progressively follow this lifecycle:
+## Documentation standard
 
-Problem
-   ↓
-Architecture
-   ↓
-Implementation
-   ↓
-Observability
-   ↓
-Validation
-   ↓
-Failure Injection
-   ↓
-Recovery
-   ↓
-Evidence
-   ↓
-Documentation
-   ↓
-Automation
+Significant work documents, where relevant: objective, problem, environment, architecture, implementation, observability, validation, failure testing, recovery, evidence, findings, limitations and next steps. It uses the status model above.
 
-The lifecycle does not require every capability to reach every stage immediately.
+## Git standard
 
-The current maturity of the capability should always be clear.
+Changes are focused, traceable and reviewable; unrelated changes go in separate commits. Commit format:
 
-Definition of Done
-
-A capability should not be considered complete simply because the implementation works.
-
-Where applicable, completion should demonstrate:
-
-Problem defined
-Architecture documented
-Implementation completed
-Observability implemented
-Validation performed
-Failure scenario tested
-Recovery verified
-Evidence captured
-Documentation updated
-Git checkpoint created
-
-The applicable completion criteria should be documented for each major capability.
-
-Evidence Standard
-
-Evidence is a first-class engineering artifact within AROHAN.
-
-Recommended evidence structure:
-
-evidence/
-├── screenshots/
-├── validation/
-├── command-outputs/
-└── investigation-notes/
-
-Evidence should:
-
-Represent actual system state
-Be clearly named
-Be traceable to the implementation
-Support the documented conclusion
-Avoid sensitive information
-Git Standards
-
-Git is part of the engineering record.
-
-Changes should be:
-
-Focused
-Traceable
-Reviewable
-Meaningfully committed
-
-Preferred commit format:
-
+```text
 <type>(<scope>): <description>
 
-Examples:
-
-feat(arohan): add workload reliability capability
-fix(arohan): correct observability configuration
-docs(arohan): add lab validation evidence
-refactor(arohan): restructure engineering documentation
-
-Unrelated changes should not be combined into a single commit.
-
-Documentation Standards
-
-Significant engineering capabilities should document the relevant aspects of:
-
-Objective
-Problem
-Environment
-Architecture
-Implementation
-Observability
-Validation
-Failure testing
-Recovery
-Evidence
-Findings
-Limitations
-Future evolution
-
-Documentation should clearly distinguish between:
-
-Completed
-Implemented
-In Progress
-Planned
-Future
-Failure Engineering
-
-The preferred failure-engineering model is:
-
-Failure Injection
-       ↓
-Detection
-       ↓
-Diagnosis
-       ↓
-Remediation
-       ↓
-Recovery Verification
-       ↓
-Evidence
-
-Failure experiments should be:
-
-Controlled
-Reversible
-Observable
-Documented
-Automation Standards
-
-Automation should progressively reduce manual operational effort.
-
-Preferred characteristics include:
-
-Declarative
-Idempotent
-Observable
-Testable
-Reversible
-
-Automated remediation should include appropriate verification before being considered production-ready.
-
-AI Infrastructure Standards
-
-AROHAN progressively extends these standards into AI infrastructure.
-
-Relevant engineering areas include:
-
-GPU Infrastructure
-GPU Scheduling
-GPU Observability
-GPU Reliability
-GPU Performance
-Multi-GPU Workloads
-Distributed AI
-AI Networking
-AI Storage
-Inference
-Capacity Management
-FinOps
-AI Factory Operations
-Autonomous AI Infrastructure
-
-AI infrastructure capabilities should build on the platform, observability, and reliability foundations established earlier in AROHAN.
-
-Status Model
-
-AROHAN uses explicit status terminology.
-
-Completed
-
-Implemented and validated with supporting evidence.
-
-Implemented
-
-Implementation exists, but additional validation or evidence may remain.
-
-In Progress
-
-Active engineering work is underway.
-
-Planned
-
-Defined for future implementation but work has not started.
-
-Future
-
-Part of the longer-term AROHAN evolution.
-
-Status should reflect the actual repository state.
-
-Lab Maturity Model
-
-AROHAN capabilities progressively mature through the following levels.
-
-Level 1 — Implement
-
-The capability works.
-
-Level 2 — Observe
-
-Meaningful operational signals are available.
-
-Level 3 — Validate
-
-Expected behaviour is tested.
-
-Level 4 — Break
-
-Controlled failure scenarios are introduced.
-
-Level 5 — Recover
-
-Recovery behaviour is validated.
-
-Level 6 — Automate
-
-Operational responses are automated.
-
-Level 7 — Optimize
-
-Performance, efficiency, and capacity are improved.
-
-Level 8 — Predict
-
-Potential failures or capacity problems can be anticipated.
-
-Level 9 — Autonomize
-
-The system can safely perform parts of the operational control loop with minimal human intervention.
-
-Repository Relationship
-
-AROHAN uses the following structure:
-
-engineering/
-    Engineering direction and architecture
-
-standards/
-    Engineering standards and quality gates
-
-labs/
-    Hands-on implementations and experiments
-
-These areas form one engineering system.
-
-Current Standard
-
-The current AROHAN engineering baseline establishes:
-
-Reliability-first engineering
-Evidence-driven validation
-Controlled failure testing
-Observable systems
-Reproducible implementations
-Production-oriented thinking
-Secure engineering practices
-Git-based change tracking
-Progressive automation
-AI infrastructure engineering principles
-
-North Star
-
-Project AROHAN progressively aims to build infrastructure that can:
-
-Observe
-   ↓
-Understand
-   ↓
-Detect
-   ↓
-Diagnose
-   ↓
-Remediate
-   ↓
-Verify
-   ↓
-Optimize
-   ↓
-Predict
-   ↓
-Autonomous
-
-Project AROHAN is an engineering system for progressively building reliable, observable, automated, and autonomous AI infrastructure and operations.
+feat(lab03): add gang deadlock manifest
+fix(lab01): correct alert threshold
+docs(standards): rewrite engineering principles
+```
+
+## Repository relationship
+
+| Directory | Role |
+|---|---|
+| `engineering/` | Direction, architecture and deep-dive notes |
+| `standards/` | Principles and quality gates (this folder) |
+| `labs/` | Hands-on implementations, experiments and evidence |

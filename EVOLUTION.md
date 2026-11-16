@@ -320,60 +320,15 @@ Autonomy requires:
 
 # 9. Current Position
 
-AROHAN is currently progressing through the transition from:
+AROHAN is in **Stage 1 (Platform Engineering)**, starting the move into **Stage 2 (AI Infrastructure)**.
 
-**Platform Engineering → AI Infrastructure → AI Operations**
-
-## Current capability status
-
-| Capability | Status |
-|---|---|
-| Project Charter | Implemented |
-| Project Mission | Implemented |
-| Engineering Principles | Implemented |
-| Engineering Standards | Implemented |
-| NVIDIA AI Infrastructure Foundation (NCA-AIIO certified) | Implemented |
-| Workload reliability foundation (Lab 01, with evidence) | Implemented |
-| AI inference reliability (Lab 02) | Planned (runbook written) |
-| GPU scheduling (Lab 03) | Planned (runbook written) |
-| Autonomous Kubernetes Operations | Planned |
-| AI-powered RCA | Planned |
-| Guarded Remediation | Planned |
-| Automatic RCA Generation | Planned |
-| Engineer Email Notification | Planned |
-| Autonomous GPU Operations | Planned |
-| Autonomous AI Inference | Planned |
-| Autonomous FinOps | Planned |
-| Predictive Operations | Planned |
-| Multi-Agent Operations | Planned |
-| Autonomous AI Factory | Planned |
-
-These statuses should evolve as implementation evidence is produced.
+What exists today, with status and evidence, is tracked in one place only: the status table in the [README](README.md#whats-actually-here-status). Planned capabilities and their order are in [ROADMAP.md](ROADMAP.md).
 
 ---
 
 # 10. Evolution Evidence
 
-AROHAN evolution should always be supported by engineering evidence.
-
-Major capabilities should produce one or more of:
-
-- Architecture documentation
-- Source code
-- Hands-on labs
-- Automation
-- Runbooks
-- Production notes
-- Troubleshooting guides
-- Incident scenarios
-- RCA documents
-- Benchmarks
-- Observability evidence
-- Security controls
-- Validation results
-- Interview material
-
-The project should **build before claiming**.
+Every stage is backed by evidence, never by claims. The [Standards README](standards/README.md#definition-of-done) defines what counts as evidence and when a capability is done.
 
 ---
 
@@ -400,7 +355,7 @@ Engineering assets provide:
 Therefore:
 
 ``` text
-MISSION
+CHARTER
    ↓
 EVOLUTION
    ↓
