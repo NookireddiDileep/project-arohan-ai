@@ -2,7 +2,7 @@
 
 ## Status
 
-**LAB 03: PLANNED 🟡** (theory: [Kubernetes Scheduling deep dive](../../engineering/gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md))
+**LAB 03: PLANNED 🟡 (paused: runbook ready, will be run after the current OpenShift focus)** (theory: [Kubernetes Scheduling deep dive](../../engineering/gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md))
 
 **Project:** AROHAN AI · Architecture capability **6. GPU Scheduling**
 **Cluster:** `kind` on a laptop or a GCP VM (Docker). **No real GPU needed.** Fake GPUs are used. Baseline cluster: about 2 vCPU / 4 GB free. KAI cluster (Ex. 7): about 4 vCPU / 8 GB free.
