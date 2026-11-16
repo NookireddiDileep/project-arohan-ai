@@ -10,17 +10,23 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 
 ---
 
+## Proof so far
+
+**[Lab 01](labs/01-workload-reliability/README.md) ✅:** on a K3s cluster with Prometheus and kube-state-metrics, I joined live container memory with the declared Kubernetes limit in PromQL, alerted on sustained use above 80%, injected memory pressure (the alert went pending → firing at **86.35%** of the limit) and verified it returned to inactive after recovery. The rule is promtool-validated.
+
+<img src="labs/01-workload-reliability/evidence/02-reliability-rule.png" alt="Live Prometheus rule ArohanBaselineHighMemoryUtilization, health ok" width="640">
+
 ## What's actually here (status)
 
 | Area | Item | Status |
 |---|---|---|
-| **Lab 01** | [Workload reliability foundation](labs/01-gpu-workload-reliability/README.md): K3s workload, Prometheus, reliability SLI + alert, controlled failure injection, alert lifecycle and recovery validation | ✅ **Done, with evidence** |
+| **Lab 01** | [Workload reliability foundation](labs/01-workload-reliability/README.md): K3s workload, Prometheus, reliability SLI + alert, controlled failure injection, alert lifecycle and recovery validation | ✅ **Done, with evidence** |
 | **Lab 02** | [AI inference reliability](labs/02-ai-inference-reliability/README.md): an LLM (Ollama) on Kubernetes with quotas, probes, benchmarks, failure drills and RCAs | 🟡 Planned, runbook written |
 | **Lab 03** | [GPU scheduling](labs/03-gpu-scheduling/README.md): filter/score, taints vs affinity, GPU fragmentation + bin-packing, gang deadlock, NVIDIA KAI Scheduler (kind + fake GPUs) | 🟡 Planned, runbook written |
 | Notes | [Kubernetes scheduling, from kube-scheduler to GPU gangs](engineering/gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md) | ✅ Written |
 | Notes | [AI inference on Kubernetes: lifecycle and latency](engineering/ai-inference/INFERENCE_ON_KUBERNETES.md) | ✅ Written |
-| Notes | [AI-infrastructure notes](engineering/notes/README.md): one topic a week from a 40-topic curriculum, GPU fundamentals to reference architectures | 🟢 Weekly |
-| Module | [Workload management mastery](engineering/workload-management/README.md): K8s / OpenShift / HPC / AI workload management from the infra layer up. Six-layer plan, lab checklists, drill library, topic notes added regularly | 🟢 Ongoing |
+| Notes | [AI-infrastructure notes](engineering/notes/README.md): one topic a week from a 40-topic curriculum, GPU fundamentals to reference architectures | 🟢 Weekly, first note due 21 Nov 2026 |
+| Module | [Workload management mastery](engineering/workload-management/README.md): K8s / OpenShift / HPC / AI workload management from the infra layer up. Six-layer plan, lab checklists, drill library, topic notes twice a week | 🟢 Starting, first topic due 19 Nov 2026 |
 | Notes | [NVIDIA AI infrastructure foundations](engineering/NVIDIA/README.md) (prep for the NCA-AIIO certification, which I hold) | ✅ Written |
 | Standards | [Engineering principles](standards/ENGINEERING_PRINCIPLES.md) · [standards & quality gates](standards/README.md) · [charter](CHARTER.md) | ✅ In use |
 | Next | AI-assisted RCA, policy-guarded remediation, GPU telemetry (DCGM), GPU Operator, FinOps | ⚪ Future |
@@ -35,7 +41,7 @@ Status icons follow the [status model](standards/README.md#status-model): ✅ co
 
 ## The journey
 
-The five stages from [EVOLUTION.md](EVOLUTION.md):
+The five stages from the [roadmap](ROADMAP.md#1-the-five-stages):
 
 1. **Platform Engineering**: Kubernetes, OpenShift, GitOps, observability
 2. **AI Infrastructure**: GPU scheduling, model serving, inference
@@ -53,7 +59,7 @@ The target control loop, built step by step across labs:
 
 > AI reasons about the situation. Policy decides what AI is allowed to do. Verification decides whether it worked.
 
-More detail: [EVOLUTION.md](EVOLUTION.md) (how autonomy is earned) · [ROADMAP.md](ROADMAP.md) (planned sequence) · [CHANGELOG.md](CHANGELOG.md) (what has actually been implemented).
+More detail: [ROADMAP.md](ROADMAP.md) (stages, how autonomy is earned, planned sequence) · [CHANGELOG.md](CHANGELOG.md) (what has actually been implemented).
 
 ---
 
@@ -76,7 +82,7 @@ project-arohan-ai/
 ├── labs/          hands-on labs: README runbook, manifests, scripts, evidence/
 ├── engineering/   deep-dive notes (scheduling, inference, NVIDIA foundations, workload-management module)
 ├── standards/     engineering standards and principles
-├── CHARTER.md · EVOLUTION.md · ROADMAP.md · CHANGELOG.md
+├── CHARTER.md · ROADMAP.md · CHANGELOG.md
 ```
 
 ---

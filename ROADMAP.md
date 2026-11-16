@@ -1,455 +1,106 @@
-# PROJECT AROHAN AI — ROADMAP
+# PROJECT AROHAN AI — Roadmap
 
-> **One Step Higher. Every Day. 🚀**
+Where AROHAN is going, in what order, and what has to be proven before each step. What exists today is the status table in the [README](README.md#whats-actually-here-status); how work is judged is in [standards/](standards/README.md).
 
-## Purpose
-
-This roadmap defines the planned engineering progression of PROJECT AROHAN AI.
-
-It translates the long-term AROHAN vision into progressive engineering capabilities, from platform foundations through AI infrastructure, AI operations, and eventually autonomous AI infrastructure and operations.
-
-The roadmap is intentionally capability-driven rather than date-driven.
-
-A capability moves forward when sufficient engineering evidence exists.
+The roadmap is **capability-driven, not date-driven**: a stage moves forward only when the previous one has evidence.
 
 ---
 
-# 1. Roadmap at a Glance
+## 1. The five stages
 
-``` text
-Platform Engineering
-        ↓
-AI Infrastructure
-        ↓
-AI Operations
-        ↓
-Autonomous Kubernetes Operations
-        ↓
-Autonomous AI Operations
-        ↓
-Predictive Operations
-        ↓
-Multi-Agent Operations
-        ↓
-Autonomous AI Factory
-```
+| # | Stage | Core capabilities | Transition |
+|---|---|---|---|
+| 1 | **Platform Engineering** | Linux, Kubernetes, OpenShift, containers, Helm, Terraform, Ansible, GitOps / Argo CD, observability, security, reliability | Manual infrastructure → declarative, automated platform |
+| 2 | **AI Infrastructure** | GPU infrastructure and scheduling, multi-GPU and distributed AI, model serving and inference, AI-aware resource management | Platform → infrastructure engineered for AI workloads, not treated as generic apps |
+| 3 | **AI Operations** | Metrics, logs, traces, events, GPU telemetry, SLI/SLO and error budgets, incident response, AI-assisted RCA, capacity intelligence, FinOps | Monitoring → operational understanding |
+| 4 | **Autonomous Operations (guarded)** | Decision engines, policy enforcement, guarded remediation, automated RCA, recovery verification | Understanding → controlled, policy-checked action |
+| 5 | **Autonomous AI Factory** | Multi-tenant AI platforms, GPU orchestration, predictive operations, self-healing, multi-agent operations, policy-driven autonomy | Controlled autonomy → end-to-end governed AI platform operations |
+
+**You are here:** Stage 1, moving into Stage 2.
 
 ---
 
-# 2. Roadmap Principles
-
-AROHAN follows these principles when progressing through the roadmap.
-
-1. Build before claiming.
-2. Solve real infrastructure problems.
-3. Establish foundations before autonomy.
-4. Observability precedes intelligent operations.
-5. Automation precedes autonomy.
-6. Policy and guardrails precede autonomous execution.
-7. Verification is mandatory after automated action.
-8. Security and governance evolve with every capability.
-9. Cost and efficiency are engineering concerns.
-10. Every major capability requires evidence.
-
----
-
-# 3. Current Focus — Platform Engineering → AI Infrastructure
-
-The capability lists for each stage are in [EVOLUTION.md](EVOLUTION.md). What is actually being worked on now:
+## 2. Current focus
 
 | Priority | Work | Done when |
 |---|---|---|
 | 1 | OpenShift and Kubernetes platform depth ([workload management plan](engineering/workload-management/MASTERY_PLAN.md), Phase 1) | Lab write-ups with evidence for node config, networking and scheduling |
-| 2 | [Lab 02: AI inference reliability](labs/02-ai-inference-reliability/README.md) | Run end to end, evidence captured, status ✅ |
-| 3 | [Lab 03: GPU scheduling](labs/03-gpu-scheduling/README.md) | Run end to end, evidence captured, status ✅ |
+| 2 | [Lab 03: GPU scheduling](labs/03-gpu-scheduling/README.md) (`kind` + fake GPUs, no cloud cost) | Run end to end, evidence captured, status ✅ |
+| 3 | [Lab 02: AI inference reliability](labs/02-ai-inference-reliability/README.md) | Run end to end, evidence captured, status ✅ |
 | Ongoing | [Workload management topics](engineering/workload-management/README.md) (twice a week) and [AI-infra notes](engineering/notes/README.md) (weekly) | Notes merged with sources |
 
 ---
 
-# 4. Next — Establish the Autonomous Operations Foundation
+## 3. How autonomy is earned
 
-After the current focus above, the next objective is to connect observability, AI reasoning, policy, and controlled remediation.
+AROHAN does not treat an AI agent with infrastructure access as autonomous engineering. Each step depends on the one before it:
 
-## Target flow
+**Observe → Understand → Automate → Detect → Diagnose → Recommend → Guard → Remediate → Verify → Learn → Predict → Optimize**
 
-``` text
-Observe
-   ↓
-Detect
-   ↓
-Diagnose
-   ↓
-Decide
-   ↓
-Guardrail
-   ↓
-Remediate
-   ↓
-Verify
-   ↓
-Explain
-   ↓
-Notify
-   ↓
-Audit
-```
+The target operating loop (Stage 4):
 
-## Priority capabilities
+**Observe → Detect → Diagnose → Decide → Guardrail → Remediate → Verify → Explain (RCA) → Notify → Audit**
 
-- Autonomous Kubernetes Operations
-- AI-powered RCA
-- Guarded Remediation
-- Recovery Verification
-- Incident Intelligence
-- Policy-controlled actions
-- Audit trail
-- Operational evidence
+> **The AI agent proposes and reasons. Policy decides what the agent is allowed to execute. Verification decides whether it worked.**
 
-## Completion gate
+Autonomous actions must be explicitly allowed, policy-controlled, auditable, reversible where possible, and verified after execution.
 
-This stage is complete when AROHAN can demonstrate a controlled infrastructure incident from:
+### Gates
 
-**Incident → Detection → Evidence Collection → AI Diagnosis → Policy Validation → Remediation → Verification → RCA → Notification → Audit**
+A capability does not move up until each question has an evidenced "yes":
 
----
+| Gate | Question |
+|---|---|
+| 1 Observability | Can we reliably observe the system? |
+| 2 Diagnosis | Can we explain why something happened? |
+| 3 Automation | Can we execute the remediation reliably? |
+| 4 Guardrails | Can we restrict what automation is allowed to do? |
+| 5 Verification | Can we prove the action worked? |
+| 6 Explainability | Can we explain why the decision was made? |
+| 7 Auditability | Can we reconstruct what happened? |
+| 8 Autonomy | Can the system safely run the whole loop? |
 
-# 5. Then — Autonomous AI Operations
+### Autonomy levels
 
-Once the core autonomous Kubernetes workflow is reliable, AROHAN expands autonomy across AI infrastructure.
-
-## Target capabilities
-
-### GPU Operations
-
-- GPU health monitoring
-- GPU anomaly detection
-- GPU utilization analysis
-- GPU workload diagnosis
-- GPU capacity intelligence
-- GPU remediation
-- GPU recovery verification
-
-### AI Workloads
-
-- AI workload health
-- Inference health
-- Model-serving incidents
-- AI workload scaling
-- Workload-level diagnosis
-- Workload recovery
-
-### Operational Intelligence
-
-- Incident correlation
-- AI-assisted diagnosis
-- Automated RCA generation
-- Owner identification
-- Notification routing
-- Operational knowledge capture
-
-## Completion gate
-
-AI infrastructure incidents should be detectable, diagnosable, policy-evaluable, and safely recoverable through controlled automation.
-
----
-
-# 6. Later — Predictive Operations
-
-AROHAN then progresses from reacting to infrastructure conditions toward predicting them.
-
-## Target capabilities
-
-- Predictive failure detection
-- Capacity forecasting
-- GPU demand forecasting
-- Workload forecasting
-- Resource saturation prediction
-- Anomaly prediction
-- Predictive scaling
-- Predictive maintenance
-- Cost forecasting
-- Reliability risk prediction
-
-## Engineering transition
-
-**Reactive → Predictive**
-
-## Completion gate
-
-AROHAN should demonstrate that historical and real-time operational signals can be used to identify meaningful future infrastructure risks before they become incidents.
-
----
-
-# 7. Later — Autonomous Optimization
-
-Once predictive intelligence exists, AROHAN progresses toward continuous infrastructure optimization.
-
-## Target capabilities
-
-- GPU utilization optimization
-- Workload placement optimization
-- Resource right-sizing
-- Capacity optimization
-- Cost optimization
-- Energy-aware optimization
-- Inference performance optimization
-- Queue optimization
-- Scheduling optimization
-
-## Engineering dimensions
-
-Optimization must balance:
-
-- Reliability
-- Performance
-- Availability
-- Cost
-- Capacity
-- Security
-- Policy
-
-## Completion gate
-
-Optimization decisions must be measurable, policy-controlled, reversible where practical, and validated after execution.
-
----
-
-# 8. Future — Multi-Agent Operations
-
-AROHAN eventually introduces specialized operational agents.
-
-Potential agent domains include:
-
-- Kubernetes Agent
-- GPU Agent
-- Observability Agent
-- SRE Agent
-- Security Agent
-- FinOps Agent
-- Capacity Agent
-- AI Workload Agent
-- RCA Agent
-- Governance Agent
-
-## Target architecture
-
-``` text
-                    AROHAN
-                       │
-              ┌────────┴────────┐
-              │ Policy /        │
-              │ Governance      │
-              └────────┬────────┘
-                       │
-             ┌─────────┴─────────┐
-             │ Orchestration     │
-             │ / Decision Layer  │
-             └─────────┬─────────┘
-                       │
-       ┌───────────────┼───────────────┐
-       │               │               │
-   K8s Agent       GPU Agent       SRE Agent
-       │               │               │
-   Security        FinOps          AI Workload
-    Agent           Agent             Agent
-       │               │               │
-       └───────────────┼───────────────┘
-                       │
-                Policy-controlled
-                    execution
-```
-
-## Completion gate
-
-Multi-agent operations must remain:
-
-- Policy governed
-- Least privilege
-- Observable
-- Explainable
-- Auditable
-- Coordinated
-- Verifiable
-
----
-
-# 9. Vision — Autonomous AI Factory
-
-The ultimate AROHAN roadmap converges the major engineering domains into an enterprise AI Factory.
-
-## Target platform
-
-``` text
-Compute
-   +
-Kubernetes
-   +
-GPU Infrastructure
-   +
-Networking
-   +
-Storage
-   +
-AI Workloads
-   +
-Observability
-   +
-SRE
-   +
-Security
-   +
-FinOps
-   +
-AIOps
-   +
-Autonomous Operations
-```
-
-## Target characteristics
-
-- Enterprise scale
-- Multi-tenancy
-- Security
-- Governance
-- Reliability
-- Performance
-- Cost efficiency
-- AI workload optimization
-- Predictive operations
-- Self-healing
-- Policy-driven autonomy
-- Multi-agent operations
-
-The AI Factory should demonstrate that infrastructure can increasingly:
-
-**Observe → Understand → Predict → Decide → Act → Verify → Learn → Optimize**
-
-while remaining governed by explicit policies and engineering controls.
-
----
-
-# 10. Capability Maturity Model
-
-| Level | Capability | Operating Model |
+| Level | Name | Operating model |
 |---|---|---|
-| L0 | Manual | Engineer operates infrastructure |
-| L1 | Automated | Scripts and automation execute known procedures |
-| L2 | Observable | Infrastructure behavior becomes measurable |
+| L0 | Manual | Engineer operates the infrastructure |
+| L1 | Automated | Scripts run known procedures |
+| L2 | Observable | Behaviour is measurable |
 | L3 | Intelligent | AI assists detection, diagnosis and decisions |
-| L4 | Guarded Autonomous | Policy-controlled automated action |
-| L5 | Predictive | Infrastructure risks and demand are predicted |
+| L4 | Guarded autonomous | Policy-controlled automated action |
+| L5 | Predictive | Risks and demand are predicted |
 | L6 | Optimizing | Infrastructure continuously optimizes itself |
-| L7 | Multi-Agent | Specialized agents coordinate operations |
+| L7 | Multi-agent | Specialized agents coordinate operations |
 | L8 | Autonomous AI Factory | End-to-end governed autonomous operations |
 
-AROHAN should progress through these levels deliberately.
+Lab-level maturity (implement → observe → validate → break → recover …) is a separate scale, defined in the [standards](standards/README.md#lab-lifecycle-and-maturity).
 
 ---
 
-# 11. Engineering Gates
+## 4. The plan after the current focus
 
-A capability should not progress to the next maturity level until the previous level has sufficient evidence.
-
-## Gate 1 — Observability
-
-Can we reliably observe the system?
-
-## Gate 2 — Diagnosis
-
-Can we understand why something happened?
-
-## Gate 3 — Automation
-
-Can we execute the remediation reliably?
-
-## Gate 4 — Guardrails
-
-Can we restrict what automation is allowed to do?
-
-## Gate 5 — Verification
-
-Can we prove that the action worked?
-
-## Gate 6 — Explainability
-
-Can we explain why the decision and action occurred?
-
-## Gate 7 — Auditability
-
-Can we reconstruct what happened?
-
-## Gate 8 — Autonomy
-
-Can the system safely perform the complete controlled operating loop?
+| When | Milestone | Key capabilities | Completion gate |
+|---|---|---|---|
+| **Next** | Autonomous operations foundation (Kubernetes) | AI-powered RCA, guarded remediation, recovery verification, policy-controlled actions, audit trail | One controlled incident runs end to end: incident → detection → evidence collection → AI diagnosis → policy check → remediation → verification → RCA → notification → audit |
+| **Then** | Autonomous AI operations | GPU health, anomaly detection and remediation; inference and model-serving incidents; incident correlation; automated RCA; notification routing | AI-infrastructure incidents are detectable, diagnosable, policy-evaluable and safely recoverable |
+| **Later** | Predictive operations | Failure, capacity, GPU-demand and cost forecasting; saturation and anomaly prediction | Historical and live signals identify real risks before they become incidents |
+| **Later** | Autonomous optimization | GPU utilization, placement, right-sizing, queue, scheduling and energy-aware optimization | Every optimization is measurable, policy-controlled, reversible where practical and verified |
+| **Future** | Multi-agent operations | Kubernetes, GPU, SRE, security, FinOps, capacity and RCA agents under a policy/governance layer | Agents stay policy-governed, least-privilege, observable, explainable and auditable |
+| **Vision** | Autonomous AI Factory | Compute, Kubernetes, GPU, networking, storage, AI workloads, observability, SRE, security, FinOps and AIOps as one governed platform | Infrastructure can observe, predict, decide, act, verify and learn, within explicit policy |
 
 ---
 
-# 12. Evidence Required
+## 5. Roadmap principles
 
-A roadmap item is complete when the capability has been demonstrated, not when the technology has been installed. What counts as evidence, and when something is done, is defined once in the [Standards README](standards/README.md#definition-of-done) (Definition of Done and evidence standard).
+1. Build before claiming; every major capability needs evidence ([Definition of Done](standards/README.md#definition-of-done)).
+2. Solve real infrastructure problems, not demos.
+3. Foundations before autonomy: observability precedes intelligence, automation precedes autonomy.
+4. Policy and guardrails precede autonomous execution; verification follows every automated action.
+5. Security, governance and cost are engineering concerns at every stage.
 
----
-
-# 13. Relationship to Project Structure
-
-AROHAN uses the following progression:
-
-``` text
-CHARTER
-   ↓
-EVOLUTION
-   ↓
-ROADMAP
-   ↓
-SPRINT
-   ↓
-ENGINEERING ASSET
-   ↓
-VALIDATION
-   ↓
-RELEASE
-   ↓
-CHANGELOG
-```
-
-This ensures that strategy, planning, implementation, validation, and release evidence remain connected.
+Roadmap items use the repository [status model](standards/README.md#status-model): ✅ completed · 🔵 implemented · 🟢 in progress · 🟡 planned · ⚪ future.
 
 ---
 
-# 14. Roadmap Status Model
-
-Roadmap items use the same status model as the rest of the repository, defined in the [Standards README](standards/README.md#status-model): ✅ Completed · 🔵 Implemented · 🟢 In progress / ongoing · 🟡 Planned · ⚪ Future.
-
-A capability must not be marked ✅ without supporting engineering evidence.
-
----
-
-# 15. Long-Term Outcome
-
-The roadmap ultimately aims to demonstrate:
-
-> **A secure, reliable, observable, cost-aware, policy-governed and increasingly autonomous enterprise AI infrastructure and operations platform.**
-
-The final objective is not simply automation.
-
-The objective is **controlled engineering autonomy**.
-
----
-
-> **Build the platform.**
->
-> **Instrument the platform.**
->
-> **Understand the platform.**
->
-> **Automate the platform.**
->
-> **Guard the automation.**
->
-> **Verify every action.**
->
-> **Earn autonomy.**
->
-> **Build the AI Factory.**
->
-> **One Step Higher. Every Day. 🚀**
+> **The goal is not more automation. It is controlled, explainable, policy-governed autonomy, earned one evidenced step at a time.**

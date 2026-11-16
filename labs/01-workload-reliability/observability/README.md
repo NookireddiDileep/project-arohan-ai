@@ -21,8 +21,9 @@ The purpose of this layer is to collect and expose operational signals required 
 - CPU: 4 vCPU
 - Memory: approximately 15 GiB
 - Metrics Server: Enabled
-- Prometheus: Planned
-- Grafana: Planned
+- Prometheus: ✅ deployed with Helm ([values](prometheus-values.yaml)), with kube-state-metrics
+- Alert rule: ✅ [arohan-reliability.rules.yaml](arohan-reliability.rules.yaml), promtool-validated
+- Grafana: 🟡 planned
 
 ## Observability Model
 
@@ -55,9 +56,9 @@ Metrics Server provides short-term resource utilization information used by Kube
 
 Prometheus will provide persistent time-series collection, querying, alerting, and correlation capabilities.
 
-## Phase 1
+## Phase 1 — ✅ done in Lab 01
 
-The first implementation phase will establish:
+Established:
 
 - Prometheus deployment
 - Prometheus configuration
@@ -66,19 +67,16 @@ The first implementation phase will establish:
 - Basic Prometheus queries
 - Evidence capture
 
-## Phase 2
-
-Future capabilities:
+## Phase 2 — 🟡 planned (alert rules already done in Lab 01)
 
 - Grafana dashboards
-- Alert rules
 - Kubernetes event correlation
 - Application metrics
 - Incident detection
 
-## Phase 3
+## Phase 3 — ⚪ future
 
-Future autonomous capabilities:
+Autonomous capabilities:
 
 - Automated diagnosis
 - Deterministic remediation
@@ -109,8 +107,4 @@ Observe → Detect → Diagnose → Decide → Remediate → Verify
 
 ## Status
 
-AROHAN V0.1 Observability
-
-Current stage:
-
-Foundation established. Prometheus implementation pending.
+Phase 1 complete as part of [Lab 01](../README.md) (validated 2026-08-10). Success criteria above are met; see the [validation record](../evidence/AROHAN-Lab-01-VALIDATION.md).

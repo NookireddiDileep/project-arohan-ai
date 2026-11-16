@@ -1,0 +1,17 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Local kube / cloud credentials: never commit
+*.kubeconfig
+kubeconfig*
+*.pem
+*.key
+.env
+
+# Scratch output from lab runs (copy what matters into evidence/)
+*.log
+tmp/

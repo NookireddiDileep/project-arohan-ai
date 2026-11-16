@@ -6,7 +6,7 @@ This changelog records significant implementation, architecture, documentation, 
 
 The changelog records **what has actually changed**.
 
-Future capabilities described in `EVOLUTION.md` and `ROADMAP.md` must not be recorded here until they have been implemented and supported by engineering evidence.
+Future capabilities described in `ROADMAP.md` must not be recorded here until they have been implemented and supported by engineering evidence.
 
 ---
 
@@ -87,7 +87,7 @@ Built and validated the first reliability control loop on a K3s cluster: baselin
 
 ### Evidence
 
-[Lab 01 validation record](labs/01-gpu-workload-reliability/evidence/AROHAN-Lab-01-VALIDATION.md)
+[Lab 01 validation record](labs/01-workload-reliability/evidence/AROHAN-Lab-01-VALIDATION.md)
 
 ### Outcome
 
@@ -114,6 +114,26 @@ The same principles, Definition of Done and status lists existed in up to five f
 ### Outcome
 
 Each topic now has one owning document; other documents link to it.
+
+---
+
+## 2026-11-16 — Repository Quality Pass
+
+### What changed
+
+- Lab 01 README rebuilt: an unclosed code fence had turned most of the page into one code block. All facts kept; evidence screenshots embedded; honesty note and known gaps (namespace `default`, uncommitted test-pod manifest, rule hardening) added. Validated manifests and rule left unchanged.
+- Lab 01 folder renamed `01-gpu-workload-reliability` → `01-workload-reliability` (the lab uses no GPU); evidence images renamed to kebab-case.
+- Lab 01 observability README updated from "Prometheus: Planned" to its real, completed state.
+- `EVOLUTION.md` merged into `ROADMAP.md` (stages, autonomy chain, gates and levels now in one place).
+- `engineering/NVIDIA/README.md` cut to an index of the NCA-AIIO notes that exist; aspirational sections and inflated statuses removed.
+- AI-infra curriculum Block B (scheduling) handed to the workload-management series so the two note series don't overlap.
+- Lab 02 load-testing scripts hardened (`set -eu`, quoting, GNU `date` dependency stated); inline copy of a script replaced with a link.
+- CI: added kubeconform manifest validation and an unclosed-code-fence check; added `.gitignore`.
+- README: "Proof so far" section with Lab 01 evidence; honest start dates for the two note series.
+
+### Outcome
+
+Every page renders correctly, statuses match the repository, and CI now catches the two classes of error found in this pass.
 
 ---
 
@@ -220,9 +240,7 @@ It should answer:
 
 > **What did AROHAN actually become over time?**
 
-`EVOLUTION.md` explains the journey.
-
-`ROADMAP.md` explains the intended direction.
+`ROADMAP.md` explains the journey and the intended direction.
 
 `CHANGELOG.md` records the reality.
 

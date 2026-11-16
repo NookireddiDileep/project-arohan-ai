@@ -2,7 +2,7 @@
 
 ## Status
 
-**LAB 02: PLANNED 🟡** (builds on [Lab 01: Workload Reliability Foundation](../01-gpu-workload-reliability/README.md))
+**LAB 02: PLANNED 🟡** (builds on [Lab 01: Workload Reliability Foundation](../01-workload-reliability/README.md))
 
 **Project:** AROHAN AI · AI Workload Reliability track (Kubernetes → GPU → AI inference)
 **Cluster:** existing GCP K3s cluster `platform-engineer-lab` (CPU only, no GPU cost)
@@ -196,7 +196,7 @@ Run this from a long-lived client pod so the network path stays the same between
 
 ```bash
 kubectl -n ai-lab run bench --image=alpine:3 --restart=Never -- sleep 3600
-kubectl -n ai-lab exec -it bench -- sh -c "apk add -q curl jq"
+kubectl -n ai-lab exec -it bench -- sh -c "apk add -q curl jq coreutils"
 ```
 
 `load-testing/bench.sh` (copy into the pod with `kubectl cp`, or paste it in):

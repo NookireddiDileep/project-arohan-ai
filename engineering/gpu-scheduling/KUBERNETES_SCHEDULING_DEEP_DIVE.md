@@ -310,7 +310,7 @@ spec:
 
 ---
 
-## 9. OpenShift angle (for the job switch)
+## 9. OpenShift angle
 
 - The cluster scheduler is configured through the `Scheduler` CR: `oc get scheduler cluster -o yaml`.
   `spec.profile` can be **`LowNodeUtilization`** (default, spreads), **`HighNodeUtilization`** (bin-packs, which is good for GPU and cost), or **`NoScoring`** (fastest, filtering only).

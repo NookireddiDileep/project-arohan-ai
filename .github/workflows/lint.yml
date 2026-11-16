@@ -40,3 +40,18 @@ jobs:
                   print("BAD YAML:", f, e); bad = 1
           sys.exit(bad)
           PY
+      - name: Validate Kubernetes manifests (kubeconform)
+        run: |
+          curl -sSL https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz | tar xz kubeconform
+          files=$(git ls-files 'labs/*/kubernetes/*.yaml' 'labs/*/manifests/*.yaml')
+          # CRDs (KAI) and kind/scheduler configs have no public schema: skipped, not failed
+          ./kubeconform -summary -ignore-missing-schemas $files
+      - name: Check Markdown code fences are closed
+        shell: bash
+        run: |
+          bad=0
+          while IFS= read -r f; do
+            n=$(grep -c '^[[:space:]]*```' "$f" || true)
+            if [ $((n % 2)) -ne 0 ]; then echo "UNCLOSED CODE FENCE: $f"; bad=1; fi
+          done < <(git ls-files '*.md')
+          exit $bad
