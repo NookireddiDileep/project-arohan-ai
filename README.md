@@ -35,18 +35,21 @@ Status icons follow the [status model](standards/README.md#status-model): ✅ co
 
 ## The journey
 
-```
-Platform Engineering → AI Infrastructure → AI Operations → Guarded Autonomy → AI Factory
- (K8s, OpenShift,       (GPU scheduling,     (telemetry, SLOs,  (policy-checked      (end-to-end GPU
-  GitOps, observability) serving, inference)  RCA, FinOps)       remediation, verify)  platform operations)
-         ▲ you are here (Labs 01–03)
-```
+The five stages from [EVOLUTION.md](EVOLUTION.md):
 
-Every capability moves through the same gate: **Build → Observe → Understand → Automate → Guard → Verify**. Nothing is marked done without evidence in the lab's `evidence/` folder.
+1. **Platform Engineering**: Kubernetes, OpenShift, GitOps, observability
+2. **AI Infrastructure**: GPU scheduling, model serving, inference
+3. **AI Operations**: telemetry, SLOs, RCA, FinOps
+4. **Autonomous Operations (guarded)**: policy-checked remediation, verified after every action
+5. **Autonomous AI Factory**: end-to-end GPU platform operations
+
+**You are here:** Stage 1, moving into Stage 2 (Labs 01–03).
+
+Every capability follows the [lab lifecycle](standards/README.md#lab-lifecycle-and-maturity), and nothing is marked done without evidence in the lab's `evidence/` folder.
 
 The target control loop, built step by step across labs:
 
-**Observe → Detect → Diagnose → Decide → Policy / Guardrail → Remediate → Verify → RCA → Notify → Audit**
+**Observe → Detect → Diagnose → Decide → Guardrail → Remediate → Verify → Explain (RCA) → Notify → Audit**
 
 > AI reasons about the situation. Policy decides what AI is allowed to do. Verification decides whether it worked.
 
@@ -58,7 +61,7 @@ More detail: [EVOLUTION.md](EVOLUTION.md) (how autonomy is earned) · [ROADMAP.m
 
 | Domain | Topics |
 |---|---|
-| Platform | Linux, Kubernetes, OpenShift, containers, Helm, Ansible, GitOps/Argo CD |
+| Platform | Linux, HPC, networking, storage, Kubernetes, OpenShift, containers, Helm, Ansible, GitOps/Argo CD |
 | AI infrastructure | GPU scheduling, MIG/time-slicing, KAI/Kueue/Volcano, model serving, inference |
 | Observability & SRE | Prometheus, Grafana, OpenTelemetry, SLI/SLO, error budgets, incident response |
 | Security | RBAC, least privilege, NetworkPolicy, pod security / SCC, multi-tenancy, AI-agent permissions |

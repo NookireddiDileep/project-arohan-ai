@@ -55,54 +55,20 @@ AROHAN follows these principles when progressing through the roadmap.
 
 # 3. Current Focus — Platform Engineering → AI Infrastructure
 
-AROHAN is currently establishing the engineering foundations required for enterprise AI Infrastructure & Operations.
+The capability lists for each stage are in [EVOLUTION.md](EVOLUTION.md). What is actually being worked on now:
 
-## Current priorities
-
-### Platform Engineering
-
-- Kubernetes
-- OpenShift
-- Containers
-- Helm
-- Terraform
-- Ansible
-- GitOps
-- Argo CD
-- Platform automation
-- Observability
-- Security
-- Reliability engineering
-
-### AI Infrastructure
-
-- NVIDIA GPU infrastructure
-- GPU scheduling
-- GPU utilization
-- Multi-GPU workloads
-- Distributed AI foundations
-- AI workload observability
-- Model serving foundations
-- AI inference foundations
-
-### AI Operations
-
-- Metrics
-- Logs
-- Traces
-- Kubernetes events
-- GPU telemetry
-- SLI/SLO
-- Incident response
-- AI-assisted RCA
-- Capacity intelligence
-- FinOps foundations
+| Priority | Work | Done when |
+|---|---|---|
+| 1 | OpenShift and Kubernetes platform depth ([workload management plan](engineering/workload-management/MASTERY_PLAN.md), Phase 1) | Lab write-ups with evidence for node config, networking and scheduling |
+| 2 | [Lab 02: AI inference reliability](labs/02-ai-inference-reliability/README.md) | Run end to end, evidence captured, status ✅ |
+| 3 | [Lab 03: GPU scheduling](labs/03-gpu-scheduling/README.md) | Run end to end, evidence captured, status ✅ |
+| Ongoing | [Workload management topics](engineering/workload-management/README.md) (twice a week) and [AI-infra notes](engineering/notes/README.md) (weekly) | Notes merged with sources |
 
 ---
 
-# 4. Now — Establish the Autonomous Operations Foundation
+# 4. Next — Establish the Autonomous Operations Foundation
 
-The immediate objective is to connect observability, AI reasoning, policy, and controlled remediation.
+After the current focus above, the next objective is to connect observability, AI reasoning, policy, and controlled remediation.
 
 ## Target flow
 
@@ -147,7 +113,7 @@ This stage is complete when AROHAN can demonstrate a controlled infrastructure i
 
 ---
 
-# 5. Next — Autonomous AI Operations
+# 5. Then — Autonomous AI Operations
 
 Once the core autonomous Kubernetes workflow is reliable, AROHAN expands autonomy across AI infrastructure.
 
