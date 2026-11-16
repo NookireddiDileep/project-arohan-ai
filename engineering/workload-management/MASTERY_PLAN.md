@@ -174,12 +174,12 @@ Carry the RHEL boot-lab habit up to cluster level: one break-and-fix per week, d
 
 | Phase | Window | Focus | Done when |
 | --- | --- | --- | --- |
-| 1 — Land the OpenShift role | Now → ~90 days | Layers 1, 3, 5 on OpenShift: node config, OVN, scheduler, upgrades, must-gather; CKA + EX280 | Both exams passed; 10+ lab write-ups public in `openshift-lab-records` |
+| 1 — OpenShift platform depth | Months 0–3 | Layers 1, 3, 5 on OpenShift: node config, OVN, scheduler, upgrades, must-gather; CKA + EX280 | CKA + EX280 passed; 10+ lab write-ups public in `openshift-lab-records` |
 | 2 — Batch & GPU on K8s | Months 3–6 | Kueue/Volcano (CPU-only), GPU Operator + time-slicing on one cloud GPU, DCGM monitoring | Multi-tenant queue demo with quotas, preemption and a dashboard |
 | 3 — Bridge HPC and cloud-native | Months 6–12 | Slurm refresh, Slinky, Multus/SR-IOV, NCCL basics, parallel-FS concepts | Project AROHAN AI capstone: multi-tenant GPU queue + monitoring + a documented failure drill |
 | Ongoing | Always | Weekly break-and-fix drill, read upstream KEPs/release notes for scheduling and DRA | A public library of real troubleshooting cases |
 
-Rule of thumb: during Phase 1, anything that does not help the OpenShift job switch goes to the backlog.
+Rule of thumb: during Phase 1, anything outside OpenShift platform depth goes to the backlog.
 
 ## 11. Lab environment & evidence
 
