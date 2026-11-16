@@ -281,9 +281,9 @@ For each incident: **break → observe symptoms → diagnose with commands → f
 
 ---
 
-## Part 6: Bonus, repeat on OpenShift (ask Babuni before using the J2C cluster)
+## Part 6: Bonus, repeat on OpenShift (shared training cluster, with permission)
 
-Deploy the same manifests in a project on the J2C cluster, keeping the default `restricted-v2` SCC.
+Deploy the same manifests in a project on an OpenShift cluster, keeping the default `restricted-v2` SCC.
 - **What usually happens:** the image expects to run as root and write under its home directory, but OpenShift runs pods as a random non-root UID. You'll likely see permission errors.
 - **Your task:** diagnose it (`oc describe pod`, `oc logs`, `oc get pod -o yaml | grep -i scc`) and fix it the right way, using writable mounted paths (`OLLAMA_MODELS=/models`, `HOME` pointing to a writable volume). **Don't** grant `anyuid` unless you can justify it.
 - Expose it with a Route secured by edge TLS, and keep it internal or behind auth.

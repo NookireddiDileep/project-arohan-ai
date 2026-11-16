@@ -18,34 +18,11 @@
 
 ---
 
-## Current Phase
+## Result
 
-✅ Complete Syllabus (First Pass)
+✅ **NVIDIA Certified Associate – AI Infrastructure & Operations (NCA-AIIO): passed, August 2026**
 
-⏳ Full Revision
-
-⏳ Mock Exams
-
-⏳ Final Exam Preparation
-
-⏳ NVIDIA Certified Associate – AI Infrastructure & Operations (NCA-AIIO)
-
----
-
-**Target Exam:** NVIDIA Certified Associate – AI Infrastructure & Operations (NCA-AIIO)
-
-**Exam Date:** 07 Aug 2026 (09:00–10:00 IST)
-
----
-
-## Next Milestone
-
-- Revise Module 01 – Essential AI Knowledge
-- Revise Module 02 – AI Infrastructure
-- Revise Module 03 – AI Operations
-- Complete Mock Exams
-- Final Revision
-- Pass NVIDIA Certified Associate – AI Infrastructure & Operations (NCA-AIIO)
+These notes now serve as the theory base for the AROHAN labs. Next steps go hands-on: GPU scheduling (Lab 03), inference reliability (Lab 02), then GPU Operator and DCGM telemetry.
 
 ---
 

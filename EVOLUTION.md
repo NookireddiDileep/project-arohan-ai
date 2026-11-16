@@ -332,12 +332,13 @@ AROHAN is currently progressing through the transition from:
 | Project Mission | Implemented |
 | Engineering Principles | Implemented |
 | Engineering Standards | Implemented |
-| Sprint / Release Framework | Implemented |
-| NVIDIA AI Infrastructure Foundation | Implemented |
-| NVIDIA AI Operations Foundation | Implemented |
-| Autonomous Kubernetes Operations | In Progress |
-| AI-powered RCA | In Progress |
-| Guarded Remediation | In Progress |
+| NVIDIA AI Infrastructure Foundation (NCA-AIIO certified) | Implemented |
+| Workload reliability foundation (Lab 01, with evidence) | Implemented |
+| AI inference reliability (Lab 02) | Planned (runbook written) |
+| GPU scheduling (Lab 03) | Planned (runbook written) |
+| Autonomous Kubernetes Operations | Planned |
+| AI-powered RCA | Planned |
+| Guarded Remediation | Planned |
 | Automatic RCA Generation | Planned |
 | Engineer Email Notification | Planned |
 | Autonomous GPU Operations | Planned |

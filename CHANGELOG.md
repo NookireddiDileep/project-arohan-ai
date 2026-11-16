@@ -83,12 +83,14 @@ The project documentation currently identifies the following capabilities as in 
 
 #### In Progress
 
-- Autonomous Kubernetes Operations
-- AI-powered RCA
-- Guarded Remediation
+- Lab 02: AI inference reliability (runbook written, not yet run)
+- Lab 03: GPU scheduling (runbook written, not yet run)
 
 #### Planned
 
+- Autonomous Kubernetes Operations
+- AI-powered RCA
+- Guarded Remediation
 - Automatic RCA Generation
 - Engineer Email Notification
 - Autonomous GPU Operations

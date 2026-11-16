@@ -196,11 +196,8 @@ PROJECT AROHAN AI engineering work should always be:
 
 ## Related Documents
 
-- CHARTER.md
-- DOCUMENTATION_STANDARD.md
-- DEFINITION_OF_DONE.md
-- GIT_WORKFLOW.md
-- ASSET_LIFECYCLE.md
+- [CHARTER.md](../CHARTER.md)
+- [Standards README](README.md)
 
 ---
 

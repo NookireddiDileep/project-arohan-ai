@@ -394,12 +394,6 @@ standards/
 labs/
     Hands-on implementations and experiments
 
-sprints/
-    Engineering execution and progress
-
-releases/
-    Capability milestones and portfolio releases
-
 These areas form one engineering system.
 
 Current Standard
