@@ -2,7 +2,7 @@
 
 Deep-dive notes and study modules behind the labs. The labs in [`labs/`](../labs/) prove things hands-on; this folder explains the theory they test.
 
-How work is approached and judged: [principles](../standards/ENGINEERING_PRINCIPLES.md) · [standards](../standards/README.md). Where the project is going: [EVOLUTION.md](../EVOLUTION.md) · [ROADMAP.md](../ROADMAP.md). What exists today: the status table in the [README](../README.md).
+How work is approached and judged: [principles](../standards/ENGINEERING_PRINCIPLES.md) · [standards](../standards/README.md). Where the project is going: [ROADMAP.md](../ROADMAP.md). What exists today: the status table in the [README](../README.md).
 
 ## Contents
 

@@ -2,7 +2,7 @@
 
 > **One Step Higher. Every Day. 🚀**
 
-This charter says **why** AROHAN exists and **what it aims for**. How the work is done is defined in [standards/](standards/README.md); where it is going is in [EVOLUTION.md](EVOLUTION.md) and [ROADMAP.md](ROADMAP.md); what exists today is the status table in the [README](README.md).
+This charter says **why** AROHAN exists and **what it aims for**. How the work is done is defined in [standards/](standards/README.md); where it is going is in [ROADMAP.md](ROADMAP.md); what exists today is the status table in the [README](README.md).
 
 ---
 

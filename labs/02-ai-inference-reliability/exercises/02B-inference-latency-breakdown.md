@@ -58,26 +58,7 @@ Fill this table in `../load-testing/benchmark-results.md`:
 
 Ollama returns per-stage timings. Compare them with client wall-clock time to find **queue** time:
 
-`../load-testing/breakdown.sh`
-```sh
-#!/bin/sh
-# usage: breakdown.sh <concurrency>   (run inside the bench pod; needs curl, jq, date)
-C=${1:-1}; URL=http://ollama:11434/api/generate
-BODY='{"model":"qwen2.5:0.5b","prompt":"Explain Kubernetes taints and tolerations in 5 bullet points.","stream":false,"options":{"num_predict":128}}'
-echo "req,wall_s,server_total_s,queue_s,prefill_s,decode_s,tok_per_s"
-for i in $(seq 1 $C); do
-  ( s=$(date +%s%N)
-    r=$(curl -s $URL -d "$BODY")
-    e=$(date +%s%N)
-    echo "$r" | jq -r --arg i $i --arg w $(( (e-s)/1000000 )) '
-      ($w|tonumber/1000) as $wall |
-      [$i, $wall, (.total_duration/1e9),
-       ($wall - .total_duration/1e9),          # queue + network
-       (.prompt_eval_duration/1e9),            # prefill
-       (.eval_duration/1e9),                   # decode
-       (.eval_count/(.eval_duration/1e9))] | @csv' ) &
-done; wait
-```
+Script: [`../load-testing/breakdown.sh`](../load-testing/breakdown.sh) (kept in one place so the copy here can't drift). It prints one CSV row per request: `req, wall_s, server_total_s, queue_s, prefill_s, decode_s, tok_per_s`.
 
 Run with concurrency 1, 2, 4 and 8 and record the averages:
 

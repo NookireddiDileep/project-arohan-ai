@@ -15,14 +15,17 @@ Notes link back to the AROHAN labs where the topic is practised.
 8. GPU sharing: time-slicing vs MPS vs MIG vs DRA, with isolation trade-offs
 9. MIG profiles and planning on A100/H100
 
-## Block B: Scheduling and multi-tenancy
-10. kube-scheduler internals recap (links to the scheduling deep dive)
-11. Topology Manager, CPU Manager and NUMA alignment for GPU pods
-12. Kueue: queues, ClusterQueues, cohorts and admission
-13. Volcano vs KAI vs Kueue: when to use which
-14. Gang scheduling and the upstream Workload API
-15. Priority, preemption and checkpoint-aware eviction
-16. Quotas and fair-share for GPU teams (DRF)
+## Block B: Scheduling and multi-tenancy ↪ covered by the workload-management series
+
+Items 10–16 are written as [workload-management topics](../workload-management/README.md) instead of AI-infra notes, so the two series don't overlap. The numbers stay reserved here so later note numbers don't shift.
+
+- ↪ 10. kube-scheduler internals recap (links to the scheduling deep dive)
+- ↪ 11. Topology Manager, CPU Manager and NUMA alignment for GPU pods
+- ↪ 12. Kueue: queues, ClusterQueues, cohorts and admission
+- ↪ 13. Volcano vs KAI vs Kueue: when to use which
+- ↪ 14. Gang scheduling and the upstream Workload API
+- ↪ 15. Priority, preemption and checkpoint-aware eviction
+- ↪ 16. Quotas and fair-share for GPU teams (DRF)
 
 ## Block C: Training at scale
 17. Distributed training patterns: data, tensor and pipeline parallelism (an ops view)

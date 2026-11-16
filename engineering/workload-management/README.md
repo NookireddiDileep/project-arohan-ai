@@ -6,6 +6,7 @@ All four platforms solve one problem: **match demand (pods, jobs, ranks) to supp
 
 - **Plan:** [MASTERY_PLAN.md](MASTERY_PLAN.md) has six layers, lab checklists, a troubleshooting drill library and a 12-month timeline
 - **Topics:** [topics/](topics/), with one note per topic added regularly; template in [topics/TEMPLATE.md](topics/TEMPLATE.md)
+- **Scope split:** this series owns node/OS, scheduling and multi-tenancy, cluster networking, storage basics and cluster observability. GPU-specific topics (GPU Operator, DCGM, sharing, topology), NCCL/RDMA, training storage, serving and AI FinOps belong to the [AI-infra notes](../notes/CURRICULUM.md), so the two series never cover the same topic.
 - **Related in AROHAN:** [Kubernetes scheduling deep dive](../gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md) · [Lab 03: GPU scheduling](../../labs/03-gpu-scheduling/README.md) · [weekly AI-infra notes](../notes/README.md)
 
 ## Layers

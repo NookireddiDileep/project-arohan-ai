@@ -24,7 +24,7 @@ A system is not understood until you have seen it fail. Every lab includes at le
 
 Nothing is marked done without proof from a real run: command output, metrics, alert state, screenshots or validation records, stored in the lab's `evidence/` folder.
 
-**In practice:** Lab 01 is ✅ because its [validation record](../labs/01-gpu-workload-reliability/evidence/AROHAN-Lab-01-VALIDATION.md) and promtool output exist. Labs 02 and 03 stay 🟡 until they have been run.
+**In practice:** Lab 01 is ✅ because its [validation record](../labs/01-workload-reliability/evidence/AROHAN-Lab-01-VALIDATION.md) and promtool output exist. Labs 02 and 03 stay 🟡 until they have been run.
 
 ## 4. Honest status, always
 
@@ -42,7 +42,7 @@ Automation comes after a task has been done by hand, understood and validated, n
 
 Before any change, know its blast radius and how to roll it back. Make one change at a time and confirm the result before the next.
 
-**In practice:** labs run in dedicated namespaces on disposable `kind`/K3s clusters; Lab 03 ships a `reset.sh` so each experiment can be undone before the next.
+**In practice:** Labs 02–03 run in dedicated namespaces on disposable `kind`/K3s clusters, and Lab 03 ships a `reset.sh` so each experiment can be undone. Lab 01 used `default`; that is recorded as a known gap in its README.
 
 ## 7. Least privilege and isolation by default
 
