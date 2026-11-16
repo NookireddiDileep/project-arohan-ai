@@ -1,0 +1,49 @@
+# Exercise 6: two "distributed training" jobs, 5 workers x 1 GPU each = 10 GPUs wanted, 8 exist.
+# Real training (NCCL all-reduce) can't start until ALL ranks are up; `sleep` stands in for "waiting for peers".
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: train-a
+  namespace: sched-lab
+spec:
+  parallelism: 5
+  completions: 5
+  backoffLimit: 0
+  template:
+    metadata:
+      labels: {job: train-a}
+    spec:
+      restartPolicy: Never
+      tolerations:
+      - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+      - name: worker
+        image: busybox:1.36
+        command: ["sh", "-c", "echo rank waiting for 5 peers; sleep 3600"]
+        resources:
+          requests: {cpu: 100m, memory: 32Mi}
+          limits: {nvidia.com/gpu: 1, memory: 32Mi}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: train-b
+  namespace: sched-lab
+spec:
+  parallelism: 5
+  completions: 5
+  backoffLimit: 0
+  template:
+    metadata:
+      labels: {job: train-b}
+    spec:
+      restartPolicy: Never
+      tolerations:
+      - {key: nvidia.com/gpu, operator: Exists, effect: NoSchedule}
+      containers:
+      - name: worker
+        image: busybox:1.36
+        command: ["sh", "-c", "echo rank waiting for 5 peers; sleep 3600"]
+        resources:
+          requests: {cpu: 100m, memory: 32Mi}
+          limits: {nvidia.com/gpu: 1, memory: 32Mi}

@@ -1,0 +1,16 @@
+# Exercise 4d: limits decide runtime. Small request = scheduled happily; tries to use 250M with a 100Mi limit -> OOMKilled.
+# (Same pattern as the Kubernetes docs "Assign Memory Resources" example.)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oom-demo
+  namespace: sched-lab
+spec:
+  containers:
+  - name: stress
+    image: polinux/stress
+    command: ["stress"]
+    args: ["--vm", "1", "--vm-bytes", "250M", "--vm-hang", "1"]
+    resources:
+      requests: {cpu: 100m, memory: 50Mi}
+      limits: {memory: 100Mi}

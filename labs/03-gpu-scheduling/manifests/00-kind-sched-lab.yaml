@@ -1,0 +1,17 @@
+# Lab 03 baseline cluster: 1 control plane, 1 CPU worker, 2 "GPU" workers (fake GPUs added by scripts/fake-gpus.sh)
+# kind create cluster --name sched-lab --image kindest/node:v1.35.0 --config manifests/00-kind-sched-lab.yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+  labels:
+    node-type: cpu
+- role: worker
+  labels:
+    node-type: gpu
+    gpu-model: fake-a100
+- role: worker
+  labels:
+    node-type: gpu
+    gpu-model: fake-a100
