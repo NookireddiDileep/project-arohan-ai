@@ -11,7 +11,7 @@ How work is approached and judged: [principles](../standards/ENGINEERING_PRINCIP
 | [Kubernetes scheduling deep dive](gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md) | kube-scheduler to GPU gangs: filter/score, fragmentation, gang deadlock, KAI | [Lab 03](../labs/03-gpu-scheduling/README.md) |
 | [AI inference on Kubernetes](ai-inference/INFERENCE_ON_KUBERNETES.md) | Request lifecycle and where inference latency goes | [Lab 02](../labs/02-ai-inference-reliability/README.md) |
 | [Workload management mastery](workload-management/README.md) | K8s / OpenShift / HPC / AI workload management from the infra layer up; topic notes twice a week | All labs |
-| [HPC + AI mastery](hpc-ai-mastery/README.md) | Hands-on ops track for Tier 3 HPC & AI Factory roles: Slurm, BCM, InfiniBand/RDMA, GPU stack, GPUs on K8s/OpenShift, monitoring and automation | Lab 03 (Phase 5) |
+| [HPC & AI infrastructure mastery](hpc-ai-infrastructure/README.md) | Hands-on ops track for Tier 3 HPC & AI Factory roles: Slurm, BCM, InfiniBand/RDMA, GPU stack, GPUs on K8s/OpenShift, monitoring and automation | Lab 03 (Phase 5) |
 | [AI-infrastructure notes](notes/README.md) | Weekly notes from a 40-topic [curriculum](notes/CURRICULUM.md) | — |
 | [NVIDIA AI infrastructure](NVIDIA/README.md) | NVIDIA foundations (NCA-AIIO prep) and GPU platform topics | — |
 

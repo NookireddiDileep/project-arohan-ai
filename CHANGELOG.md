@@ -137,11 +137,11 @@ Every page renders correctly, statuses match the repository, and CI now catches 
 
 ---
 
-## 2026-11-17 — HPC + AI Mastery Module
+## 2026-11-17 — HPC & AI Infrastructure Mastery Module
 
 ### What changed
 
-- Added the `engineering/hpc-ai-mastery/` module: a six-phase hands-on track for Tier 3 HPC & AI Factory operations (Slurm, Base Command Manager, InfiniBand/RDMA, GPU stack, GPUs on Kubernetes/OpenShift, operations layer), with lab checklists, failure drills, an Xid triage table and an interview-readiness checklist.
+- Added the `engineering/hpc-ai-infrastructure/` module: a six-phase hands-on track for Tier 3 HPC & AI Factory operations (Slurm, Base Command Manager, InfiniBand/RDMA, GPU stack, GPUs on Kubernetes/OpenShift, operations layer), with lab checklists, failure drills, an Xid triage table and an interview-readiness checklist.
 - Linked it from `engineering/README.md` and the README status table (🟡 Planned).
 
 ### Problem

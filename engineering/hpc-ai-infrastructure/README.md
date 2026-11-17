@@ -1,12 +1,29 @@
-# HPC + AI Mastery (AI Factory operations track)
+# HPC & AI Infrastructure Mastery
 
-A hands-on track toward **Tier 3 HPC & AI infrastructure operations**: running GPU clusters, Slurm, NVIDIA Base Command Manager (BCM), InfiniBand/RDMA, and GPUs on Kubernetes/OpenShift in production, at the level where you own the hardest incidents.
+**Work area: AI Factory and GPU Infrastructure Operations**
+
+A hands-on track toward **Tier 3 HPC & AI infrastructure engineering**: running GPU clusters, Slurm, NVIDIA Base Command Manager (BCM), InfiniBand/RDMA, and GPUs on Kubernetes/OpenShift in production, at the level where you own the hardest incidents.
 
 **Honesty note.** My HPC background is real but dated. At Locuz and Wipro (2012–2016) I worked on HPC cluster implementation and support, including building a 16 TFLOPS cluster and HPC data center from scratch and doing InfiniBand, rack and RAID work. I have **not yet run modern GPU clusters (H100/H200/L40S), BCM or Slurm-on-GPU in production.** This module closes that gap with labs. Lab experience is recorded as lab experience, never as production experience.
 
 - **How it relates to the other series:** the [AI-infra notes](../notes/CURRICULUM.md) and [workload-management module](../workload-management/README.md) explain the *theory*. This module is the *operations lab track*: build, break, fix, write the RCA. Where a phase covers a topic that already has a note, it links to that note instead of repeating it.
 - **Priority:** OpenShift comes first. Phases 1–6 start after the OpenShift training track (target: mid-2027). Until then this module is reading only.
 - **Evidence rule:** a phase is ✅ only when its lab outputs and RCAs are committed here. See the [status model](../../standards/README.md#status-model).
+
+## What AI Factory and GPU infrastructure operations covers
+
+An AI Factory is a GPU cluster run as a production service for training and inference. Day-2 operations on it span:
+
+| Layer | Typical components | Ops responsibilities |
+|---|---|---|
+| Compute | GPU nodes (H100/H200/L40S, GB200/GB300 racks), DGX/HGX systems | Driver/firmware lifecycle, GPU health, Xid triage, RMA |
+| Fabric | InfiniBand (UFM) or RoCE Ethernet, NVLink/NVSwitch | Link health, error counters, topology, NCCL performance |
+| Cluster management | NVIDIA Base Command Manager, Mission Control | Provisioning, images, node lifecycle |
+| Workload management | Slurm, Kubernetes/OpenShift + GPU Operator, Run:ai | Queues, quotas, fairshare, GPU allocation |
+| Storage | Parallel filesystems, NFS, object storage | Dataset and checkpoint I/O |
+| Observability and automation | DCGM, Prometheus/Grafana, Ansible/AWX | Monitoring, alerting, runbooks, automated remediation |
+
+Tier 3 means owning the escalations nobody else could close: root cause across these layers, not just restarts.
 
 ## Target role profile
 

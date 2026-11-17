@@ -27,7 +27,7 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 | Notes | [AI inference on Kubernetes: lifecycle and latency](engineering/ai-inference/INFERENCE_ON_KUBERNETES.md) | ✅ Written |
 | Notes | [AI-infrastructure notes](engineering/notes/README.md): one topic a week from a 40-topic curriculum, GPU fundamentals to reference architectures | 🟢 Weekly, first note due 21 Nov 2026 |
 | Module | [Workload management mastery](engineering/workload-management/README.md): K8s / OpenShift / HPC / AI workload management from the infra layer up. Six-layer plan, lab checklists, drill library, topic notes twice a week | 🟢 Starting, first topic due 19 Nov 2026 |
-| Module | [HPC + AI mastery](engineering/hpc-ai-mastery/README.md): hands-on track for Tier 3 HPC & AI Factory operations. Slurm, Base Command Manager, InfiniBand/RDMA, GPU stack (DCGM, MIG, NCCL), GPUs on Kubernetes/OpenShift, monitoring and automation | 🟡 Planned, starts after OpenShift training (mid-2027) |
+| Module | [HPC & AI infrastructure mastery](engineering/hpc-ai-infrastructure/README.md): hands-on track for Tier 3 HPC & AI Factory operations. Slurm, Base Command Manager, InfiniBand/RDMA, GPU stack (DCGM, MIG, NCCL), GPUs on Kubernetes/OpenShift, monitoring and automation | 🟡 Planned, starts after OpenShift training (mid-2027) |
 | Notes | [NVIDIA AI infrastructure foundations](engineering/NVIDIA/README.md) (prep for the NCA-AIIO certification, which I hold) | ✅ Written |
 | Standards | [Engineering principles](standards/ENGINEERING_PRINCIPLES.md) · [standards & quality gates](standards/README.md) · [charter](CHARTER.md) | ✅ In use |
 | Next | AI-assisted RCA, policy-guarded remediation, GPU telemetry (DCGM), GPU Operator, FinOps | ⚪ Future |
@@ -81,7 +81,7 @@ More detail: [ROADMAP.md](ROADMAP.md) (stages, how autonomy is earned, planned s
 ```
 project-arohan-ai/
 ├── labs/          hands-on labs: README runbook, manifests, scripts, evidence/
-├── engineering/   deep-dive notes (scheduling, inference, NVIDIA foundations, workload-management and HPC + AI mastery modules)
+├── engineering/   deep-dive notes (scheduling, inference, NVIDIA foundations, workload-management and HPC & AI infrastructure mastery modules)
 ├── standards/     engineering standards and principles
 ├── CHARTER.md · ROADMAP.md · CHANGELOG.md
 ```
