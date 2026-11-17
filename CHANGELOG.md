@@ -137,6 +137,23 @@ Every page renders correctly, statuses match the repository, and CI now catches 
 
 ---
 
+## 2026-11-17 — HPC & AI Infrastructure Mastery Module
+
+### What changed
+
+- Added the `engineering/hpc-ai-infrastructure/` module: a six-phase hands-on track for Tier 3 HPC & AI Factory operations (Slurm, Base Command Manager, InfiniBand/RDMA, GPU stack, GPUs on Kubernetes/OpenShift, operations layer), with lab checklists, failure drills, an Xid triage table and an interview-readiness checklist.
+- Linked it from `engineering/README.md` and the README status table (🟡 Planned).
+
+### Problem
+
+Tier 3 HPC/GPU roles need production-style skills (Slurm, BCM, RDMA, GPU triage) that no existing AROHAN module covered as hands-on operations work.
+
+### Outcome
+
+One plan for that skill gap. Theory stays in the AI-infra notes and workload-management module, which this module links to instead of repeating. No labs run yet.
+
+---
+
 # Changelog Entry Standard
 
 Every significant future entry should document:
