@@ -23,6 +23,7 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 | **Lab 01** | [Workload reliability foundation](labs/01-workload-reliability/README.md): K3s workload, Prometheus, reliability SLI + alert, controlled failure injection, alert lifecycle and recovery validation | ✅ **Done, with evidence** |
 | **Lab 02** | [AI inference reliability](labs/02-ai-inference-reliability/README.md): an LLM (Ollama) on Kubernetes with quotas, probes, benchmarks, failure drills and RCAs | 🟡 Planned, runbook written (paused) |
 | **Lab 03** | [GPU scheduling](labs/03-gpu-scheduling/README.md): filter/score, taints vs affinity, GPU fragmentation + bin-packing, gang deadlock, NVIDIA KAI Scheduler (kind + fake GPUs) | 🟡 Planned, runbook written (paused) |
+| Notes | [Linux internals, the foundation under every platform](engineering/linux-internals/README.md): processes, memory/OOM, cgroups and namespaces, tracing, systemd, networking, production RCAs | ✅ Written |
 | Notes | [Kubernetes scheduling, from kube-scheduler to GPU gangs](engineering/gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md) | ✅ Written |
 | Notes | [AI inference on Kubernetes: lifecycle and latency](engineering/ai-inference/INFERENCE_ON_KUBERNETES.md) | ✅ Written |
 | Notes | [AI-infrastructure notes](engineering/notes/README.md): one topic a week from a 40-topic curriculum, GPU fundamentals to reference architectures | 🟢 Weekly, first note due 21 Nov 2026 |
@@ -81,7 +82,7 @@ More detail: [ROADMAP.md](ROADMAP.md) (stages, how autonomy is earned, planned s
 ```
 project-arohan-ai/
 ├── labs/          hands-on labs: README runbook, manifests, scripts, evidence/
-├── engineering/   deep-dive notes (scheduling, inference, NVIDIA foundations, workload-management and HPC & AI infrastructure mastery modules)
+├── engineering/   deep-dive notes (Linux internals, scheduling, inference, NVIDIA foundations, workload-management and HPC & AI infrastructure mastery modules)
 ├── standards/     engineering standards and principles
 ├── CHARTER.md · ROADMAP.md · CHANGELOG.md
 ```

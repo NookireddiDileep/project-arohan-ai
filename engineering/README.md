@@ -8,6 +8,7 @@ How work is approached and judged: [principles](../standards/ENGINEERING_PRINCIP
 
 | Area | What it covers | Used by |
 |---|---|---|
+| [Linux internals](linux-internals/README.md) | The base layer: processes, memory and OOM, files and /proc, tracing, cgroups and namespaces, systemd, networking, 12 production RCAs, 60 rapid-fire Q&As | All labs |
 | [Kubernetes scheduling deep dive](gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md) | kube-scheduler to GPU gangs: filter/score, fragmentation, gang deadlock, KAI | [Lab 03](../labs/03-gpu-scheduling/README.md) |
 | [AI inference on Kubernetes](ai-inference/INFERENCE_ON_KUBERNETES.md) | Request lifecycle and where inference latency goes | [Lab 02](../labs/02-ai-inference-reliability/README.md) |
 | [Workload management mastery](workload-management/README.md) | K8s / OpenShift / HPC / AI workload management from the infra layer up; topic notes twice a week | All labs |
