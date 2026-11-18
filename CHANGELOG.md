@@ -168,6 +168,22 @@ Every AROHAN lab (OOMKilled pods, CPU throttling, stuck volumes, node pressure) 
 
 One shared foundation the labs and the Kubernetes, inference and GPU notes can link to instead of re-explaining kernel behaviour. Theory only: no lab evidence is claimed.
 
+## 2026-11-18 — OpenShift vs Kubernetes Architecture Note
+
+### What changed
+
+- Added `engineering/platform/OPENSHIFT_VS_KUBERNETES.md` with a layer diagram: control plane, operators and the CVO, RHCOS and the MCO, CRI-O, networking and Routes, SCCs, built-in add-ons, node roles and install methods, kubectl vs oc, 10 interview Q&As and break-and-fix labs.
+- New section on what changes for GPU and inference workloads (driver containers on RHCOS, GPU MachineSets, random-UID model images, OpenShift AI).
+- Linked from `engineering/README.md` and the README status table (✅ Written).
+
+### Problem
+
+Stage 1 (platform engineering) had no note explaining how OpenShift relates to upstream Kubernetes, which shapes how every later GPU and inference lab is run.
+
+### Outcome
+
+One reference for platform choice and interviews. Theory only: lab evidence lives in the OpenShift lab records repo.
+
 ---
 
 # Changelog Entry Standard
