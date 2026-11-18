@@ -152,6 +152,22 @@ Tier 3 HPC/GPU roles need production-style skills (Slurm, BCM, RDMA, GPU triage)
 
 One plan for that skill gap. Theory stays in the AI-infra notes and workload-management module, which this module links to instead of repeating. No labs run yet.
 
+## 2026-11-18 — Linux Internals Foundation Notes
+
+### What changed
+
+- Added `engineering/linux-internals/`: ten notes covering process lifecycle, memory and OOM, files and /proc, tracing and debugging, cgroups and namespaces, systemd and time, networking and firewall, 12 production scenarios in RCA format and 60 rapid-fire questions.
+- Written for a general audience: every concept goes from definition to kernel mechanism, commands, production impact and fix, with a safe lab per topic.
+- Linked from `engineering/README.md` and the README status table (✅ Written).
+
+### Problem
+
+Every AROHAN lab (OOMKilled pods, CPU throttling, stuck volumes, node pressure) ends in Linux kernel behaviour, but the project had no note covering that base layer.
+
+### Outcome
+
+One shared foundation the labs and the Kubernetes, inference and GPU notes can link to instead of re-explaining kernel behaviour. Theory only: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard
