@@ -38,7 +38,7 @@ Status icons follow the [status model](standards/README.md#status-model): ✅ co
 
 **Honest constraints:** labs run on a CPU-only GCP K3s cluster and on `kind` with simulated GPUs. No paid GPU hardware is used. Where a lab needs real GPUs, the README says so.
 
-**Companion repo:** [infra-automation-lab](https://github.com/NookireddiDileep/infra-automation-lab) holds a daily scenario solved in Bash, Ansible, Python and Go.
+**Companion repos:** hands-on Kubernetes in [kubernetes-labs](https://github.com/NookireddiDileep/kubernetes-labs), OpenShift in [openshift-lab-records](https://github.com/NookireddiDileep/openshift-lab-records), and automation in [infra-automation-lab](https://github.com/NookireddiDileep/infra-automation-lab). See [related repositories](#related-repositories).
 
 ---
 
@@ -87,6 +87,18 @@ project-arohan-ai/
 ├── standards/     engineering standards and principles
 ├── CHARTER.md · ROADMAP.md · CHANGELOG.md
 ```
+
+---
+
+## Related repositories
+
+Part of one hands-on platform-engineering portfolio. Start at my [GitHub profile](https://github.com/NookireddiDileep) for the overview.
+
+| Repo | What's there |
+|---|---|
+| [kubernetes-labs](https://github.com/NookireddiDileep/kubernetes-labs) | Upstream Kubernetes on a K3s cluster I built myself: 13 labs, 9 break-and-fix scenarios, timed incident drills |
+| [openshift-lab-records](https://github.com/NookireddiDileep/openshift-lab-records) | OpenShift 4.x on multi-node clusters: Jira-style stories, RCAs, break-fix runbooks, `oc` command bank, OpenShift vs Kubernetes guide |
+| [infra-automation-lab](https://github.com/NookireddiDileep/infra-automation-lab) | One real ops scenario a day, solved in Bash, Ansible, Python and Go against the same golden tests |
 
 ---
 
