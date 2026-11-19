@@ -184,6 +184,22 @@ Stage 1 (platform engineering) had no note explaining how OpenShift relates to u
 
 One reference for platform choice and interviews. Theory only: lab evidence lives in the OpenShift lab records repo.
 
+## 2026-11-19 — Linux Internals: Infrastructure View and Depth by Role
+
+### What changed
+
+- Added `engineering/linux-internals/10-infrastructure-view-and-depth.md`: a plain-language map of Linux internals (processes, memory, files, disk I/O, networking, cgroups/namespaces, systemd, tracing), each with a production scenario and a break-it lab for a throwaway VM.
+- Added a depth model (L1 know → L4 predict and design) mapped to admin, platform and AI-infrastructure roles.
+- Linked from the Linux internals README.
+
+### Problem
+
+The existing notes go deep per topic, but there was no single plain-language entry point explaining how the pieces show up in real infrastructure incidents, or how deep each role needs to go.
+
+### Outcome
+
+A starting page for newcomers and a study guide for interviews. Theory and lab instructions only: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard
