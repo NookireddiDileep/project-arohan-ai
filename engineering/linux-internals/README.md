@@ -57,6 +57,7 @@ Senior panels (big-tech SRE, GPU and AI-infrastructure companies, enterprise Lin
 | 07 | [Networking and firewall](07-networking-and-firewall.md) | netfilter hooks, nftables/firewalld, conntrack, TCP states, queues |
 | 08 | [Production scenarios (RCA format)](08-production-scenarios.md) | 12 real-world incidents to tell as interview stories |
 | 09 | [Rapid-fire Q&A](09-rapid-fire-qa.md) | 60 short questions for last-day revision |
+| 10 | [Infrastructure view and depth by role](10-infrastructure-view-and-depth.md) | Plain-language map with 8 production scenarios, break-it labs, and how deep each role needs to go |
 
 ## How to use this
 
