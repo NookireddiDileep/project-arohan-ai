@@ -4,3 +4,4 @@ A short engineering note a week, following [CURRICULUM.md](CURRICULUM.md). Writt
 
 | # | Note | Block | Exercise |
 |---|---|---|---|
+| 01 | [GPU architecture for operators](AI-01-gpu-architecture-for-operators.md) | A: GPU and node fundamentals | ⚪ not run |

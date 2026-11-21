@@ -27,7 +27,7 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 | Notes | [OpenShift vs Kubernetes architecture](engineering/platform/OPENSHIFT_VS_KUBERNETES.md): layer-by-layer comparison, interview Q&As, and what changes for GPU and inference workloads | ✅ Written |
 | Notes | [Kubernetes scheduling, from kube-scheduler to GPU gangs](engineering/gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md) | ✅ Written |
 | Notes | [AI inference on Kubernetes: lifecycle and latency](engineering/ai-inference/INFERENCE_ON_KUBERNETES.md) | ✅ Written |
-| Notes | [AI-infrastructure notes](engineering/notes/README.md): one topic a week from a 40-topic curriculum, GPU fundamentals to reference architectures | 🟢 Weekly, first note due 21 Nov 2026 |
+| Notes | [AI-infrastructure notes](engineering/notes/README.md): one topic a week from a 40-topic curriculum, GPU fundamentals to reference architectures | 🟢 Weekly |
 | Module | [Workload management mastery](engineering/workload-management/README.md): K8s / OpenShift / HPC / AI workload management from the infra layer up. Six-layer plan, lab checklists, drill library, topic notes twice a week | 🟢 Ongoing, twice a week |
 | Module | [HPC & AI infrastructure mastery](engineering/hpc-ai-infrastructure/README.md): hands-on track for Tier 3 HPC & AI Factory operations. Slurm, Base Command Manager, InfiniBand/RDMA, GPU stack (DCGM, MIG, NCCL), GPUs on Kubernetes/OpenShift, monitoring and automation | 🟡 Planned, starts after OpenShift training (mid-2027) |
 | Notes | [NVIDIA AI infrastructure foundations](engineering/NVIDIA/README.md) (prep for the NCA-AIIO certification, which I hold) | ✅ Written |
