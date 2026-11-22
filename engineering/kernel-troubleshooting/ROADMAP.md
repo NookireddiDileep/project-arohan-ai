@@ -9,320 +9,298 @@
 
 ---
 
-## How to use this roadmap
+## How this roadmap fits the rest of AROHAN (no duplication)
 
-- **14 phases**, each with: goal · what to learn · tools · break-and-fix labs · RCA exit criteria.
-- A phase is **done** when you can meet its exit criteria *without notes* and have written at least one RCA from its labs.
-- Suggested pace: 2–4 weeks per phase alongside a full-time job (~12–15 months end to end).
-- Phases 0–2 are prerequisites. After that, follow the track for your target role (section **Role tracks**).
+This roadmap is the **sequence and the proof**: what to study in which order, which tools, which labs, and when a phase counts as done. It does **not** re-explain concepts that already have a home:
 
-### Depth levels used below
-
-| Level | Meaning |
+| Already covered in | Used here as |
 |---|---|
-| **L1** | Know the concept, can explain it |
-| **L2** | Diagnose with standard tools, classify the subsystem |
-| **L3** | Prove it: profile, trace, post-mortem, kernel stack evidence |
-| **L4** | Explain from kernel source, bisect regressions, write custom tooling |
+| [Linux internals notes 01–09](../linux-internals/README.md) | "Read first" for each phase: concepts, basic commands, interview Q&A |
+| [Linux internals note 10: depth by role](../linux-internals/10-infrastructure-view-and-depth.md) | The single definition of the **L1–L4 depth scale** and per-area depth by role |
+| [Workload management mastery, Layer 1 (Node/OS)](../workload-management/MASTERY_PLAN.md) | Kubernetes/OpenShift node-level topics in Phase 11 |
+| [HPC & AI infrastructure mastery](../hpc-ai-infrastructure/README.md) and [AI-infra curriculum](../notes/CURRICULUM.md) | GPU, Slurm, InfiniBand, NCCL and DCGM operations in Phase 12 |
+
+Each phase below therefore has: **Read first** (existing notes) → **Go deeper** (only what isn't covered elsewhere) → **Tools** → **Labs** → **Exit criteria**.
+
+**Done means:** you meet the exit criteria without notes and have written at least one RCA from the phase's labs. Pace: 2–4 weeks per phase alongside a full-time job (~12–15 months end to end). Phases 0–2 are prerequisites; after that follow your [role track](#role-tracks).
+
+Depth levels (L1 Know · L2 Diagnose · L3 Explain · L4 Predict and design) are defined once in [note 10](../linux-internals/10-infrastructure-view-and-depth.md). In this roadmap, **L3 means you can prove the mechanism with evidence** (profiles, traces, kernel stacks, vmcore), and **L4 adds tuning and sizing so it doesn't recur**, going to kernel source when needed.
 
 ---
 
 ## Phase 0 — Method before tools (RCA mindset)
 
-**Goal:** stop troubleshooting by habit; work by method.
+**Read first:** [08 production scenarios](../linux-internals/08-production-scenarios.md), including "Turning your own experience into stories".
 
-**Learn**
-- **USE method** — for every resource: Utilization, Saturation, Errors.
-- **RED method** for services — Rate, Errors, Duration.
-- Brendan Gregg's **60-second checklist**: `uptime, dmesg -T | tail, vmstat 1, mpstat -P ALL 1, pidstat 1, iostat -xz 1, free -m, sar -n DEV 1, sar -n TCP,ETCP 1, top`.
-- Trigger vs **root cause** vs **contributing factors**; 5 Whys; fault-tree thinking.
-- Evidence discipline: timestamps, before/after data, reproducibility.
-- Anti-patterns: "rebooted, fixed", "it was the network", changing several things at once.
+**Go deeper**
+- **USE method** (Utilization, Saturation, Errors per resource) and **RED method** (Rate, Errors, Duration per service).
+- Brendan Gregg's **60-second checklist**: `uptime`, `dmesg -T | tail`, `vmstat 1`, `mpstat -P ALL 1`, `pidstat 1`, `iostat -xz 1`, `free -m`, `sar -n DEV 1`, `sar -n TCP,ETCP 1`, `top`.
+- Trigger vs **root cause** vs **contributing factors**; 5 Whys; fault trees; blameless post-mortems.
+- Evidence discipline: UTC timestamps, before/after data, one change at a time, reproduce before you fix.
 
-**RCA template (use for every lab)**
+**RCA template (used for every lab in this roadmap)**
 ```
 1. Summary (2 lines)
-2. Impact (who/what/how long)
+2. Impact (who / what / how long)
 3. Timeline (UTC, evidence-backed)
 4. Symptom → hypothesis → evidence (commands + output)
-5. Root cause (kernel/system mechanism, not just "component X failed")
+5. Root cause (the kernel/system mechanism, not just "component X failed")
 6. Contributing factors
-7. Fix applied / workaround
+7. Fix / workaround
 8. Prevention (monitoring, config, process)
 9. Verification
 ```
 
-**Exit criteria:** take 3 incidents you have already handled in your career and rewrite them in this template, pushing each "root cause" one layer deeper than you originally did.
+**Exit criteria:** rewrite 3 incidents you have already handled in this template, each pushed one layer deeper than the original diagnosis.
 
 ---
 
-## Phase 1 — Kernel foundations for troubleshooters (L1→L2)
+## Phase 1 — Kernel foundations for troubleshooters
 
-**Learn**
-- User vs kernel space; the 3 entries into the kernel: **syscalls, faults, interrupts**.
-- Task model: `task_struct`, processes vs threads (`clone()`), kernel threads `[kworker]`, `[ksoftirqd]`, `[kswapd]`.
-- **Process states:** `R, S, D, T, Z, I` — and why `D` inflates load average.
-- `/proc` and `/sys` as the kernel's live API.
-- Boot chain: firmware → GRUB2 → kernel → initramfs (dracut) → systemd.
-- Kernel modules, **taint flags**, kernel command line, `sysctl`.
-- Kernel logging: `dmesg`, `journalctl -k`, log levels, `printk` rate limiting.
-- RHEL kernel lifecycle: kernel versions per release, errata (RHSA/RHBA), kABI, **kpatch** live patching.
+**Read first:** [01 process lifecycle](../linux-internals/01-process-lifecycle.md) · [03 files, fds and /proc](../linux-internals/03-files-fds-and-proc.md) · [06 systemd, logs and time](../linux-internals/06-systemd-logs-and-time.md)
 
-**Tools:** `ps -eo pid,stat,wchan:32,cmd`, `/proc/<pid>/{status,stack,maps,fd,limits}`, `lsmod`, `modinfo`, `sysctl -a`, `grubby`, `dracut`, `journalctl`.
+**Go deeper**
+- The 3 entries into the kernel: **syscalls, faults, interrupts**; kernel threads (`kworker`, `ksoftirqd`, `kswapd`) and what their CPU usage tells you.
+- Boot chain failure points: GRUB2 → kernel → **initramfs (dracut)** → systemd; rescue/emergency targets.
+- Kernel modules, **taint flags**, kernel command line (`grubby`), `sysctl`, `printk` levels and rate limiting.
+- RHEL kernel lifecycle: errata (RHSA/RHBA), **kABI**, **kpatch** live patching, why third-party modules (EDR/security agents, storage, GPU) break on kernel updates.
+
+**Tools:** `lsmod`, `modinfo`, `/proc/sys/kernel/tainted`, `grubby`, `dracut`, `journalctl -k -b -1`.
+
+**Labs:** break boot three ways (bad kernel arg, missing initramfs driver, broken fstab) and recover; load an out-of-tree module and decode the taint bits.
+
+**Exit criteria:** explain power-on → login and where each stage can fail; decode any taint value.
+
+---
+
+## Phase 2 — Process hangs & syscall tracing
+
+**Read first:** [04 tracing and debugging](../linux-internals/04-tracing-and-debugging.md) (D state, load average, strace/perf/eBPF basics, decision tree)
+
+**Go deeper**
+- Syscall mechanics: libc wrapper → `syscall` instruction → syscall table → `-errno`; vDSO.
+- Advanced **strace**: `-p -f -tt -T -e trace= -c -y -k -ff -o`; ptrace overhead and when *not* to use it in production.
+- What strace can't show — and the alternatives: `/proc/<pid>/stack`, `/proc/<pid>/wchan`, `/proc/<pid>/syscall`, **sysrq-w** (`echo w > /proc/sysrq-trigger`), `hung_task` detector, **`perf trace`**, `ltrace`, `gdb` attach, `gcore`, `coredumpctl`.
+- **NFS client hang mechanics:** RPC waits, `hard` vs `soft`, `timeo`/`retrans`, `/proc/self/mountstats`, `nfsstat -c`.
 
 **Labs**
-- Break boot: bad kernel arg, missing initramfs module, broken fstab → recover from rescue/emergency target.
-- Load an out-of-tree module, read `/proc/sys/kernel/tainted`, decode the bits.
+- **NFS hang:** two VMs, block the server with a firewall rule → client task in `D`. Prove it with `/proc/<pid>/stack` (`rpc_wait_bit_killable`), sysrq-w, `nfsstat -c`, mountstats, `tcpdump port 2049`. Compare `hard` vs `soft`.
+- "App fails silently": find the cause with `strace -f -e trace=file,network`, then repeat with `perf trace` and compare overhead.
+- Crash a binary, collect the core with `coredumpctl`, backtrace with `gdb`.
 
-**Exit criteria:** explain what the kernel does from power-on to login prompt, and decode any process state and taint value.
-
----
-
-## Phase 2 — Process hangs & syscall tracing (L2→L3)
-
-**Learn**
-- How syscalls work (libc wrapper → `syscall` instruction → syscall table → return / `-errno`), vDSO.
-- **strace** deeply: `-p -f -tt -T -e trace= -c -y -k -ff -o`; its ptrace overhead and production risk.
-- What strace *can't* show: where a `D`-state task is stuck inside the kernel.
-- Alternatives: `/proc/<pid>/stack`, `/proc/<pid>/wchan`, `/proc/<pid>/syscall`, `echo w > /proc/sysrq-trigger`, `hung_task` detector, `perf trace`, `ltrace`, `gdb` attach, `gcore`, core dumps via `systemd-coredump` / `coredumpctl`.
-
-**Labs**
-- **NFS hang:** two VMs, block the NFS server with firewall → client process in `D`. Prove it with `/proc/<pid>/stack` (`rpc_wait_bit_killable`), sysrq-w, `nfsstat -c`, `/proc/self/mountstats`, `tcpdump port 2049`. Compare `hard` vs `soft` mounts, `timeo`, `retrans`.
-- Debug "app fails with no error" using `strace -f -e trace=file,network`.
-- Generate a core dump from a crashing binary, get a backtrace with `gdb`.
-
-**Exit criteria:** for any hung process, state in under 5 minutes which syscall, which kernel function, and which subsystem it is waiting on — with evidence.
+**Exit criteria:** for any hung process, state within 5 minutes which syscall, which kernel function and which subsystem it waits on — with evidence — and justify the least intrusive tool for production.
 
 ---
 
-## Phase 3 — CPU & scheduler (L3)
+## Phase 3 — CPU & scheduler
 
-**Learn**
-- Scheduling classes: `deadline`, `rt`, `fair`, `idle`; CFS → **EEVDF** (6.6+); nice, priorities, `chrt`.
-- Run-queue latency, context switches (voluntary vs involuntary), load average internals.
-- CPU affinity, `isolcpus`, `nohz_full`, cpusets; preemption models incl. `PREEMPT_RT`.
-- **cgroup CPU control:** `cpu.weight`, `cpu.max`, **CFS bandwidth throttling**.
-- VM effects: **steal time**.
-- CPU microarchitecture basics for perf: IPC, caches, branch misses, frequency scaling (`cpupower`).
-- **perf:** `perf stat`, `perf top`, `perf record -g`, `perf report`, **flame graphs**, on-CPU vs **off-CPU** analysis.
+**Read first:** [01 process states](../linux-internals/01-process-lifecycle.md) · [05 CPU throttling](../linux-internals/05-cgroups-and-namespaces.md) · [08 scenarios S2 and S7](../linux-internals/08-production-scenarios.md)
 
-**Tools:** `mpstat`, `pidstat -w`, `vmstat`, `/proc/pressure/cpu`, `perf`, `runqlat`, `offcputime`, `cpudist`.
+**Go deeper**
+- Scheduling classes (`deadline`, `rt`, `fair`, `idle`), CFS → **EEVDF** (kernel 6.6+, RHEL 10), `chrt`, nice.
+- **Run-queue latency**, voluntary vs involuntary context switches, priority inversion.
+- Affinity, `isolcpus`, `nohz_full`, cpusets, preemption models incl. `PREEMPT_RT`.
+- **Steal time** and CPU overcommit in VMs; frequency scaling (`cpupower`).
+- CPU counters: **IPC**, cache and branch misses (`perf stat`).
+- **Profiling:** `perf record -g` → **flame graphs**; **on-CPU vs off-CPU** analysis (`offcputime`).
 
-**Labs**
-- CPU-bound pod with low `cpu.max` → measure throttling vs latency.
-- Generate a flame graph of a busy process; find the hot function.
-- Produce run-queue latency with oversubscription; measure with `runqlat`.
+**Tools:** `pidstat -w`, `mpstat`, `/proc/pressure/cpu`, `perf stat/top/record/report`, `runqlat`, `cpudist`, `offcputime`, FlameGraph scripts.
 
-**Exit criteria:** explain why a service is slow at 30 % CPU, prove it with data, and read a flame graph confidently.
+**Labs:** throttled multi-threaded pod (latency vs `nr_throttled`); flame graph of a busy process; oversubscribe a VM and measure `runqlat`.
+
+**Exit criteria:** explain why a service is slow at 30 % CPU, prove it, and read a flame graph aloud.
 
 ---
 
-## Phase 4 — Interrupts, softirqs & timers (L3)
+## Phase 4 — Interrupts, softirqs & timers
 
-**Learn**
+**Read first:** none in the notes yet — this phase is new ground.
+
+**Go deeper**
 - Hard IRQs vs bottom halves: **softirqs**, tasklets, workqueues, **threaded IRQs**.
-- **MSI/MSI-X**, per-queue IRQs, `/proc/irq/<n>/smp_affinity`, `irqbalance`.
-- Network receive scaling: **NAPI**, **RSS, RPS, RFS, XPS**, `net.core.netdev_budget`.
-- `ksoftirqd` — when it appears and why.
-- Timers, `HZ`, tickless kernels; NMI watchdog; **hard vs soft lockups**.
+- **MSI/MSI-X**, per-queue IRQs, `/proc/irq/<n>/smp_affinity`, `irqbalance` (and when to disable it).
+- Receive scaling: **NAPI**, **RSS / RPS / RFS / XPS**, `net.core.netdev_budget`, why `ksoftirqd` appears.
+- Timers, `HZ`, tickless kernels; NMI watchdog; **soft vs hard lockups**.
+- IRQ ↔ NUMA locality for NICs and GPUs.
 
 **Tools:** `/proc/interrupts`, `/proc/softirqs`, `mpstat -I ALL`, `ethtool -l/-L/-x`, `/proc/net/softnet_stat`, `perf top` during softirq load, `bpftrace` on `irq:` tracepoints.
 
-**Labs**
-- Pin all NIC IRQs to one CPU, generate traffic → single CPU at 100 % `%si`, drops in `softnet_stat`; fix with affinity / RSS / RPS.
-- Compare `irqbalance` on vs off.
+**Labs:** pin all NIC IRQs to one CPU under traffic → one CPU at 100 % `%si` with drops in `softnet_stat`; fix with affinity, RSS and RPS; compare `irqbalance` on/off.
 
-**Exit criteria:** answer "one CPU is at 100 % softirq and packets drop — why and how do you fix it?" from mechanism to remediation.
+**Exit criteria:** answer "one CPU is at 100 % softirq and packets drop — why, and how do you fix it?" from mechanism to remediation.
 
 ---
 
-## Phase 5 — Memory management (L3)
+## Phase 5 — Memory management
 
-**Learn**
-- Virtual memory, page tables, **TLB**, minor vs major faults.
-- **Page cache**, dirty pages, writeback (`vm.dirty_ratio`, `dirty_background_ratio`).
-- Reclaim: `kswapd`, **direct reclaim**, LRU lists, swap, `vm.swappiness`, compaction.
-- **OOM killer:** `oom_score`, `oom_score_adj`, memcg OOM vs global OOM, `panic_on_oom`.
-- **Slab** allocator and kernel memory leaks; `slabtop`.
-- **NUMA:** locality, `numactl`, `numastat`, automatic NUMA balancing.
-- **THP vs HugePages**; overcommit (`vm.overcommit_memory`).
-- **PSI** (`/proc/pressure/memory`).
+**Read first:** [02 memory and OOM](../linux-internals/02-memory-and-oom.md) · [08 scenario S3](../linux-internals/08-production-scenarios.md)
 
-**Tools:** `free`, `vmstat`, `sar -B -r -W`, `/proc/meminfo`, `/proc/<pid>/smaps_rollup`, `slabtop`, `numastat -m`, `memleak` (bcc), `drop_caches` (lab only).
+**Go deeper**
+- Page tables, **TLB**, minor vs major faults and their cost.
+- Dirty pages and writeback (`vm.dirty_ratio`, `dirty_background_ratio`), writeback stalls.
+- Reclaim internals: `kswapd` vs **direct reclaim**, LRU lists, compaction, `vm.swappiness`, `min_free_kbytes`.
+- Reading a **full OOM report** line by line (`oom_score_adj`, per-zone free, `Mem-Info`, task dump).
+- **Slab** growth and kernel memory leaks (`slabtop`, dentry/inode caches).
+- **NUMA**: locality, `numastat -m`, automatic NUMA balancing; **PSI** for memory.
 
-**Labs**
-- Trigger global OOM vs cgroup OOM; read and explain the full OOM report in `dmesg`.
-- Simulate a slab leak (e.g. dentry growth from millions of files) and identify it.
-- Show NUMA-remote memory penalty with `numactl --membind`.
+**Tools:** `sar -B -r -W`, `/proc/meminfo`, `/proc/<pid>/smaps_rollup`, `/proc/vmstat`, `slabtop`, `numastat`, `numactl`, `memleak` (bcc).
 
-**Exit criteria:** read any OOM log line by line, and distinguish user-space leak, page-cache pressure, slab growth and NUMA imbalance.
+**Labs:** global OOM vs cgroup OOM (explain both reports); create millions of files and find the slab growth; show the remote-NUMA penalty with `numactl --membind`.
+
+**Exit criteria:** distinguish user-space leak, page-cache pressure, slab growth and NUMA imbalance from data alone.
 
 ---
 
-## Phase 6 — Storage, filesystems & IO path (L3)
+## Phase 6 — Storage, filesystems & the IO path
 
-**Learn**
-- Full IO path: syscall → **VFS** (inode/dentry/file) → filesystem → page cache → **block layer (blk-mq)** → IO scheduler → driver → device.
-- XFS/ext4 journaling, `fsync` semantics, barriers.
-- IO schedulers (`none`, `mq-deadline`, `bfq`, `kyber`), queue depth, `nr_requests`.
-- Device mapper: **LVM, multipath**, failover behaviour, `no_path_retry`, `queue_if_no_path`.
-- SAN (FC/iSCSI) and **NFS client internals** (RPC, slot tables, `hard`/`soft`, `actimeo`).
-- Filesystem errors: read-only remount, XFS shutdown, `xfs_repair` / `fsck` basics.
-- etcd/database latency sensitivity to `fsync`.
+**Read first:** [03 VFS object model](../linux-internals/03-files-fds-and-proc.md) · [04 D state](../linux-internals/04-tracing-and-debugging.md) · [08 scenarios S1, S11](../linux-internals/08-production-scenarios.md)
 
-**Tools:** `iostat -xz`, `pidstat -d`, `iotop`, `biolatency`, `biosnoop`, `blktrace`/`btt`, `multipath -ll`, `dmsetup`, `fio`, `/proc/self/mountstats`.
+**Go deeper**
+- Full IO path: VFS → filesystem → page cache → **blk-mq** → IO scheduler → driver → device; where latency is added.
+- XFS/ext4 journaling, `fsync` semantics, read-only remounts, XFS shutdowns.
+- IO schedulers, queue depth, `nr_requests`; NVMe multi-queue.
+- **Device mapper**: LVM, **multipath** (`no_path_retry`, `queue_if_no_path`), path failover behaviour.
+- SAN (FC/iSCSI) error handling; **etcd and database `fsync` sensitivity**.
 
-**Labs**
-- Fail a multipath path and watch IO behaviour; tune `no_path_retry`.
-- `fio` fsync test reproducing etcd's disk check; compare disks/schedulers.
-- Fill a filesystem's inodes; trigger a read-only remount.
+**Tools:** `iostat -xz`, `pidstat -d`, `biolatency`, `biosnoop`, `blktrace`/`btt`, `multipath -ll`, `dmsetup`, `fio`.
 
-**Exit criteria:** break down IO latency into queue time vs device time, and explain an IO hang from application to HBA.
+**Labs:** fail a multipath path under load; run the etcd-style `fio` fsync test across disks/schedulers; exhaust inodes; trigger a read-only remount.
+
+**Exit criteria:** split IO latency into queue time vs device time, and explain an IO hang from application to HBA.
 
 ---
 
-## Phase 7 — Network stack (L3)
+## Phase 7 — Network stack
 
-**Learn**
-- Packet path RX/TX: NIC ring → NAPI → `sk_buff` → netfilter → IP → TCP/UDP → socket → app.
-- TCP: states, handshake, **backlog/`somaxconn`**, buffers (`tcp_rmem/wmem`), congestion control, retransmits, `TIME_WAIT`.
-- **netfilter / nftables / iptables**, **conntrack** (`nf_conntrack_max`, table full).
-- Linux virtual networking: veth, bridges, VLAN, bonding, **Open vSwitch**, network namespaces.
-- MTU / fragmentation / PMTU, offloads (GRO/GSO/TSO).
+**Read first:** [07 networking and firewall](../linux-internals/07-networking-and-firewall.md) (netfilter, conntrack, TCP states, packet-path order) · [08 scenario S8](../linux-internals/08-production-scenarios.md)
 
-**Tools:** `ss -tanpi`, `nstat`, `netstat -s`, `ip -s link`, `ethtool -S`, `tcpdump`, Wireshark, `conntrack -S`, `dropwatch`/`perf` `skb:kfree_skb`, `tcpretrans`, `tcplife`.
+**Go deeper**
+- RX/TX path in the kernel: ring → NAPI → `sk_buff` → netfilter → IP → TCP → socket; offloads (GRO/GSO/TSO).
+- TCP internals: **accept backlog / `somaxconn`**, SYN queue, buffers (`tcp_rmem/wmem`), congestion control, retransmit timers.
+- Virtual networking: veth, bridges, VLAN, bonding, **Open vSwitch**, network namespaces.
+- MTU / PMTU discovery failures across tunnels (Geneve/VXLAN).
+- **Drop analysis** with tracepoints.
 
-**Labs**
-- Exhaust conntrack → find `table full` in `dmesg`, fix and size properly.
-- Full accept queue → SYN drops; diagnose with `ss -lnt` and `nstat`.
-- MTU mismatch across a tunnel → large transfers hang, small work.
+**Tools:** `ss -tanpi`, `nstat`, `ip -s link`, `ethtool -S`, `tcpdump`, `dropwatch` / `perf record -e skb:kfree_skb`, `tcpretrans`, `tcplife`.
 
-**Exit criteria:** locate where in the stack a packet is dropped, with counters or tracepoints as proof.
+**Labs:** full accept queue → SYN drops; MTU mismatch over a tunnel (small requests work, large hang); locate a drop with `skb:kfree_skb`.
 
----
-
-## Phase 8 — Tracing & eBPF (L3→L4)
-
-**Learn**
-- **ftrace:** `function`, `function_graph`, events; `trace-cmd`, `kernelshark`.
-- **Tracepoints, kprobes, uprobes**, USDT.
-- **eBPF** concepts: verifier, maps, CO-RE/BTF.
-- **bcc tools** (`execsnoop, opensnoop, biolatency, runqlat, offcputime, tcpretrans, memleak`).
-- **bpftrace** one-liners → short scripts.
-- `perf probe`, `perf trace`, `perf sched`.
-
-**Labs**
-- Trace every `openat` on a node with bpftrace and find which process hits a missing file.
-- Build a latency histogram for a specific syscall.
-- Use `function_graph` to see the kernel path of a `read()`.
-
-**Exit criteria:** answer an ad-hoc "which process / which code path / how long" question with a custom one-liner, safely on production.
+**Exit criteria:** locate exactly where in the stack a packet was dropped, with counters or tracepoints as proof.
 
 ---
 
-## Phase 9 — Crash, panic & hardware RCA (L3→L4)
+## Phase 8 — Tracing & eBPF
 
-**Learn**
-- **kdump:** `crashkernel=`, `/etc/kdump.conf`, testing with sysrq-c, vmcore collection.
-- **crash utility:** `sys, log, bt, bt -a, ps, foreach bt, kmem -i, files, net, struct, dis, rd`.
+**Read first:** [04 strace, perf, eBPF](../linux-internals/04-tracing-and-debugging.md)
+
+**Go deeper**
+- **ftrace**: `function`, `function_graph`, events; `trace-cmd`, `kernelshark`.
+- **Tracepoints, kprobes, uprobes**, USDT; overhead and safety in production.
+- eBPF internals: verifier, maps, **BTF/CO-RE**.
+- **bcc** toolkit end to end; **bpftrace** one-liners → short scripts; `perf probe`, `perf sched`.
+
+**Labs:** find which process opens a missing file node-wide; histogram a syscall's latency; `function_graph` the kernel path of a `read()`.
+
+**Exit criteria:** answer any ad-hoc "which process / which code path / how long" question with a custom one-liner, safely on a production node.
+
+---
+
+## Phase 9 — Crash, panic & hardware RCA
+
+**Read first:** [08 scenario S12 (unexpected reboot)](../linux-internals/08-production-scenarios.md)
+
+**Go deeper**
+- **kdump**: `crashkernel=`, `/etc/kdump.conf`, targets, testing with sysrq-c.
+- **crash** utility: `sys`, `log`, `bt`, `bt -a`, `ps`, `foreach bt`, `kmem -i`, `files`, `net`, `struct`, `dis`, `rd`.
 - Failure types: **Oops, BUG, panic, soft lockup, hard lockup, RCU stall, hung task, OOM panic**, `panic_on_oops`.
-- Reading a call trace: `RIP`, function+offset, tainted modules, `Hardware name`.
-- Hardware errors: **MCE**, **EDAC** memory errors, **PCIe AER**, `rasdaemon`, IPMI SEL.
-- Working with vendor support: `sos report`, `xsos`, kernel bug searches, matching known errata.
+- Reading a call trace: `RIP`, function+offset, tainted modules, hardware line.
+- Hardware errors: **MCE**, **EDAC**, **PCIe AER**, `rasdaemon`, IPMI SEL.
+- Working with vendor support: `sos report`, `xsos`, matching known errata and KB articles.
 
-**Labs**
-- Configure kdump, crash the VM, analyze the vmcore end to end.
-- Load a deliberately buggy test module (lockup / NULL deref) and RCA it from the vmcore.
-- Practise reading real public panic traces (bug trackers, mailing lists).
+**Labs:** configure kdump, crash a VM, analyse the vmcore end to end; load a deliberately buggy test module (lockup / NULL deref) and RCA it from the vmcore; read public panic traces from bug trackers.
 
-**Exit criteria:** from a vmcore alone, identify the panicking task, call path, and the responsible module or subsystem, and write the RCA.
+**Exit criteria:** from a vmcore alone, name the panicking task, call path and responsible module or subsystem, and write the RCA.
 
 ---
 
-## Phase 10 — Virtualization layer (L2→L3)
+## Phase 10 — Virtualization layer
 
-**Learn**
-- KVM/QEMU basics, virtio devices, paravirtual drivers (VMware `vmxnet3`, `pvscsi`).
-- **Steal time**, CPU overcommit, ballooning, NUMA in VMs.
-- Guest vs hypervisor evidence: what you can and cannot prove from inside a guest.
+**Go deeper**
+- KVM/QEMU basics, virtio and paravirtual drivers (`vmxnet3`, `pvscsi`).
+- **Steal time**, CPU/memory overcommit, ballooning, vNUMA.
+- What you can and cannot prove from inside a guest; what evidence to request from the hypervisor team.
 - OpenShift Virtualization (KubeVirt) basics.
 
-**Exit criteria:** prove from inside a guest whether slowness is guest-side or hypervisor-side.
+**Exit criteria:** prove from inside a guest whether slowness is guest-side or hypervisor-side, and know exactly what to ask the virtualization team for.
 
 ---
 
-## Phase 11 — Containers, Kubernetes & OpenShift node internals (L3)
+## Phase 11 — Container, Kubernetes & OpenShift node internals
 
-**Learn**
-- **Namespaces** (all types), **cgroups v2** in depth (`cpu`, `memory`, `io`, `pids`, `memory.events`, PSI per cgroup).
-- Capabilities, **seccomp**, **SELinux** (`container_t`, MCS), overlayfs, user namespaces.
-- Runtime path: kubelet → **CRI-O** → runc/crun; `crictl`, conmon.
-- **QoS classes → cgroup slices** (Guaranteed / Burstable / BestEffort).
-- **OOMKilled vs Evicted**, kubelet eviction thresholds, node pressure conditions.
-- **CPU Manager, Memory Manager, Topology Manager**, static CPU pinning.
-- OpenShift: RHCOS, **MachineConfig**, **Node Tuning Operator / Tuned**, **PerformanceProfile** (HugePages, isolated CPUs, RT kernel), `oc debug node`, `toolbox`, `must-gather`.
-- etcd disk and network sensitivity; API server latency roots on nodes.
+**Read first:** [05 cgroups and namespaces](../linux-internals/05-cgroups-and-namespaces.md) (incl. debugging a container from the node) · [Workload management Layer 1: Node / OS](../workload-management/MASTERY_PLAN.md) (CPU/Memory/Topology Manager, NUMA, HugePages, CRI-O, MachineConfig)
 
-**Labs**
-- Build a container by hand with `unshare` + cgroup files.
-- Reproduce: CPU throttling, memcg OOM, eviction, PID exhaustion, SELinux denial on hostPath, conntrack exhaustion on a node.
-- Apply a PerformanceProfile / Tuned profile and verify the kernel result on the node.
+**Go deeper** (kernel evidence for node-level incidents)
+- QoS classes → cgroup slices; reading `cpu.stat`, `memory.events`, `memory.stat`, per-cgroup PSI for a specific pod.
+- **OOMKilled vs Evicted** at kernel vs kubelet level; eviction thresholds and node pressure.
+- Runtime path: kubelet → CRI-O → conmon → runc/crun; `crictl inspect` to the cgroup path.
+- seccomp, capabilities and SELinux **denial evidence** (`ausearch -m avc`, `EPERM` in traces).
+- OpenShift node RCA workflow: `oc debug node` → `chroot /host`, `toolbox`, `journalctl -u kubelet -u crio`, `sos report`, `must-gather`; tuning only through MachineConfig, Node Tuning Operator and PerformanceProfile.
+- etcd and API-server latency traced down to node disk and network.
 
-**Exit criteria:** for any pod- or node-level symptom, drop from `oc`/`kubectl` to the node, to the cgroup, to the kernel subsystem — and back to a supported fix.
+**Labs:** reproduce CPU throttling, memcg OOM, eviction, PID exhaustion, an SELinux hostPath denial and conntrack exhaustion on a node — RCA each from `oc` down to the kernel and back to a supported fix.
+
+**Exit criteria:** for any pod- or node-level symptom, go from `oc`/`kubectl` → node → cgroup → kernel subsystem and back to a supported fix.
 
 ---
 
-## Phase 12 — AI / HPC infrastructure kernel layer (L3 + targeted L4)
+## Phase 12 — AI / HPC node kernel layer
 
-**Learn**
-- **GPU driver stack:** `nvidia.ko`, `nvidia-uvm`, `nvidia-peermem`, `nvidia-fabricmanager`; kernel ↔ driver version coupling; OpenShift **GPU Operator + Driver Toolkit**.
-- GPU health: **Xid errors**, ECC/row remapping, **DCGM** diagnostics and metrics, `nvidia-smi -q`.
-- **NVLink / NVSwitch**, **MIG**, MPS, time-slicing.
-- **PCIe topology & AER**, `lspci -vvv`, link width/speed degradation.
-- **NUMA / CPU / GPU / NIC affinity:** `nvidia-smi topo -m`, `lstopo`, Topology Manager.
-- **IOMMU / VFIO**, SR-IOV.
-- **RDMA:** InfiniBand, RoCE, verbs, `ibstat`, `ibv_devinfo`, `perfquery`, `rdma` tool; **GPUDirect RDMA / Storage**.
-- Distributed training failures: **NCCL** (`NCCL_DEBUG=INFO`), hangs, slow collectives, stragglers.
-- HugePages, pinned memory, IO for large datasets (parallel filesystems, NVMe).
-- Scheduler integration: Slurm cgroups, Kubernetes device plugins, Kueue / batch scheduling basics.
+**Read first:** [HPC & AI infrastructure mastery](../hpc-ai-infrastructure/README.md) (Slurm, InfiniBand/RDMA, GPU stack, GPUs on Kubernetes/OpenShift) and the [AI-infra curriculum](../notes/CURRICULUM.md) topics on topology, driver chain, DCGM/Xid, NCCL and RDMA. GPU **operations** live there; this phase covers only the **kernel evidence** underneath them.
 
-**Labs** (cloud GPU instance or single-GPU workstation)
-- Install GPU Operator on a cluster; break driver/kernel compatibility and recover.
-- Collect DCGM diagnostics; map GPU ↔ NUMA ↔ NIC topology.
-- Run a multi-GPU NCCL test and interpret bandwidth and debug output.
+**Go deeper**
+- GPU kernel modules (`nvidia`, `nvidia-uvm`, `nvidia-peermem`) and kernel ↔ driver coupling; driver build per RHCOS kernel (Driver Toolkit) and what breaks on node upgrades.
+- GPU faults in the kernel log: **`NVRM: Xid`**, correlated with **PCIe AER**, link width/speed downgrades (`lspci -vvv`), MCE/EDAC.
+- **IOMMU / VFIO** and SR-IOV at the kernel level.
+- **IRQ, CPU, memory and NIC locality** for GPU nodes (ties Phases 4 and 5 to `nvidia-smi topo -m`, `lstopo`).
+- RDMA kernel side: `ib_core`/`mlx5` modules, `rdma` tool, memory pinning, HugePages for RDMA and DPDK.
+- Proving whether a slow or hung training job is a **kernel/node** problem (IRQs, NUMA, PCIe, network drops) or an application/NCCL problem.
+
+**Labs** (short-lived cloud GPU instance): break driver ↔ kernel compatibility and recover; map GPU ↔ NUMA ↔ NIC ↔ IRQ placement; inject PCIe/NUMA misplacement and measure the effect.
 
 **Exit criteria:** RCA a "training job slow / hung / GPU fell off the bus" incident across GPU, PCIe, NUMA, network and kernel layers.
 
 ---
 
-## Phase 13 — RCA mastery & capstone (L4)
+## Phase 13 — RCA mastery & capstone
 
-**Learn**
-- Reading kernel source purposefully (elixir.bootlin.com): follow a function from a stack trace.
-- Kernel regressions: compare versions, changelogs, `git bisect` on a test VM.
-- Following LWN.net and kernel mailing lists for subsystems you operate.
-- Writing small tools: bpftrace scripts → bcc/libbpf in Python or Go.
-- Leading incidents: communication, blameless post-mortems, turning RCAs into monitoring and automation.
+**Go deeper**
+- Reading kernel source purposefully ([elixir.bootlin.com](https://elixir.bootlin.com)): follow a function from a stack trace.
+- Regressions: compare versions and changelogs, `git bisect` on a test VM.
+- Follow [LWN.net](https://lwn.net) and subsystem mailing lists for what you operate.
+- Small tools: bpftrace scripts → bcc/libbpf (Python or Go).
+- Incident leadership: communication, blameless post-mortems, turning RCAs into alerts and automation.
 
 **Capstone**
-- 10 written RCAs across phases 2–12, each with commands, evidence and prevention.
-- One "game day": someone else breaks your lab cluster; you find and RCA it under time pressure.
-- A personal troubleshooting runbook / cheat-sheet repository.
+- 10 written RCAs across Phases 2–12, each with commands, evidence and prevention.
+- A game day: someone else breaks your lab cluster; you find it and write the RCA under time pressure.
+- A troubleshooting runbook built from your own RCAs.
 
 ---
 
 ## Role tracks
 
-| Target role | Required phases | Depth |
-|---|---|---|
-| **Kubernetes / OpenShift platform engineer** | 0, 1, 2, 3, 5, 6 (NFS/etcd/IO basics), 7 (conntrack/MTU/OVS), **11** | Solid L2, L3 on phase 11 |
-| **Senior / principal systems engineer, SRE, large-scale workload troubleshooter** | 0–11, 13 | **L3 everywhere**, L4 in tracing & crash |
-| **AI / HPC infrastructure & operations** | Everything above + **12** | L3 + targeted L4 on GPU/PCIe/NUMA/RDMA |
+Per-area depth for each role is defined in [note 10](../linux-internals/10-infrastructure-view-and-depth.md). This table adds which **phases** each role needs:
 
-### Typical interview probes per level
+| Target role | Phases |
+|---|---|
+| **Kubernetes / OpenShift platform engineer** | 0, 1, 2, 3, 5, 6 (NFS/etcd/IO basics), 7, **11** |
+| **Senior / principal systems engineer, SRE, large-scale workload troubleshooter** | 0–11, 13 |
+| **AI / HPC infrastructure & operations** | All, including **12** |
+
+### What senior panels probe
 - *Platform:* OOMKilled vs Evicted, throttling, SELinux/seccomp denials, node NotReady, etcd latency.
-- *Principal systems:* interrupts/softirqs, perf & flame graphs, strace limits and alternatives, D-state RCA, vmcore analysis, TCP backlog/retransmits, NUMA.
-- *AI infra:* Xid triage, NCCL hangs, GPU/NIC NUMA affinity, GPUDirect, driver lifecycle on clusters.
+- *Principal systems:* interrupts and softirqs, perf and flame graphs, strace limits and alternatives, D-state RCA, vmcore analysis, TCP backlog and retransmits, NUMA.
+- *AI infrastructure:* Xid + AER triage, driver lifecycle on clusters, GPU/NIC/IRQ NUMA locality, kernel vs NCCL fault isolation.
 
 ---
 
@@ -331,26 +309,24 @@
 | Need | Setup |
 |---|---|
 | Core kernel labs | 2–3 RHEL 9/10 VMs (free Red Hat developer subscription), kdump enabled |
-| NFS / storage | One VM as NFS server, one as client; extra virtual disks for LVM/multipath |
-| Kubernetes | kind / K3s / kubeadm cluster on VMs |
+| NFS / storage | One NFS server VM, one client; extra virtual disks for LVM/multipath |
+| Kubernetes | kind / K3s / kubeadm on VMs |
 | OpenShift | Single-node OpenShift or OpenShift Local (CRC) |
-| GPU | Short-lived cloud GPU instances when you reach phase 12 |
+| GPU | Short-lived cloud GPU instances, only for Phase 12 |
 
 ---
 
 ## Core resources
 
 **Books**
-- Brendan Gregg — *Systems Performance*, 2nd ed. (spine of phases 0, 3–7)
-- Brendan Gregg — *BPF Performance Tools* (phase 8)
-- Robert Love — *Linux Kernel Development* (phase 1 & 13 background)
-- *Understanding the Linux Kernel* — Bovet & Cesati (reference)
+- Brendan Gregg — *Systems Performance*, 2nd ed. (Phases 0, 3–7)
+- Brendan Gregg — *BPF Performance Tools* (Phase 8)
+- Robert Love — *Linux Kernel Development* (background for Phases 1 and 13)
 
-**Docs & sites**
-- Kernel documentation: https://docs.kernel.org (cgroup-v2, PSI, networking, admin-guide)
-- Red Hat RHEL docs: *Monitoring and managing system status and performance*, *Managing, monitoring and updating the kernel* (kdump), networking & storage guides
+**Docs and sites**
+- Kernel documentation: <https://docs.kernel.org> (admin-guide, cgroup-v2, PSI, networking)
+- Red Hat RHEL docs: performance monitoring and tuning, kernel management (kdump, kpatch), networking and storage guides
 - OpenShift docs: Node Tuning Operator, PerformanceProfile, MachineConfig, GPU Operator
-- NVIDIA docs: GPU Operator, DCGM, Xid error catalogue, NCCL
-- https://www.brendangregg.com · https://lwn.net · https://elixir.bootlin.com
+- <https://www.brendangregg.com> · <https://lwn.net> · <https://elixir.bootlin.com>
 
-**Courses / certs (optional)** — Red Hat performance tuning and troubleshooting courses (check current catalogue), CKA/CKS, NVIDIA AI infrastructure certifications.
+**Optional courses / certs:** Red Hat performance tuning and troubleshooting courses (check the current catalogue), CKA/CKS, NVIDIA AI infrastructure certifications.

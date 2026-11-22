@@ -205,7 +205,8 @@ A starting page for newcomers and a study guide for interviews. Theory and lab i
 ### What changed
 
 - Added `engineering/kernel-troubleshooting/` with a module README and `ROADMAP.md`: 14 phases from RCA method and kernel foundations through process hangs, CPU/scheduler, interrupts, memory, storage, networking, eBPF tracing, vmcore and hardware RCA, virtualization, OpenShift node internals and the GPU/HPC kernel layer.
-- Each phase has learning topics, tools, break-and-fix labs and exit criteria; role tracks map phases and depth to platform, principal systems and AI/HPC infrastructure roles.
+- Each phase has *read first* links to existing notes, *go deeper* topics, tools, break-and-fix labs and exit criteria; role tracks map phases to platform, principal systems and AI/HPC infrastructure roles.
+- Extends the Linux internals notes rather than repeating them: concepts, the L1–L4 depth scale (note 10), node-level Kubernetes topics and GPU operations stay in their existing modules and are linked.
 - Linked from `engineering/README.md` and the README status table (🟡 Planned).
 
 ### Problem
