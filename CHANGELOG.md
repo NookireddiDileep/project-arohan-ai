@@ -217,6 +217,22 @@ The Linux internals notes explain concepts, but there was no structured path to 
 
 A single learning track for kernel-level troubleshooting and RCA. Theory only: no lab evidence is claimed.
 
+## 2026-11-23 — Monolith vs Microservices: Operator's View Note
+
+### What changed
+
+- Added `engineering/platform/MONOLITH_VS_MICROSERVICES_OPS.md`: operational lifecycle of a monolith, per-hop costs of microservices, tail-latency math, myths vs reality (Prime Video, Shopify), when splitting is justified, modular-monolith rules, strangler-fig migration, an operator's checklist and interview questions, with sources.
+- Links to Linux internals notes 05 and 07, the kernel troubleshooting roadmap and the AI inference note instead of re-explaining them.
+- Linked from `engineering/README.md` and the README status table (✅ Written).
+
+### Problem
+
+Platform choices were covered (OpenShift vs Kubernetes) but not the application-shape decision that drives most of a platform's operating cost.
+
+### Outcome
+
+One reference for the architecture debate from the operations side. Theory only: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard
