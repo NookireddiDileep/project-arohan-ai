@@ -200,6 +200,22 @@ The existing notes go deep per topic, but there was no single plain-language ent
 
 A starting page for newcomers and a study guide for interviews. Theory and lab instructions only: no lab evidence is claimed.
 
+## 2026-11-23 — Kernel Troubleshooting & RCA Mastery Roadmap
+
+### What changed
+
+- Added `engineering/kernel-troubleshooting/` with a module README and `ROADMAP.md`: 14 phases from RCA method and kernel foundations through process hangs, CPU/scheduler, interrupts, memory, storage, networking, eBPF tracing, vmcore and hardware RCA, virtualization, OpenShift node internals and the GPU/HPC kernel layer.
+- Each phase has learning topics, tools, break-and-fix labs and exit criteria; role tracks map phases and depth to platform, principal systems and AI/HPC infrastructure roles.
+- Linked from `engineering/README.md` and the README status table (🟡 Planned).
+
+### Problem
+
+The Linux internals notes explain concepts, but there was no structured path to the deeper skill senior panels test: proving a root cause with kernel evidence (interrupts, perf, tracing, vmcore analysis).
+
+### Outcome
+
+A single learning track for kernel-level troubleshooting and RCA. Theory only: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard
