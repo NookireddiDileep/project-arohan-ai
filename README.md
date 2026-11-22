@@ -26,6 +26,7 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 | Notes | [Linux internals, the foundation under every platform](engineering/linux-internals/README.md): processes, memory/OOM, cgroups and namespaces, tracing, systemd, networking, production RCAs | ✅ Written |
 | Module | [Kernel troubleshooting & RCA mastery](engineering/kernel-troubleshooting/README.md): 14-phase roadmap from Linux ops to principal-level kernel troubleshooting and AI/HPC node RCA, with break-and-fix labs and role tracks | 🟡 Planned, roadmap written |
 | Notes | [OpenShift vs Kubernetes architecture](engineering/platform/OPENSHIFT_VS_KUBERNETES.md): layer-by-layer comparison, interview Q&As, and what changes for GPU and inference workloads | ✅ Written |
+| Notes | [Monolith vs microservices: the operator's view](engineering/platform/MONOLITH_VS_MICROSERVICES_OPS.md): what each shape costs to run and troubleshoot, when splitting is justified, migration and a pre-split checklist | ✅ Written |
 | Notes | [Kubernetes scheduling, from kube-scheduler to GPU gangs](engineering/gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md) | ✅ Written |
 | Notes | [AI inference on Kubernetes: lifecycle and latency](engineering/ai-inference/INFERENCE_ON_KUBERNETES.md) | ✅ Written |
 | Notes | [AI-infrastructure notes](engineering/notes/README.md): one topic a week from a 40-topic curriculum, GPU fundamentals to reference architectures | 🟢 Weekly |
