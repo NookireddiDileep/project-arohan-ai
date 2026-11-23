@@ -343,6 +343,21 @@ Lab 06 had hands-on exercises but the concepts behind them were only listed, not
 
 Infrastructure-level eBPF theory alongside the lab. Theory only: no lab evidence is claimed.
 
+## 2026-11-24 — NVIDIA Module Status Fix
+
+### What changed
+
+- Marked Final Revision, Exam Ready and Exam passed (with the Credly link) in all three NCA-AIIO module READMEs, and pointed them to the consolidated ecosystem map.
+- Updated `Progress.md`: status shows exam passed, Credly link added, next steps now point to the ecosystem map and Labs 03–05.
+
+### Problem
+
+The module checklists still showed the exam as not ready although it was passed in August 2026.
+
+### Outcome
+
+Status across the NVIDIA notes is consistent with the certification result.
+
 ---
 
 # Changelog Entry Standard

@@ -102,8 +102,11 @@ According to the official NVIDIA NCA-AIIO exam blueprint, AI Infrastructure incl
 
 - [x] README Completed
 - [x] First Pass Learning Completed
-- [ ] Final Revision Completed
-- [ ] Exam Ready
+- [x] Final Revision Completed
+- [x] Exam Ready
+- [x] **Exam passed** — NCA-AIIO, August 2026 ([Credly badge](https://www.credly.com/badges/bdcee063-5fa6-4907-b7b2-99d789e2de33))
+
+For revision, use the consolidated [NCA-AIIO ecosystem map](../../NCA-AIIO-ECOSYSTEM-MAP.md), which also corrects a few points in these first-pass notes.
 
 ---
 
