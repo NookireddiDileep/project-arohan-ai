@@ -1,6 +1,6 @@
 # NVIDIA AI Infrastructure
 
-NVIDIA-focused theory behind AROHAN's GPU work: my study notes for the **NVIDIA Certified Associate – AI Infrastructure & Operations (NCA-AIIO)**, which I passed in August 2026.
+NVIDIA-focused theory behind AROHAN's GPU work: my study notes for the **NVIDIA Certified Associate – AI Infrastructure & Operations (NCA-AIIO)**, which I passed in August 2026 ([verified Credly badge](https://www.credly.com/badges/bdcee063-5fa6-4907-b7b2-99d789e2de33)). For a one-page revision map of the whole exam, see [NCA-AIIO ecosystem map](NCA-AIIO-ECOSYSTEM-MAP.md).
 
 These notes are the theory base. Hands-on GPU work happens in the [labs](../../labs/), and deeper GPU topics are written up in the weekly [AI-infrastructure notes](../notes/README.md).
 

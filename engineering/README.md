@@ -20,6 +20,7 @@ How work is approached and judged: [principles](../standards/ENGINEERING_PRINCIP
 | [HPC & AI infrastructure mastery](hpc-ai-infrastructure/README.md) | Hands-on ops track for Tier 3 HPC & AI Factory roles: Slurm, BCM, InfiniBand/RDMA, GPU stack, GPUs on K8s/OpenShift, monitoring and automation | Lab 03 (Phase 5) |
 | [AI-infrastructure notes](notes/README.md) | Weekly notes from a 40-topic [curriculum](notes/CURRICULUM.md) | — |
 | [NVIDIA AI infrastructure](NVIDIA/README.md) | NVIDIA foundations (NCA-AIIO prep) and GPU platform topics | — |
+| [NCA-AIIO ecosystem map](NVIDIA/NCA-AIIO-ECOSYSTEM-MAP.md) | One-page revision map: exam blueprint, end-to-end chain from user request to GPU and back, key comparisons, corrections to first-pass notes, what comes after the certification | — |
 
 ## How engineering notes relate to labs
 
