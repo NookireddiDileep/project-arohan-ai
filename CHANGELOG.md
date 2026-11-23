@@ -265,6 +265,22 @@ A GPU cluster orchestration review showed the lab lacked shared checkpoint stora
 
 Lab 05 covers the full submit → queue → schedule → execute → monitor → recover lifecycle. Not yet run: no lab evidence is claimed.
 
+## 2026-11-23 — GPU Cluster Orchestration Overview Note
+
+### What changed
+
+- Added `engineering/gpu-scheduling/GPU_CLUSTER_ORCHESTRATION_OVERVIEW.md` with an original SVG diagram (`images/gpu-cluster-orchestration-layers.svg`): five layers, Kubernetes vs Slurm control planes, the health and recovery loop, lifecycle failures mapped to Labs 03–05, corrections to common orchestration diagrams and an interview drill.
+- Links to the scheduling deep dive and labs instead of repeating them.
+- Linked from `engineering/README.md` and the README status table (✅ Written).
+
+### Problem
+
+The repo had deep scheduling theory and hands-on labs, but no single page showing how the layers and the job lifecycle fit together.
+
+### Outcome
+
+One entry point for GPU cluster orchestration. Theory only: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard
