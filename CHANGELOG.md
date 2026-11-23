@@ -312,6 +312,22 @@ The NCA-AIIO notes were three separate first-pass modules with one-line comparis
 
 One revision-ready reference linking the module notes, the labs and the professional-level next steps.
 
+## 2026-11-24 — Lab 06: eBPF for Kubernetes and OpenShift
+
+### What changed
+
+- Added `labs/06-ebpf-platform-observability-security/`: 8 exercises covering eBPF fundamentals with `bpftool`, Cilium as kube-proxy replacement with L3/L4/L7 policies, Hubble drop analysis, the OpenShift Network Observability Operator, Falco and Tetragon runtime security mapped to RHACS, a network-vs-CPU incident drill, eBPF + DCGM correlation on a GPU inference node, and eBPF overhead and safety.
+- Includes an upstream ↔ OpenShift mapping and an interview-question map; links to Linux internals 04, kernel roadmap Phase 8 and Lab 04 instead of repeating them.
+- README status row added (🟡 Planned) and constraints line updated.
+
+### Problem
+
+eBPF was covered for node troubleshooting only, not as the platform layer for networking, flow visibility and runtime security around AI workloads.
+
+### Outcome
+
+A runbook for eBPF at the platform level. Not yet run: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard

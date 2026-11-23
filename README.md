@@ -25,6 +25,7 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 | **Lab 03** | [GPU scheduling](labs/03-gpu-scheduling/README.md): filter/score, taints vs affinity, GPU fragmentation + bin-packing, gang deadlock, NVIDIA KAI Scheduler (kind + fake GPUs) | 🟡 Planned, runbook written (paused) |
 | **Lab 04** | [GPU infrastructure hands-on](labs/04-gpu-infra-hands-on/README.md): 10 exercises on real NVIDIA GPUs (GCP Spot): driver/CUDA stack, DCGM, kernel-driver break-fix, containers/CDI, NCCL, GPU Operator, time-slicing + MIG, Triton serving, capstone drill, design drill | 🟡 Planned, runbook written |
 | **Lab 05** | [GPU cluster operations](labs/05-gpu-cluster-operations/README.md): Terraform + Ansible, Slurm GRES + cgroups, DCGM prolog auto-drain, Enroot/Pyxis, multi-node NCCL, Soft-RoCE RDMA, GPU alerting, Kueue, checkpoint requeue/resume, topology-aware placement | 🟡 Planned, runbook written |
+| **Lab 06** | [eBPF for Kubernetes and OpenShift](labs/06-ebpf-platform-observability-security/README.md): eBPF fundamentals, Cilium datapath and policies, Hubble, OpenShift Network Observability, Falco/Tetragon vs RHACS runtime security, network-vs-CPU-vs-GPU incident drills with DCGM correlation | 🟡 Planned, runbook written |
 | Notes | [Linux internals, the foundation under every platform](engineering/linux-internals/README.md): processes, memory/OOM, cgroups and namespaces, tracing, systemd, networking, production RCAs | ✅ Written |
 | Module | [Kernel troubleshooting & RCA mastery](engineering/kernel-troubleshooting/README.md): 14-phase roadmap from Linux ops to principal-level kernel troubleshooting and AI/HPC node RCA, with break-and-fix labs and role tracks | 🟡 Planned, roadmap written |
 | Notes | [OpenShift vs Kubernetes architecture](engineering/platform/OPENSHIFT_VS_KUBERNETES.md): layer-by-layer comparison, interview Q&As, and what changes for GPU and inference workloads | ✅ Written |
@@ -42,7 +43,7 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 
 Status icons follow the [status model](standards/README.md#status-model): ✅ completed · 🔵 implemented, not yet validated · 🟢 in progress / ongoing · 🟡 planned · ⚪ future.
 
-**Honest constraints:** Labs 01–03 run on a CPU-only GCP K3s cluster and on `kind` with simulated GPUs. Labs 04–05 use short-lived GCP Spot GPU VMs (T4/L4, one A100 exercise), torn down after each session. No owned GPU hardware.
+**Honest constraints:** Labs 01–03 run on a CPU-only GCP K3s cluster and on `kind` with simulated GPUs. Labs 04–05 use short-lived GCP Spot GPU VMs (T4/L4, one A100 exercise), torn down after each session; Lab 06 is CPU-only apart from one short GPU session. No owned GPU hardware.
 
 **Companion repos:** hands-on Kubernetes in [kubernetes-labs](https://github.com/NookireddiDileep/kubernetes-labs), OpenShift in [openshift-lab-records](https://github.com/NookireddiDileep/openshift-lab-records), and automation in [infra-automation-lab](https://github.com/NookireddiDileep/infra-automation-lab). See [related repositories](#related-repositories).
 
