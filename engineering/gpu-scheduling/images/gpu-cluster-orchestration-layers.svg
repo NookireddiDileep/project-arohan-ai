@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1000" height="700" fill="#ffffff"/>
+  <text x="30" y="40" font-size="22" font-weight="700" fill="#1f2933">GPU cluster orchestration: who does what</text>
+  <text x="30" y="64" font-size="13" fill="#52606d">Two control-plane families over one shared node, fabric and storage layer. A health loop feeds back into scheduling.</text>
+
+  <!-- Layer 1: workloads -->
+  <rect x="30" y="85" width="760" height="70" rx="8" fill="#f5f7fa" stroke="#9aa5b1"/>
+  <text x="45" y="107" font-size="12" font-weight="700" fill="#52606d">1 · WORKLOADS</text>
+  <rect x="60" y="115" width="210" height="30" rx="5" fill="#e4e7eb"/><text x="165" y="135" font-size="13" text-anchor="middle" fill="#1f2933">Training (gang, fixed size)</text>
+  <rect x="290" y="115" width="210" height="30" rx="5" fill="#e4e7eb"/><text x="395" y="135" font-size="13" text-anchor="middle" fill="#1f2933">Inference (replicas, autoscaled)</text>
+  <rect x="520" y="115" width="250" height="30" rx="5" fill="#e4e7eb"/><text x="645" y="135" font-size="13" text-anchor="middle" fill="#1f2933">Batch / notebooks / fine-tuning</text>
+
+  <!-- Layer 2: control planes -->
+  <rect x="30" y="170" width="760" height="150" rx="8" fill="#eef4fb" stroke="#4c78a8"/>
+  <text x="45" y="192" font-size="12" font-weight="700" fill="#2f5d8a">2 · CONTROL PLANE (decides)</text>
+  <rect x="50" y="202" width="350" height="105" rx="6" fill="#ffffff" stroke="#4c78a8"/>
+  <text x="65" y="222" font-size="13" font-weight="700" fill="#1f2933">Kubernetes / OpenShift</text>
+  <text x="65" y="242" font-size="12" fill="#323f4b">API server + etcd: desired state</text>
+  <text x="65" y="260" font-size="12" fill="#323f4b">Queueing: Kueue · Scheduling: kube-scheduler, KAI, Volcano</text>
+  <text x="65" y="278" font-size="12" fill="#323f4b">Operators: GPU Operator, Network Operator</text>
+  <text x="65" y="296" font-size="12" fill="#323f4b">Strength: inference, multi-tenant platforms</text>
+  <rect x="420" y="202" width="350" height="105" rx="6" fill="#ffffff" stroke="#4c78a8"/>
+  <text x="435" y="222" font-size="13" font-weight="700" fill="#1f2933">Slurm (HPC style)</text>
+  <text x="435" y="242" font-size="12" fill="#323f4b">slurmctld: queue + schedule (gangs native)</text>
+  <text x="435" y="260" font-size="12" fill="#323f4b">slurmdbd: accounting, fair-share, QOS</text>
+  <text x="435" y="278" font-size="12" fill="#323f4b">Topology plugin, GRES, prolog/epilog</text>
+  <text x="435" y="296" font-size="12" fill="#323f4b">Strength: large multi-node training</text>
+
+  <!-- Layer 3: node -->
+  <rect x="30" y="335" width="760" height="170" rx="8" fill="#fdf6e3" stroke="#c9a227"/>
+  <text x="45" y="357" font-size="12" font-weight="700" fill="#8a6d0b">3 · GPU NODE (executes)</text>
+  <rect x="50" y="367" width="170" height="125" rx="6" fill="#ffffff" stroke="#c9a227"/>
+  <text x="60" y="387" font-size="12" font-weight="700" fill="#1f2933">Node agent</text>
+  <text x="60" y="405" font-size="11.5" fill="#323f4b">kubelet + device plugin / DRA</text>
+  <text x="60" y="421" font-size="11.5" fill="#323f4b">or slurmd + gres.conf</text>
+  <text x="60" y="437" font-size="11.5" fill="#323f4b">cgroups: CPU, memory,</text>
+  <text x="60" y="453" font-size="11.5" fill="#323f4b">device isolation</text>
+  <text x="60" y="469" font-size="11.5" fill="#323f4b">CPU/Topology Manager</text>
+  <rect x="235" y="367" width="170" height="125" rx="6" fill="#ffffff" stroke="#c9a227"/>
+  <text x="245" y="387" font-size="12" font-weight="700" fill="#1f2933">Software stack</text>
+  <text x="245" y="405" font-size="11.5" fill="#323f4b">Kernel ↔ GPU driver</text>
+  <text x="245" y="421" font-size="11.5" fill="#323f4b">CUDA, NCCL</text>
+  <text x="245" y="437" font-size="11.5" fill="#323f4b">Container toolkit / CDI,</text>
+  <text x="245" y="453" font-size="11.5" fill="#323f4b">Enroot</text>
+  <text x="245" y="469" font-size="11.5" fill="#323f4b">DCGM (health + metrics)</text>
+  <rect x="420" y="367" width="350" height="125" rx="6" fill="#ffffff" stroke="#c9a227"/>
+  <text x="430" y="387" font-size="12" font-weight="700" fill="#1f2933">Hardware</text>
+  <g fill="#f2d27a" stroke="#8a6d0b">
+    <rect x="435" y="400" width="60" height="34" rx="4"/><rect x="505" y="400" width="60" height="34" rx="4"/>
+    <rect x="575" y="400" width="60" height="34" rx="4"/><rect x="645" y="400" width="60" height="34" rx="4"/>
+  </g>
+  <g font-size="11" text-anchor="middle" fill="#1f2933"><text x="465" y="421">GPU 0</text><text x="535" y="421">GPU 1</text><text x="605" y="421">GPU 2</text><text x="675" y="421">GPU 3</text></g>
+  <line x1="435" y1="446" x2="705" y2="446" stroke="#8a6d0b" stroke-width="3"/>
+  <text x="570" y="463" font-size="11" text-anchor="middle" fill="#323f4b">NVLink / NVSwitch (inside the node)</text>
+  <text x="430" y="483" font-size="11" fill="#323f4b">NUMA CPUs + RAM · PCIe · NVMe · one NIC per GPU rail</text>
+
+  <!-- Layer 4: fabric and storage -->
+  <rect x="30" y="520" width="370" height="80" rx="8" fill="#eef7f1" stroke="#3f8f5f"/>
+  <text x="45" y="542" font-size="12" font-weight="700" fill="#2c6b46">4 · FABRIC (connects)</text>
+  <text x="45" y="562" font-size="12" fill="#323f4b">InfiniBand or RoCE, rail-optimised, RDMA</text>
+  <text x="45" y="580" font-size="12" fill="#323f4b">GPUDirect RDMA between nodes</text>
+  <rect x="420" y="520" width="370" height="80" rx="8" fill="#f3eef8" stroke="#7a5aa6"/>
+  <text x="435" y="542" font-size="12" font-weight="700" fill="#5b3f86">5 · STORAGE (persists)</text>
+  <text x="435" y="562" font-size="12" fill="#323f4b">Parallel FS / NFS for datasets + checkpoints</text>
+  <text x="435" y="580" font-size="12" fill="#323f4b">Object store for models and artefacts</text>
+
+  <!-- Health loop -->
+  <rect x="810" y="170" width="160" height="430" rx="8" fill="#fbeeee" stroke="#b5463c"/>
+  <text x="890" y="195" font-size="12" font-weight="700" text-anchor="middle" fill="#8f2f27">HEALTH LOOP</text>
+  <g font-size="12" fill="#323f4b" text-anchor="middle">
+    <text x="890" y="225">DCGM / Xid / ECC</text><text x="890" y="241">fabric counters</text>
+    <text x="890" y="275">↓</text>
+    <text x="890" y="300">Prometheus alerts,</text><text x="890" y="316">NHC, prolog checks</text>
+    <text x="890" y="350">↓</text>
+    <text x="890" y="375">Drain / cordon node</text>
+    <text x="890" y="409">↓</text>
+    <text x="890" y="434">Requeue job from</text><text x="890" y="450">last checkpoint</text>
+    <text x="890" y="484">↓</text>
+    <text x="890" y="509">Repair / RMA,</text><text x="890" y="525">re-validate,</text><text x="890" y="541">return to pool</text>
+  </g>
+  <path d="M 810 300 L 790 300" stroke="#b5463c" stroke-width="2" marker-end="url(#arr)"/>
+  <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#b5463c"/></marker></defs>
+
+  <text x="30" y="640" font-size="13" fill="#1f2933"><tspan font-weight="700">Lifecycle:</tspan> submit → queue (quota, fair-share) → schedule (gang, topology) → execute (cgroups, NCCL over fabric) → monitor → recover (drain, requeue, resume)</text>
+  <text x="30" y="665" font-size="12" fill="#52606d">Project AROHAN AI · original diagram</text>
+</svg>
