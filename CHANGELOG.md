@@ -297,6 +297,21 @@ The repo covered running GPUs on OpenShift but not delivering them as a governed
 
 One reference for GPU-as-a-Service platform design on OpenShift. Theory only: no lab evidence is claimed.
 
+## 2026-11-23 — NCA-AIIO Ecosystem Map
+
+### What changed
+
+- Added `engineering/NVIDIA/NCA-AIIO-ECOSYSTEM-MAP.md`: exam blueprint, an end-to-end chain from user request through CUDA and the GPU to operations, comparison tables (interconnects, GPU sharing, monitoring and management, serving, systems, GPUDirect), corrections to the first-pass module notes, what the certification does not cover, next NVIDIA certifications and a revision checklist.
+- Added the Credly verification link to the NVIDIA README, the new map and the README status table.
+
+### Problem
+
+The NCA-AIIO notes were three separate first-pass modules with one-line comparisons and no single view of how the topics connect.
+
+### Outcome
+
+One revision-ready reference linking the module notes, the labs and the professional-level next steps.
+
 ---
 
 # Changelog Entry Standard
