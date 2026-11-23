@@ -250,6 +250,21 @@ AROHAN had GPU theory and simulated-GPU scheduling labs, but no runbooks for the
 
 Two runbooks ready to execute. Not yet run: no lab evidence is claimed.
 
+## 2026-11-23 — Lab 05: Checkpoint Recovery and Topology-Aware Placement
+
+### What changed
+
+- Added Lab 05 Exercise 10 (NFS shared checkpoint storage, `fio` bandwidth, Slurm `--requeue` resume after node loss, Kubernetes Job retry with a shared volume) and Exercise 11 (Kubernetes CPU/Topology Manager and Slurm `--gpu-bind` for CPU↔GPU NUMA alignment).
+- Exercise map, interview questions, evidence checklist and README status row updated.
+
+### Problem
+
+A GPU cluster orchestration review showed the lab lacked shared checkpoint storage, job recovery after hardware failure and topology-aware placement.
+
+### Outcome
+
+Lab 05 covers the full submit → queue → schedule → execute → monitor → recover lifecycle. Not yet run: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard
