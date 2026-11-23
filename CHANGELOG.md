@@ -233,6 +233,23 @@ Platform choices were covered (OpenShift vs Kubernetes) but not the application-
 
 One reference for the architecture debate from the operations side. Theory only: no lab evidence is claimed.
 
+## 2026-11-23 — Labs 04 and 05: GPU Infrastructure and GPU Cluster Operations Runbooks
+
+### What changed
+
+- Added `labs/04-gpu-infra-hands-on/`: 10 exercises on real NVIDIA GPUs (GCP Spot) covering the driver/CUDA stack, `nvidia-smi` and CUDA samples, DCGM, a kernel-update driver break-fix RCA, containers with CDI, multi-GPU NCCL, the GPU Operator, time-slicing and MIG, Triton serving with a capstone incident drill, a design drill and an interview-question map.
+- Added `labs/05-gpu-cluster-operations/`: 9 exercises covering Terraform and Ansible, Slurm with GPU GRES and cgroup isolation, DCGM prolog auto-drain, Enroot/Pyxis, multi-node NCCL hang diagnosis, Soft-RoCE RDMA, GPU fleet alerting and Kueue.
+- Exercise selection follows skills repeated across current AI-infrastructure job postings (Slurm, GPU Operator, DCGM, NCCL, RDMA, node validation, IaC).
+- Linked from the README status table (🟡 Planned); README constraints updated for GPU usage.
+
+### Problem
+
+AROHAN had GPU theory and simulated-GPU scheduling labs, but no runbooks for the real device stack or cluster-level GPU operations.
+
+### Outcome
+
+Two runbooks ready to execute. Not yet run: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard
