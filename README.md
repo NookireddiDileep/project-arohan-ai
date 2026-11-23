@@ -31,6 +31,7 @@ The long-term direction is **governed autonomous operations**: AI-assisted diagn
 | Notes | [OpenShift vs Kubernetes architecture](engineering/platform/OPENSHIFT_VS_KUBERNETES.md): layer-by-layer comparison, interview Q&As, and what changes for GPU and inference workloads | ✅ Written |
 | Notes | [Monolith vs microservices: the operator's view](engineering/platform/MONOLITH_VS_MICROSERVICES_OPS.md): what each shape costs to run and troubleshoot, when splitting is justified, migration and a pre-split checklist | ✅ Written |
 | Notes | [From GPU cluster to GPU cloud service on OpenShift](engineering/platform/GPU_CLOUD_SERVICE_ON_OPENSHIFT.md): tenancy models, GPU catalogue, Kueue quota and metering, sovereignty, Red Hat + Rafay reference architecture | ✅ Written |
+| Notes | [eBPF for platform engineers](engineering/platform/EBPF_FOR_PLATFORM_ENGINEERS.md): infrastructure-level eBPF theory for networking, observability and runtime security on Kubernetes/OpenShift | ✅ Written |
 | Notes | [Kubernetes scheduling, from kube-scheduler to GPU gangs](engineering/gpu-scheduling/KUBERNETES_SCHEDULING_DEEP_DIVE.md) | ✅ Written |
 | Notes | [GPU cluster orchestration: the big picture](engineering/gpu-scheduling/GPU_CLUSTER_ORCHESTRATION_OVERVIEW.md): original layer diagram, Kubernetes vs Slurm, health loop, lifecycle failures mapped to Labs 03–05 | ✅ Written |
 | Notes | [AI inference on Kubernetes: lifecycle and latency](engineering/ai-inference/INFERENCE_ON_KUBERNETES.md) | ✅ Written |
