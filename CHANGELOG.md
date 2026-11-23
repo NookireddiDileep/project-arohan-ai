@@ -328,6 +328,21 @@ eBPF was covered for node troubleshooting only, not as the platform layer for ne
 
 A runbook for eBPF at the platform level. Not yet run: no lab evidence is claimed.
 
+## 2026-11-24 — eBPF for Platform Engineers Note
+
+### What changed
+
+- Added `engineering/platform/EBPF_FOR_PLATFORM_ENGINEERS.md`: why eBPF exists, the load → verify → JIT → attach → maps lifecycle, hooks and program types, map types, BTF/CO-RE, Cilium vs kube-proxy vs OVN-Kubernetes, Hubble and OpenShift Network Observability internals, Falco vs Tetragon vs RHACS vs Security Profiles Operator, limits and risks, eBPF on AI platforms and an interview drill, with sources.
+- Lab 06 now links it as "read first"; linked from `engineering/README.md` and the README status table (✅ Written).
+
+### Problem
+
+Lab 06 had hands-on exercises but the concepts behind them were only listed, not explained.
+
+### Outcome
+
+Infrastructure-level eBPF theory alongside the lab. Theory only: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard

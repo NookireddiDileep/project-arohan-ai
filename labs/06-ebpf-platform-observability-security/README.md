@@ -2,7 +2,7 @@
 
 ## Status
 
-**LAB 06: PLANNED 🟡 (runbook ready, not yet run)** (eBPF tracing basics: [Linux internals 04](../../engineering/linux-internals/04-tracing-and-debugging.md) · tracing depth: [kernel troubleshooting roadmap, Phase 8](../../engineering/kernel-troubleshooting/ROADMAP.md) · GPU side: [Lab 04](../04-gpu-infra-hands-on/README.md))
+**LAB 06: PLANNED 🟡 (runbook ready, not yet run)** (**read first:** [eBPF for platform engineers](../../engineering/platform/EBPF_FOR_PLATFORM_ENGINEERS.md) · eBPF tracing basics: [Linux internals 04](../../engineering/linux-internals/04-tracing-and-debugging.md) · tracing depth: [kernel troubleshooting roadmap, Phase 8](../../engineering/kernel-troubleshooting/ROADMAP.md) · GPU side: [Lab 04](../04-gpu-infra-hands-on/README.md))
 
 **Project:** AROHAN AI · Platform observability and security track
 **Platform:** `kind` or K3s on a GCP CPU VM (Exercises 1–3, 5, 6, 8); an OpenShift lab cluster (Exercise 4); one short GPU session reusing Lab 04's L4 VM (Exercise 7)
