@@ -5,9 +5,9 @@
 **LAB 05: PLANNED 🟡 (runbook ready, not yet run)** (builds on [Lab 04: GPU infrastructure hands-on](../04-gpu-infra-hands-on/README.md); theory: [HPC & AI infrastructure mastery](../../engineering/hpc-ai-infrastructure/README.md) · [workload management mastery](../../engineering/workload-management/README.md))
 
 **Project:** AROHAN AI · AI Infrastructure track (single GPU node → GPU cluster → fleet operations)
-**Platform:** Google Cloud Compute Engine. Mostly **CPU Spot VMs**; GPU Spot VMs (1× T4 each) only for Exercises 3–6
-**Time:** about 30–35 hours across 9 exercises
-**Budget:** about **USD 15–25** (≈ ₹1,500–2,500) with Spot VMs and full teardown after each session
+**Platform:** Google Cloud Compute Engine. Mostly **CPU Spot VMs**; GPU Spot VMs (1× T4 each) only for Exercises 3–6, 10 and 11
+**Time:** about 36–40 hours across 11 exercises
+**Budget:** about **USD 18–30** (≈ ₹1,800–3,000) with Spot VMs and full teardown after each session
 
 > Goal: practise what AI-infrastructure job descriptions ask for beyond a single GPU node — Slurm GPU scheduling, automated node validation and drain, containers on HPC schedulers, multi-node NCCL, RDMA, GPU fleet alerting, Kubernetes batch queueing, and provisioning the whole thing as code.
 >
@@ -30,6 +30,8 @@
 | 7 | RDMA basics with Soft-RoCE | 2× CPU VMs | 3 | < $1 |
 | 8 | GPU fleet observability and alerting | Lab 04 Ex 8 cluster (1× T4) | 4 | ~$2 |
 | 9 | Kubernetes batch queueing with Kueue | `kind` on a CPU VM (simulated GPUs) | 3 | < $1 |
+| 10 | Shared checkpoint storage, requeue and resume | Ex 3 cluster | 3 | ~$2 |
+| 11 | Topology-aware placement (NUMA, CPU ↔ GPU affinity) | 2× T4 VM; optional larger VM | 3 | ~$2–4 |
 
 ---
 
@@ -268,6 +270,77 @@
 
 ---
 
+## Exercise 10 — Shared checkpoint storage, requeue and resume
+
+**Why it matters:** long training jobs survive hardware failures by checkpointing to shared storage and restarting elsewhere. Without this, one bad GPU loses days of work.
+
+1. Export shared storage from the controller and mount it on every node:
+   ```bash
+   # controller
+   sudo dnf install -y nfs-utils && sudo mkdir -p /shared && sudo chmod 1777 /shared
+   echo "/shared 10.0.0.0/8(rw,sync,no_root_squash)" | sudo tee /etc/exports   # match your VPC range
+   sudo systemctl enable --now nfs-server && sudo exportfs -rav
+   # GPU nodes
+   sudo dnf install -y nfs-utils && sudo mkdir -p /shared
+   sudo mount -t nfs controller:/shared /shared        # add to /etc/fstab for persistence
+   ```
+2. Measure checkpoint write bandwidth, shared vs local disk:
+   ```bash
+   fio --name=ckpt --directory=/shared --rw=write --bs=4M --size=2G --numjobs=2 --direct=1 --group_reporting
+   fio --name=ckpt --directory=/var/tmp --rw=write --bs=4M --size=2G --numjobs=2 --direct=1 --group_reporting
+   ```
+   Estimate how long a 100 GB checkpoint would take on each, and why real clusters use parallel filesystems for this.
+3. A job that checkpoints and resumes (stand-in for a training loop):
+   ```bash
+   cat > /shared/train.sh <<'EOF'
+   #!/bin/bash
+   CKPT=/shared/ckpt-$SLURM_JOB_ID
+   STEP=$(cat "$CKPT" 2>/dev/null || echo 0)
+   echo "start on $(hostname) at step $STEP (restart count ${SLURM_RESTART_COUNT:-0})"
+   for ((i=STEP; i<600; i++)); do
+     nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader > /dev/null
+     sleep 1; echo $((i+1)) > "$CKPT"
+   done
+   echo "finished on $(hostname)"
+   EOF
+   chmod +x /shared/train.sh
+   sbatch --requeue --gres=gpu:1 -o /shared/train-%j.out /shared/train.sh
+   ```
+4. Failure drill: while it runs, stop the VM it is on (`gcloud compute instances stop gpu-node-1`). Watch the node go DOWN (lower `SlurmdTimeout` in `slurm.conf` to shorten the wait), the job requeue (`scontrol show job <id> | grep -i restarts`) and resume on the other node from the saved step. Also try `scontrol requeue <id>` by hand.
+5. Kubernetes equivalent on the Lab 04 Ex 8 cluster: a `batch/v1` Job with `backoffLimit: 3` and an `nfs` volume pointing at the same export; delete the running pod and show the replacement resumes from the checkpoint. Read about `podFailurePolicy` for telling infrastructure disruptions apart from application errors.
+6. Map to real training: framework checkpointing (e.g. PyTorch `state_dict`), elastic launchers, and checkpoint frequency vs storage bandwidth trade-off.
+
+**Evidence:** both `fio` results, job output showing two hosts and the resumed step, `Restarts=` value, Kubernetes resume proof.
+
+---
+
+## Exercise 11 — Topology-aware placement (NUMA, CPU ↔ GPU affinity)
+
+**Why it matters:** a GPU fed by CPUs and memory on the wrong NUMA node loses bandwidth. Schedulers can align CPU, memory and devices, but only if configured.
+
+1. On the 2× T4 VM from Lab 04 Ex 7, record the topology: `nvidia-smi topo -m` (CPU affinity and NUMA affinity columns), `lscpu | grep -i numa`, `numactl -H`.
+   *Note:* small GCP VMs usually expose **one** NUMA node, so alignment can't show a performance difference. For a visible effect, optionally repeat on a large Spot VM that exposes two NUMA nodes (check `numactl -H`) for an hour or two.
+2. **Kubernetes:** run K3s on that VM with the GPU Operator (as in Lab 04 Ex 8) and enable the static CPU Manager and Topology Manager through kubelet arguments:
+   ```bash
+   curl -sfL https://get.k3s.io | sh -s -      --kubelet-arg=cpu-manager-policy=static      --kubelet-arg=reserved-cpus=0      --kubelet-arg=topology-manager-policy=single-numa-node
+   ```
+   (Changing the CPU Manager policy on an existing node requires removing the kubelet's `cpu_manager_state` file and restarting.)
+3. Run a **Guaranteed** pod (requests = limits, integer CPUs) with `nvidia.com/gpu: 1`. Verify:
+   ```bash
+   kubectl exec <pod> -- cat /sys/fs/cgroup/cpuset.cpus.effective   # exclusive CPUs assigned
+   kubectl exec <pod> -- nvidia-smi topo -m
+   ```
+   Compare with a Burstable pod (shared CPU pool). On a 2-NUMA VM, request more CPUs than one NUMA node holds and read the `TopologyAffinityError` rejection.
+4. **Slurm:** declare GPU-to-core affinity in `gres.conf` (e.g. `Name=gpu Type=t4 File=/dev/nvidia0 Cores=0-3`) and run:
+   ```bash
+   srun --gres=gpu:1 --gpu-bind=closest bash -c 'taskset -pc $$; echo $CUDA_VISIBLE_DEVICES'
+   ```
+5. Write the mapping: Kubernetes CPU/Memory/Topology Manager ↔ Slurm `gres.conf` `Cores=` + `--gpu-bind` ↔ NVLink-domain-aware placement on large GPU systems (theory: [workload management, Layer 1](../../engineering/workload-management/MASTERY_PLAN.md)).
+
+**Evidence:** topology outputs, `cpu_manager_state`, Guaranteed vs Burstable cpusets, Slurm binding output, the mapping note.
+
+---
+
 ## Interview scenarios this lab prepares you for
 
 | Likely question | Exercise |
@@ -281,6 +354,9 @@
 | "How do you share GPUs fairly between teams on Kubernetes?" | 9 |
 | "How do you keep driver/CUDA/NCCL versions consistent across a fleet?" | 2 |
 | "How do you provision and tear down GPU capacity reproducibly?" | 1 |
+| "A node dies 3 days into a training run. What happens to the job?" | 10 |
+| "Where should checkpoints go, and how big a bandwidth do you need?" | 10 |
+| "How do you make sure a GPU pod gets CPUs and memory on the right NUMA node?" | 11 |
 
 ## Evidence checklist
 
@@ -293,5 +369,7 @@
 - [ ] Ex 7 Soft-RoCE results + concept map
 - [ ] Ex 8 dashboard + alert rules + firing proof
 - [ ] Ex 9 Kueue quota, borrowing and preemption proof
+- [ ] Ex 10 checkpoint bandwidth + requeue/resume (Slurm and Kubernetes)
+- [ ] Ex 11 topology alignment (Kubernetes and Slurm) + mapping note
 
 Status moves to ✅ only when every box has evidence in `evidence/`.
