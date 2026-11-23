@@ -281,6 +281,22 @@ The repo had deep scheduling theory and hands-on labs, but no single page showin
 
 One entry point for GPU cluster orchestration. Theory only: no lab evidence is claimed.
 
+## 2026-11-23 — GPU Cloud Service on OpenShift Note
+
+### What changed
+
+- Added `engineering/platform/GPU_CLOUD_SERVICE_ON_OPENSHIFT.md`: cluster vs cloud service, the service stack mapped to OpenShift building blocks, tenancy models, GPU SKUs, Red Hat build of Kueue quota (including GPU-memory quota with DRA), allocated vs used metering, governance, sovereignty dimensions, day-2 operations, the Red Hat + Rafay reference architecture split and an interview drill, with sources.
+- Links to the OpenShift vs Kubernetes note, the orchestration overview and Labs 04–05 instead of repeating them.
+- Linked from `engineering/README.md` and the README status table (✅ Written).
+
+### Problem
+
+The repo covered running GPUs on OpenShift but not delivering them as a governed, self-service, metered service.
+
+### Outcome
+
+One reference for GPU-as-a-Service platform design on OpenShift. Theory only: no lab evidence is claimed.
+
 ---
 
 # Changelog Entry Standard
