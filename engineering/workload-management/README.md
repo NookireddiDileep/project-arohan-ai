@@ -28,6 +28,7 @@ Each topic note explains the concept, how it works at the infra layer, how it ma
 |---|---|---|---|---|
 | 01 | 2026-11-19 | [cgroups v2 and pod QoS: how requests and limits become kernel limits](topics/01-cgroups-v2-pod-qos.md) | 1 Node/OS | ⚪ not run |
 | 02 | 2026-11-23 | [CPU throttling (CFS quota) and when to drop CPU limits](topics/02-cpu-throttling-cfs-quota.md) | 1 Node/OS | ⚪ not run |
+| 03 | 2026-11-26 | [kube-scheduler framework: filter, score, bind, scheduling profiles](topics/03-kube-scheduler-framework-profiles.md) | 5 Scheduling | ⚪ not run |
 
 ## Rules for this module
 
